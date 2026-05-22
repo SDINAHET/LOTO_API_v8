@@ -1,0 +1,556 @@
+# # # name: Multi-Version Matrix Test
+
+# # # on:
+# # #   push:
+# # #   pull_request:
+
+# # # jobs:
+# # #   test:
+# # #     runs-on: ubuntu-latest
+
+# # #     strategy:
+# # #       fail-fast: false
+# # #       matrix:
+# # #         java: [17, 21]
+# # #         postgres: [14, 15, 16]
+# # #         mongo: [5, 6, 7]
+
+# # #     services:
+# # #       postgres:
+# # #         image: postgres:${{ matrix.postgres }}
+# # #         env:
+# # #           POSTGRES_DB: loto
+# # #           POSTGRES_USER: loto
+# # #           POSTGRES_PASSWORD: loto
+# # #         ports:
+# # #           - 5432:5432
+# # #         options: >-
+# # #           --health-cmd="pg_isready -U loto"
+# # #           --health-interval=10s
+# # #           --health-timeout=5s
+# # #           --health-retries=5
+
+# # #       mongo:
+# # #         image: mongo:${{ matrix.mongo }}
+# # #         ports:
+# # #           - 27017:27017
+
+# # #     steps:
+# # #       - uses: actions/checkout@v4
+
+# # #       - name: Setup Java
+# # #         uses: actions/setup-java@v4
+# # #         with:
+# # #           distribution: temurin
+# # #           java-version: ${{ matrix.java }}
+
+# # #       - name: Print Environment
+# # #         run: |
+# # #           echo "JAVA VERSION:"
+# # #           java -version
+# # #           echo "POSTGRES VERSION:"
+# # #           psql --version || true
+# # #           echo "MONGO VERSION:"
+# # #           mongod --version || true
+
+# # #       - name: Build & Test
+# # #         run: mvn clean verify
+
+
+# # name: Multi-Version Matrix Test
+
+# # on:
+# #   push:
+# #   pull_request:
+
+# # jobs:
+# #   test:
+# #     runs-on: ubuntu-latest
+
+# #     strategy:
+# #       fail-fast: false
+# #       matrix:
+# #         java: [17, 21]
+# #         postgres: [14, 15, 16]
+# #         mongo: [5, 6, 7]
+
+# #     services:
+# #       postgres:
+# #         image: postgres:${{ matrix.postgres }}
+# #         env:
+# #           POSTGRES_DB: loto
+# #           POSTGRES_USER: loto
+# #           POSTGRES_PASSWORD: loto
+# #         ports:
+# #           - 5432:5432
+# #         options: >-
+# #           --health-cmd="pg_isready -U loto"
+# #           --health-interval=10s
+# #           --health-timeout=5s
+# #           --health-retries=5
+
+# #       mongo:
+# #         image: mongo:${{ matrix.mongo }}
+# #         ports:
+# #           - 27017:27017
+
+# #     steps:
+# #       - name: Checkout
+# #         uses: actions/checkout@v4
+
+# #       - name: Setup Java
+# #         uses: actions/setup-java@v4
+# #         with:
+# #           distribution: temurin
+# #           java-version: ${{ matrix.java }}
+
+# #       # ===============================
+# #       # CONFIG ENV SPRING (CRUCIAL)
+# #       # ===============================
+# #       - name: Set environment variables
+# #         run: |
+# #           echo "SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/loto" >> $GITHUB_ENV
+# #           echo "SPRING_DATASOURCE_USERNAME=loto" >> $GITHUB_ENV
+# #           echo "SPRING_DATASOURCE_PASSWORD=loto" >> $GITHUB_ENV
+# #           echo "SPRING_DATA_MONGODB_URI=mongodb://localhost:27017/loto" >> $GITHUB_ENV
+
+# #       # ===============================
+# #       # WAIT DATABASES (ANTI CRASH)
+# #       # ===============================
+# #       - name: Wait for PostgreSQL
+# #         run: |
+# #           echo "Waiting for PostgreSQL..."
+# #           for i in {1..30}; do
+# #             pg_isready -h localhost -p 5432 -U loto && break
+# #             sleep 2
+# #           done
+
+# #       - name: Wait for MongoDB
+# #         run: |
+# #           echo "Waiting for MongoDB..."
+# #           for i in {1..30}; do
+# #             nc -z localhost 27017 && break
+# #             sleep 2
+# #           done
+
+# #       # ===============================
+# #       # DEBUG ENV
+# #       # ===============================
+# #       - name: Print Environment
+# #         run: |
+# #           echo "JAVA VERSION:"
+# #           java -version
+# #           echo "POSTGRES VERSION:"
+# #           psql --version || true
+# #           echo "MONGO VERSION:"
+# #           mongod --version || true
+
+# #       # ===============================
+# #       # BUILD + TEST (NON BLOQUANT)
+# #       # ===============================
+# #       - name: Build & Test
+# #         id: test_step
+# #         run: mvn clean verify
+# #         continue-on-error: true
+
+# #       # ===============================
+# #       # VISUAL RESULT (TABLEAU)
+# #       # ===============================
+# #       - name: Matrix Summary
+# #         if: always()
+# #         run: |
+# #           STATUS="❌"
+# #           if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+# #             STATUS="✅"
+# #           fi
+
+# #           echo "## 🧪 Compatibility Matrix" >> $GITHUB_STEP_SUMMARY
+# #           echo "" >> $GITHUB_STEP_SUMMARY
+# #           echo "| Java | PostgreSQL | Mongo | Result |" >> $GITHUB_STEP_SUMMARY
+# #           echo "|------|-----------|--------|--------|" >> $GITHUB_STEP_SUMMARY
+# #           echo "| ${{ matrix.java }} | ${{ matrix.postgres }} | ${{ matrix.mongo }} | $STATUS |" >> $GITHUB_STEP_SUMMARY
+
+# #       # ===============================
+# #       # BONUS GRID STYLE (EFFET PRO)
+# #       # ===============================
+# #       - name: Grid View
+# #         if: always()
+# #         run: |
+# #           STATUS="🔴"
+# #           if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+# #             STATUS="🟢"
+# #           fi
+
+# #           echo "" >> $GITHUB_STEP_SUMMARY
+# #           echo "## 🎮 Grid View" >> $GITHUB_STEP_SUMMARY
+# #           echo "" >> $GITHUB_STEP_SUMMARY
+# #           echo "Java ${{ matrix.java }} | PG ${{ matrix.postgres }} | Mongo ${{ matrix.mongo }} → $STATUS" >> $GITHUB_STEP_SUMMARY
+
+# name: Multi-Version Matrix Test
+
+# on:
+#   push:
+#   pull_request:
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         java: [17, 21]
+#         postgres: [14, 15, 16]
+#         mongo: [5, 6, 7]
+
+#     services:
+#       postgres:
+#         image: postgres:${{ matrix.postgres }}
+#         env:
+#           POSTGRES_DB: loto
+#           POSTGRES_USER: loto
+#           POSTGRES_PASSWORD: loto
+#         ports:
+#           - 5432:5432
+#         options: >-
+#           --health-cmd="pg_isready -U loto"
+#           --health-interval=10s
+#           --health-timeout=5s
+#           --health-retries=5
+
+#       mongo:
+#         image: mongo:${{ matrix.mongo }}
+#         ports:
+#           - 27017:27017
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+
+#       - name: Setup Java
+#         uses: actions/setup-java@v4
+#         with:
+#           distribution: temurin
+#           java-version: ${{ matrix.java }}
+
+#       # ===============================
+#       # ENV SPRING
+#       # ===============================
+#       - name: Set environment variables
+#         run: |
+#           echo "SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/loto" >> $GITHUB_ENV
+#           echo "SPRING_DATASOURCE_USERNAME=loto" >> $GITHUB_ENV
+#           echo "SPRING_DATASOURCE_PASSWORD=loto" >> $GITHUB_ENV
+#           echo "SPRING_DATA_MONGODB_URI=mongodb://localhost:27017/loto" >> $GITHUB_ENV
+
+#       # ===============================
+#       # WAIT DB
+#       # ===============================
+#       - name: Wait for PostgreSQL
+#         run: |
+#           for i in {1..30}; do
+#             pg_isready -h localhost -p 5432 -U loto && break
+#             sleep 2
+#           done
+
+#       - name: Wait for MongoDB
+#         run: |
+#           for i in {1..30}; do
+#             nc -z localhost 27017 && break
+#             sleep 2
+#           done
+
+#       # ===============================
+#       # DEBUG
+#       # ===============================
+#       - name: Print Environment
+#         run: |
+#           java -version
+#           psql --version || true
+#           mongod --version || true
+
+#       # ===============================
+#       # TEST
+#       # ===============================
+#       - name: Build & Test
+#         id: test_step
+#         run: mvn clean verify
+#         continue-on-error: true
+
+#       # ===============================
+#       # TABLEAU GITHUB
+#       # ===============================
+#       - name: Matrix Summary
+#         if: always()
+#         run: |
+#           STATUS="❌"
+#           if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+#             STATUS="✅"
+#           fi
+
+#           echo "## 🧪 Compatibility Matrix" >> $GITHUB_STEP_SUMMARY
+#           echo "| Java | PostgreSQL | Mongo | Result |" >> $GITHUB_STEP_SUMMARY
+#           echo "|------|-----------|--------|--------|" >> $GITHUB_STEP_SUMMARY
+#           echo "| ${{ matrix.java }} | ${{ matrix.postgres }} | ${{ matrix.mongo }} | $STATUS |" >> $GITHUB_STEP_SUMMARY
+
+#       # ===============================
+#       # DASHBOARD HTML (🔥🔥🔥)
+#       # ===============================
+#       - name: Generate HTML Dashboard
+#         if: always()
+#         run: |
+#           STATUS="FAIL ❌"
+#           COLOR="#dc2626"
+
+#           if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+#             STATUS="SUCCESS ✅"
+#             COLOR="#16a34a"
+#           fi
+
+#           DATE=$(date)
+
+#           cat <<EOF > dashboard.html
+#           <!DOCTYPE html>
+#           <html>
+#           <head>
+#               <meta charset="UTF-8">
+#               <title>CI Dashboard</title>
+#               <style>
+#                   body {
+#                       font-family: Arial;
+#                       background: #0f172a;
+#                       color: white;
+#                       text-align: center;
+#                   }
+#                   table {
+#                       margin: auto;
+#                       border-collapse: collapse;
+#                       width: 70%;
+#                   }
+#                   th, td {
+#                       border: 1px solid #444;
+#                       padding: 12px;
+#                   }
+#                   th {
+#                       background: #1e293b;
+#                   }
+#                   .status {
+#                       background: ${COLOR};
+#                       font-weight: bold;
+#                   }
+#               </style>
+#           </head>
+#           <body>
+#               <h1>🚀 LotoTracker CI Dashboard</h1>
+#               <p>$DATE</p>
+#               <table>
+#                   <tr>
+#                       <th>Java</th>
+#                       <th>PostgreSQL</th>
+#                       <th>Mongo</th>
+#                       <th>Status</th>
+#                   </tr>
+#                   <tr class="status">
+#                       <td>${{ matrix.java }}</td>
+#                       <td>${{ matrix.postgres }}</td>
+#                       <td>${{ matrix.mongo }}</td>
+#                       <td>$STATUS</td>
+#                   </tr>
+#               </table>
+#           </body>
+#           </html>
+#           EOF
+
+#       # ===============================
+#       # UPLOAD DASHBOARD
+#       # ===============================
+#       - name: Upload Dashboard
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: dashboard-${{ matrix.java }}-${{ matrix.postgres }}-${{ matrix.mongo }}
+#           path: dashboard.html
+
+
+i-Version Matrix Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [17, 21]
+        postgres: [14, 15, 16]
+        mongo: [5, 6, 7]
+
+    services:
+      postgres:
+        image: postgres:${{ matrix.postgres }}
+        env:
+          POSTGRES_DB: loto
+          POSTGRES_USER: loto
+          POSTGRES_PASSWORD: loto
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U loto"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+      mongo:
+        image: mongo:${{ matrix.mongo }}
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      # ===============================
+      # ENV SPRING
+      # ===============================
+      - name: Set environment variables
+        run: |
+          echo "SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/loto" >> $GITHUB_ENV
+          echo "SPRING_DATASOURCE_USERNAME=loto" >> $GITHUB_ENV
+          echo "SPRING_DATASOURCE_PASSWORD=loto" >> $GITHUB_ENV
+          echo "SPRING_DATA_MONGODB_URI=mongodb://localhost:27017/loto" >> $GITHUB_ENV
+
+      # ===============================
+      # WAIT DB
+      # ===============================
+      - name: Wait for PostgreSQL
+        run: |
+          for i in {1..30}; do
+            pg_isready -h localhost -p 5432 -U loto && break
+            sleep 2
+          done
+
+      - name: Wait for MongoDB
+        run: |
+          for i in {1..30}; do
+            nc -z localhost 27017 && break
+            sleep 2
+          done
+
+      # ===============================
+      # DEBUG
+      # ===============================
+      - name: Print Environment
+        run: |
+          java -version
+          psql --version || true
+          mongod --version || true
+
+      # ===============================
+      # TEST
+      # ===============================
+      - name: Build & Test
+        id: test_step
+        run: mvn clean verify
+        continue-on-error: true
+
+      # ===============================
+      # TABLEAU GITHUB
+      # ===============================
+      - name: Matrix Summary
+        if: always()
+        run: |
+          STATUS="❌"
+          if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+            STATUS="✅"
+          fi
+
+          echo "## 🧪 Compatibility Matrix" >> $GITHUB_STEP_SUMMARY
+          echo "| Java | PostgreSQL | Mongo | Result |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-----------|--------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| ${{ matrix.java }} | ${{ matrix.postgres }} | ${{ matrix.mongo }} | $STATUS |" >> $GITHUB_STEP_SUMMARY
+
+      # ===============================
+      # DASHBOARD HTML (🔥🔥🔥)
+      # ===============================
+      - name: Generate HTML Dashboard
+        if: always()
+        run: |
+          STATUS="FAIL ❌"
+          COLOR="#dc2626"
+
+          if [ "${{ steps.test_step.outcome }}" == "success" ]; then
+            STATUS="SUCCESS ✅"
+            COLOR="#16a34a"
+          fi
+
+          DATE=$(date)
+
+          cat <<EOF > dashboard.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta charset="UTF-8">
+              <title>CI Dashboard</title>
+              <style>
+                  body {
+                      font-family: Arial;
+                      background: #0f172a;
+                      color: white;
+                      text-align: center;
+                  }
+                  table {
+                      margin: auto;
+                      border-collapse: collapse;
+                      width: 70%;
+                  }
+                  th, td {
+                      border: 1px solid #444;
+                      padding: 12px;
+                  }
+                  th {
+                      background: #1e293b;
+                  }
+                  .status {
+                      background: ${COLOR};
+                      font-weight: bold;
+                  }
+              </style>
+          </head>
+          <body>
+              <h1>🚀 LotoTracker CI Dashboard</h1>
+              <p>$DATE</p>
+              <table>
+                  <tr>
+                      <th>Java</th>
+                      <th>PostgreSQL</th>
+                      <th>Mongo</th>
+                      <th>Status</th>
+                  </tr>
+                  <tr class="status">
+                      <td>${{ matrix.java }}</td>
+                      <td>${{ matrix.postgres }}</td>
+                      <td>${{ matrix.mongo }}</td>
+                      <td>$STATUS</td>
+                  </tr>
+              </table>
+          </body>
+          </html>
+          EOF
+
+      # ===============================
+      # UPLOAD DASHBOARD
+      # ===============================
+      - name: Upload Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-${{ matrix.java }}-${{ matrix.postgres }}-${{ matrix.mongo }}
+          path: dashboard.html

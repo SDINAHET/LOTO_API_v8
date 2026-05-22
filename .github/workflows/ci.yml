@@ -1,0 +1,204 @@
+name: 🚀 CI - Loto Tracker API (Maven + Docker Integration)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: 🏗 Maven Build + Unit Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_DB: lotodb_test
+          POSTGRES_USER: postgrestest
+          POSTGRES_PASSWORD: postgrestest
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgrestest -d lotodb_test"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=20
+
+      mongodb:
+        image: mongo:latest
+        env:
+          MONGO_INITDB_ROOT_USERNAME: mongotest
+          MONGO_INITDB_ROOT_PASSWORD: mongotest
+          MONGO_INITDB_DATABASE: lotodb_test
+          # MONGO_INITDB_DATABASE: admin
+        ports:
+          - 27017:27017
+
+
+    steps:
+      - name: 🛠 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      - name: 📦 Build (skip tests)
+        run: mvn -B clean install -DskipTests
+
+      - name: 🧪 Unit Tests
+        # run: mvn -B test -Dtest='*Test' -Dsurefire.failIfNoSpecifiedTests=false
+        run: mvn -B test -Dtest='*Test' -Dsurefire.failIfNoSpecifiedTests=false -Dspring.profiles.active=ci
+
+  integration:
+    name: 🐳 Docker Compose Integration Tests
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: 🛠 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🧰 Install tools (curl + jq)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl jq
+
+      # IMPORTANT: on ne démarre PAS le frontend en CI (inutile + plus lent)
+      - name: 🐳 Start Docker Compose (postgres + mongodb + backend)
+        run: docker compose up -d --build postgres mongodb backend
+
+      # - name: 👤 Wait Mongo & Create user
+      #   run: |
+      #     echo "⏳ Waiting Mongo..."
+
+      #     for i in {1..30}; do
+      #       if docker compose exec -T mongodb mongosh --quiet --eval "db.runCommand({ ping: 1 })" > /dev/null 2>&1; then
+      #         echo "✅ Mongo ready"
+      #         break
+      #       fi
+      #       sleep 2
+      #     done
+
+      #     echo "👤 Creating Mongo user..."
+
+      #     docker compose exec -T mongodb mongosh -u mongotest -p mongotest --authenticationDatabase admin <<EOF
+      #     use lotodb_test
+      #     if (!db.getUser("mongotest")) {
+      #       db.createUser({
+      #         user: "mongotest",
+      #         pwd: "mongotest",
+      #         roles: [{ role: "readWrite", db: "lotodb_test" }]
+      #       })
+      #     }
+      #     EOF
+
+      - name: ✅ Wait for Postgres
+        run: |
+          for i in {1..60}; do
+            if docker compose exec -T postgres pg_isready -U postgres -d lotodb > /dev/null 2>&1; then
+              echo "✅ Postgres ready"
+              exit 0
+            fi
+            echo "Waiting postgres..."
+            sleep 2
+          done
+          echo "❌ Postgres not ready"
+          docker compose logs --no-color postgres
+          exit 1
+
+      - name: ⏳ Wait for API
+        run: |
+          for i in {1..60}; do
+            if curl --silent --fail http://localhost:8082/api/hello > /dev/null; then
+              echo "✅ API ready"
+              exit 0
+            fi
+            echo "Waiting API..."
+            sleep 5
+          done
+          echo "❌ API not ready"
+          docker compose ps
+          docker compose logs --no-color backend
+          exit 1
+
+      # ✅ Fix du problème "relation public.users does not exist"
+      # On attend explicitement que les migrations/DDL aient créé la table.
+      - name: 🗃️ Wait for users table
+        run: |
+          for i in {1..60}; do
+            if docker compose exec -T postgres psql -U postgres -d lotodb -tAc \
+              "SELECT to_regclass('public.users');" | grep -q "users"; then
+              echo "✅ users table exists"
+              docker compose exec -T postgres psql -U postgres -d lotodb -c \
+                "SELECT id,email,is_admin FROM public.users LIMIT 5;" || true
+              exit 0
+            fi
+            echo "Waiting schema/migrations..."
+            sleep 2
+          done
+          echo "❌ users table never created"
+          docker compose logs --no-color backend
+          docker compose exec -T postgres psql -U postgres -d lotodb -c "\dt" || true
+          exit 1
+
+      # ✅ Tests API (on crée un user CI, puis login, puis on utilise le JWT)
+      - name: 👤 Register (idempotent)
+        run: |
+          curl -s -o register.json -w "\nHTTP=%{http_code}\n" \
+            -X POST "http://localhost:8082/api/auth/register" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "email":"ci-user@loto.local",
+              "password":"StrongPass123!",
+              "firstName":"CI",
+              "lastName":"Runner"
+            }' || true
+          cat register.json | jq . || cat register.json || true
+
+      - name: 🔑 Login & extract JWT
+        run: |
+          curl -s -o login.json -w "\nHTTP=%{http_code}\n" \
+            -X POST "http://localhost:8082/api/auth/login3" \
+            -H "Content-Type: application/json" \
+            -d '{"email":"ci-user@loto.local","password":"StrongPass123!"}'
+          cat login.json | jq . || true
+
+          JWT_TOKEN=$(jq -r '.token // empty' login.json)
+          if [ -z "$JWT_TOKEN" ]; then
+            echo "❌ No token returned by login"
+            exit 1
+          fi
+          echo "JWT_TOKEN=$JWT_TOKEN" >> "$GITHUB_ENV"
+
+
+      - name: 🎫 Create Ticket (JWT)
+        run: |
+          curl -s -o ticket.json -w "\nHTTP=%{http_code}\n" \
+            -X POST "http://localhost:8082/api/tickets" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer $JWT_TOKEN" \
+            -d '{"numbers":[1,2,3,4,5],"luckyNumber":6,"drawDate":"2025-03-12"}'
+          cat ticket.json | jq . || true
+
+      - name: 📜 Last 20 Results
+        run: |
+          curl -s -o last20.json -w "\nHTTP=%{http_code}\n" \
+            -X GET "http://localhost:8082/api/historique/last20"
+          cat last20.json | jq . || true
+
+      - name: 🧾 Logs (only if failure)
+        if: failure()
+        run: |
+          docker compose ps
+          docker compose logs --no-color postgres
+          docker compose logs --no-color mongodb
+          docker compose logs --no-color backend
+
+      - name: 🛑 Stop containers
+        if: always()
+        run: docker compose down -v
