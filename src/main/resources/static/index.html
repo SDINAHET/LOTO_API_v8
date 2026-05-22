@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <title>Loto Tracker — Résultats</title> -->
+  <title>Résultats du Loto Français en Direct | Historique FDJ & Vérification Ticket | Loto Tracker</title>
+  <meta name="description" content="Consultez les résultats du Loto Français en direct, recherchez un tirage par date, accédez à l’historique depuis 2019 et vérifiez vos tickets automatiquement. Interface rapide et sécurisée." />
+  <link rel="canonical" href="https://loto-tracker.fr/">
+  <!-- <link rel="icon" href="/assets/img/loto_tracker.webp"> -->
+  <meta property="og:title" content="Résultats du Loto Français en Direct | Loto Tracker">
+  <meta property="og:description" content="Résultats en direct, recherche par date, historique FDJ depuis 2019 et vérification automatique de tickets.">
+  <meta property="og:url" content="https://loto-tracker.fr/">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:image" content="https://loto-tracker.fr/assets/img/loto_tracker.png"> -->
+  <!-- <meta property="og:image" content="https://loto-tracker.fr/assets/img/loto_tracker.png"> -->
+  <meta property="og:image" content="https://loto-tracker.fr/assets/img/og-loto-tracker.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Loto Tracker">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Résultats du Loto Français en Direct | Loto Tracker">
+  <meta name="twitter:description" content="Résultats, historique FDJ, recherche par date et vérification de tickets.">
+  <!-- <meta name="twitter:image" content="https://loto-tracker.fr/assets/img/loto_tracker.png"> -->
+  <!-- <meta name="twitter:image" content="https://loto-tracker.fr/assets/img/loto_tracker.png"> -->
+  <meta name="twitter:image" content="https://loto-tracker.fr/assets/img/og-loto-tracker.png">
+  <meta name="twitter:site" content="@LotoTracker">
+  <meta name="twitter:creator" content="@LotoTracker">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0a101c">
+  <link rel="preload" href="/assets/vendors/bootstrap/bootstrap.min.css" as="style">
+  <link rel="preload" href="/assets/css/styles.css" as="style">
+
+
+  <style>html,body{background:#0a101c;}</style>
+
+
+  <link rel="icon" type="image/png" href="/assets/img/loto_tracker.png">
+
+  <!-- Font Awesome + Bootstrap -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="/assets/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css">
+
+  <!-- Leaflet -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/> -->
+  <link rel="stylesheet" href="/assets/vendors/leaflet/leaflet.css">
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Axios + Moment -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone/builds/moment-timezone-with-data.min.js"></script> -->
+
+  <script src="/assets/vendors/axios/axios.min.js"></script>
+  <!-- <script src="/assets/vendors/moment/moment.min.js"></script> -->
+  <!-- <script src="/assets/vendors/moment/moment-timezone-with-data.min.js"></script> -->
+  <!-- <script src="/assets/vendors/leaflet/leaflet.js"></script> -->
+
+  <!-- Chart.js -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <script src="/assets/vendors/chartjs/chart.min.js"></script>
+
+  <!-- ✅ Layout (header/footer) -->
+  <script src="/assets/js/layout.js"></script>
+  <link rel="stylesheet" href="/assets/css/index.css">
+
+
+  <link rel="stylesheet" href="assets/css/demo-onboarding.css">
+  <script src="assets/js/demo-onboarding.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Loto Tracker",
+    "url": "https://loto-tracker.fr/",
+    "inLanguage": "fr-FR",
+    "description": "Résultats du Loto Français, recherche de tirages, historique FDJ depuis 2019 et statistiques."
+  }
+  </script>
+
+
+</head>
+<body>
+  <noscript>
+    <p style="color:#fff;padding:12px;">
+      Loto Tracker nécessite JavaScript pour afficher les résultats.
+    </p>
+  </noscript>
+
+  <!-- ✅ Header injecté par layout.js -->
+  <div id="appHeader"></div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Shell -->
+  <div class="shell">
+
+    <!-- ✅ Sidebar injectée -->
+    <div id="appSidebar"></div>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Hero / countdown -->
+      <section class="panel hero-loto">
+
+        <div class="hero-left">
+
+          <h1>Résultats du Loto Français</h1>
+
+          <p class="hero-subtitle">
+            Consultez les derniers résultats du Loto,
+            recherchez un tirage par date et accédez
+            à l’historique.
+          </p>
+
+          <div class="hero-next-draw" id="nextDrawInfo">
+            <i class="fa-solid fa-calendar-days"></i>
+            Prochain tirage : —
+          </div>
+
+          <div class="hero-countdown">
+
+            <div class="count-box">
+              <span id="daysBox">0j</span>
+              <small>JOURS</small>
+            </div>
+
+            <div class="count-box">
+              <span id="hoursBox">00h</span>
+              <small>HEURES</small>
+            </div>
+
+            <div class="count-box">
+              <span id="minutesBox">00m</span>
+              <small>MINUTES</small>
+            </div>
+
+            <div class="count-box">
+              <span id="secondsBox">00s</span>
+              <small>SECONDES</small>
+            </div>
+
+          </div>
+
+          <button
+            class="btn-primary-app hero-btn"
+            onclick="showPrediction()"
+          >
+            <i class="fa-solid fa-chart-column"></i>
+            Statistiques du prochain tirage
+          </button>
+
+        </div>
+
+        <div class="hero-visual">
+
+          <div class="network-glow"></div>
+
+          <div class="network-grid"></div>
+
+          <div class="floating-particles"></div>
+
+        </div>
+
+      </section>
+
+
+
+
+      <!-- =========================================
+          LOTTERY MACHINE
+      ========================================= -->
+
+      <!-- <section class="panel lottery-panel">
+
+        <div class="panel-head">
+
+          <div>
+            <h2>
+              <i class="fa-solid fa-clover"></i>
+              Tirage animé en direct
+            </h2>
+
+            <p class="muted">
+              Simulation visuelle du dernier tirage récupéré depuis l’API.
+            </p>
+          </div>
+
+          <button
+            class="btn-primary-app"
+            onclick="launchLotteryMachine()"
+          >
+            Relancer l’animation
+          </button>
+
+        </div>
+
+        <div class="lottery-canvas-wrapper">
+
+          <canvas
+            id="lotteryMachine"
+            width="1200"
+            height="620"
+          ></canvas>
+
+        </div>
+
+        <div
+          id="drawResultText"
+          class="draw-result-box"
+        >
+          Chargement du dernier tirage...
+        </div>
+
+      </section> -->
+
+
+      <!-- Last 20 -->
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Derniers tirages</h2>
+        </div>
+        <div class="cards-grid" id="last20"></div>
+      </section>
+
+      <!-- Search -->
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Rechercher un tirage</h2>
+        </div>
+
+        <div class="search-grid">
+          <label class="field">
+            <span>Du</span>
+            <input type="date" id="startDate">
+          </label>
+          <label class="field">
+            <span>Au</span>
+            <input type="date" id="endDate">
+          </label>
+          <button class="btn-primary-app" onclick="searchTirages()">
+            <i class="fa-solid fa-magnifying-glass"></i> Rechercher
+          </button>
+        </div>
+
+        <div class="muted" id="searchHint" style="margin-top:10px;"></div>
+
+        <div style="margin-top:14px;">
+          <div class="cards-grid" id="searchResults"></div>
+          <div class="pagination-wrap" id="pagination"></div>
+        </div>
+      </section>
+
+      <!-- ✅ Footer injecté par layout.js -->
+      <div id="appFooter"></div>
+    </main>
+
+    <!-- Right sidebar (map desktop) -->
+    <aside class="rightbar">
+      <div class="map-head">
+        <div>
+          <h2><i class="fa-solid fa-map-location-dot"></i> Carte de démonstration</h2>
+          <div class="small" id="mapStatus">Localisation : —</div>
+        </div>
+        <div class="map-actions">
+          <button class="btn-map" id="locateBtn" type="button">
+            <i class="fa-solid fa-location-crosshairs"></i> Me localiser
+          </button>
+          <button class="btn-map" id="refreshPoisBtn" type="button">
+            <i class="fa-solid fa-rotate"></i> Rafraîchir
+          </button>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div class="small">
+        <!-- Source : OpenStreetMap (Leaflet) + Overpass (gratuit). -->
+        Source : OpenStreetMap
+      </div>
+    </aside>
+  </div>
+
+  <!-- Prediction Modal -->
+  <div class="modal fade" id="predictionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h5 class="modal-title">Statistiques du prochain tirage</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6 class="muted">Numéros probables</h6>
+          <div id="predictedNumbers" style="margin: 10px 0 16px;"></div>
+
+          <h6 class="muted">Numéro Chance</h6>
+          <div id="predictedChance" style="margin: 10px 0 16px;"></div>
+
+          <hr style="border-color: rgba(255,255,255,.12);">
+          <canvas id="sortieRatesChart"></canvas>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailModalLabel">Détail du tirage</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody">Chargement.</div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Modal (mobile) -->
+  <div class="modal fade" id="mapModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content glass">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title">🗺️ Points proches (30 km)</h5> -->
+          <h5 class="modal-title"><i class="fa-solid fa-map-location-dot"></i> Carte de démonstration - points de vente publics</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex gap-2 flex-wrap mb-3">
+            <button class="btn-map" id="locateBtnMobile" type="button">
+              <i class="fa-solid fa-location-crosshairs"></i> Me localiser
+            </button>
+            <button class="btn-map" id="refreshPoisBtnMobile" type="button">
+              <i class="fa-solid fa-rotate"></i> Rafraîchir
+            </button>
+            <span class="small" id="mapStatusMobile">Localisation : —</span>
+          </div>
+          <div id="mapMobile" style="height: 60vh; border-radius: 14px; border: 1px solid rgba(255,255,255,.12);"></div>
+          <div class="small mt-2">Source : OpenStreetMap + Overpass (gratuit).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="cookie-popup" hidden>
+    <div class="cookie-content">
+
+      <div class="cookie-head">
+        <div class="cookie-icon" aria-hidden="true">🍪</div>
+        <div>
+          <h2 id="cookie-title">Cookies & confidentialité</h2>
+          <p id="cookie-desc">
+            On utilise des cookies pour faire fonctionner le site et, si vous l’acceptez,
+            mesurer l’audience pour améliorer Loto Tracker.
+          </p>
+        </div>
+      </div>
+
+      <div class="cookie-cards">
+        <div class="cookie-card">
+          <div class="cookie-card-title">
+            <span class="dot dot-blue"></span>
+            <strong>Essentiels</strong>
+            <span class="pill-pill">Toujours actifs</span>
+          </div>
+          <div class="cookie-card-text">
+            Connexion, sécurité, navigation.
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="cookie-card-title">
+            <span class="dot dot-cyan"></span>
+            <strong>Mesure d’audience</strong>
+            <span class="pill-pill pill-muted">Optionnel</span>
+          </div>
+          <div class="cookie-card-text">
+            Activé uniquement avec votre accord.
+          </div>
+        </div>
+      </div>
+
+      <div class="cookie-footer">
+        <a class="cookie-link" href="politique_confidentialite.html#cookies-traceurs">
+          En savoir plus
+        </a>
+
+        <div class="cookie-actions">
+          <button id="reject-cookies" type="button">Continuer sans accepter</button>
+          <button id="accept-cookies" type="button">Accepter</button>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap + Leaflet -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
+  <script src="/assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendors/leaflet/leaflet.js"></script>
+
+
+
+
+  <script src="/assets/js/index.js"></script>
+
+  <!-- IA (si tu l'utilises) -->
+  <script src="/assets/js/ai-loader.js"></script>
+
+  <!-- DEMO CONTAINER -->
+  <div id="demoContainer"></div>
+
+
+  <!-- LOTTERY MACHINE -->
+  <!-- <script src="/assets/js/lottery-machine.js"></script> -->
+
+
+
+  <!-- <script>
+    // Désactiver GoatCounter hors production
+    if (
+      !location.hostname.endsWith("stephanedinahet.fr")
+    ) {
+      window.goatcounter = { no_onload: true };
+    }
+  </script>
+  <script data-goatcounter="https://lototracker.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script> -->
+</body>
+</html>

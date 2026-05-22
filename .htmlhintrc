@@ -1,0 +1,6 @@
+{
+  "ignore": [
+    "target/**",
+    "node_modules/**"
+  ]
+}

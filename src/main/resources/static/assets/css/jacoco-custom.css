@@ -1,0 +1,88 @@
+/* ===== GLOBAL ===== */
+body {
+    background: #0b1220 !important;
+    color: #e5e7eb !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* ===== TITRE ===== */
+h1, h2, h3 {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* ===== TABLE ===== */
+table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    background: #111827 !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ===== HEADER TABLE ===== */
+th {
+    background: #1f2937 !important;
+    color: #9ca3af !important;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 12px;
+}
+
+/* ===== LIGNES ===== */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #1f2937;
+}
+
+/* ===== HOVER ===== */
+tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== LIENS ===== */
+a {
+    color: #60a5fa !important;
+    text-decoration: none;
+}
+
+/* ===== BADGES ===== */
+td:nth-child(3),
+td:nth-child(5) {
+    font-weight: bold;
+}
+
+/* ===== BARRES DE COVERAGE ===== */
+img {
+    filter: brightness(1.3) contrast(1.2);
+}
+
+/* ===== COULEURS SCORE ===== */
+td:has(span[style*="green"]) {
+    color: #22c55e !important;
+}
+
+td:has(span[style*="red"]) {
+    color: #ef4444 !important;
+}
+
+/* ===== TOTAL ===== */
+tr:last-child {
+    background: #020617 !important;
+    font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    display: none;
+}
+ .badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.badge.green {
+  background: #22c55e;
+  color: black;
+}

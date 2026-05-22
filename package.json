@@ -1,0 +1,49 @@
+{
+  "name": "loto_api_v7",
+  "version": "1.0.0",
+  "description": "LOTO API",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"No test specified\"",
+    "start:back": "mvn spring-boot:run",
+    "lint": "eslint .",
+    "html:check": "htmlhint src/",
+    "test:e2e": "playwright test",
+    "test:report": "playwright test --reporter=html",
+    "test:full": "start-server-and-test start:back http://localhost:8082 test:e2e",
+    "test:pdf": "node generate-accessibility-pdf.js",
+    "quality:all": "npm run lint && npm run html:check && npm run test:full && npm run test:pdf"
+  },
+
+  "dependencies": {
+    "axios": "^1.7.9",
+    "pdfkit": "^0.18.0"
+  },
+
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.0",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "htmlhint": "^1.9.2",
+    "playwright": "^1.59.0",
+    "start-server-and-test": "^2.1.5"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDINAHET/LOTO_API_v7.git"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
+  "bugs": {
+    "url": "https://github.com/SDINAHET/LOTO_API_v7/issues"
+  },
+
+  "homepage": "https://github.com/SDINAHET/LOTO_API_v7#readme"
+}

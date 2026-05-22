@@ -1,0 +1,9 @@
+node_modules/
+target/
+dist/
+build/
+coverage/
+
+# libs frontend
+src/main/resources/static/assets/vendors/
+src/main/resources/static/swagger-ui/

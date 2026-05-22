@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loto Tracker — Landing RNCP6 Finale</title>
+
+<link rel="icon" type="image/png" href="/assets/img/loto_tracker.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:70px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *, *::before, *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+.skip-link{
+  position:absolute;
+  left:12px;
+  top:-80px;
+  z-index:9999;
+  padding:12px 16px;
+  border-radius:12px;
+  background:#fff;
+  color:#020617;
+  font-weight:950;
+}
+.skip-link:focus{top:12px}
+
+:focus-visible{
+  outline:3px solid #facc15;
+  outline-offset:3px;
+}
+
+:root{
+  --bg:#060a12;
+  --panel:rgba(15,23,42,.62);
+  --panel-soft:rgba(2,6,23,.35);
+  --border:rgba(255,255,255,.11);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.66);
+  --blue:#3b82f6;
+  --red:#ef4444;
+  --green:#22c55e;
+  --orange:#f59e0b;
+  --purple:#a855f7;
+  --cyan:#38bdf8;
+  --cyan-light:#e0f2fe;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 600px at 20% 20%, rgba(37,99,235,.28), transparent 60%),
+    /*radial-gradient(1000px 700px at 80% 30%, rgba(168,85,247,.22), transparent 60%),*/
+    radial-gradient(1000px 700px at 80% 30%, rgba(56,189,248,.16), transparent 60%),
+    linear-gradient(135deg,#020617,#060a12,#0f172a);
+  color:var(--text);
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+  max-width:1360px;
+  margin:0 auto;
+  padding:0 18px 90px;
+}
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:9999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:6px 18px;
+  background:rgba(6,10,18,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-weight:950;
+  font-size:1.15rem;
+}
+
+/*.brand-logo{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  /*background:linear-gradient(135deg,#2563eb,#7c3aed,#a855f7);
+  background:linear-gradient(135deg,#2563eb,#1d4ed8,#38bdf8);
+  box-shadow:0 18px 45px rgba(59,130,246,.25);
+}*/
+
+.brand-logo{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+
+main{
+  padding-top:130px;
+}
+
+.nav-actions,.hero-actions,.demo-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.nav-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.nav-link{
+  padding:10px 12px;
+  border-radius:12px;
+  color:rgba(255,255,255,.86);
+  font-weight:900;
+  border:1px solid transparent;
+}
+.nav-link:hover,
+.nav-link:focus-visible{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.12);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.06);
+  color:white;
+  font-weight:900;
+  cursor:pointer;
+  transition:.18s ease;
+  min-height:44px;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.09);
+}
+
+/*.btn-primary{
+  border:none;
+  background:linear-gradient(135deg,#2563eb,#7c3aed,#a855f7);
+  box-shadow:0 16px 45px rgba(37,99,235,.30);
+}*/
+
+.btn-primary{
+  border:none;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8,#38bdf8);
+  box-shadow:0 16px 45px rgba(37,99,235,.30);
+}
+
+.hero{
+  min-height:540px;
+  display:grid;
+  grid-template-columns:1.06fr .94fr;
+  gap:28px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,6vw,5.5rem);
+  line-height:.96;
+  font-weight:950;
+  letter-spacing:-2.3px;
+  margin-bottom:20px;
+}
+
+/*.gradient-text{
+  background:linear-gradient(90deg,#60a5fa,#a855f7,#f472b6);
+  -webkit-background-clip:text;
+  color:transparent;
+}*/
+
+.gradient-text{
+  background:linear-gradient(90deg,#60a5fa,#38bdf8,#e0f2fe);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.lead{
+  color:var(--muted);
+  font-size:1.1rem;
+  line-height:1.75;
+  max-width:680px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:22px 0 44px;
+}
+
+.badge{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.10);
+  color:rgba(255,255,255,.80);
+  font-weight:850;
+  font-size:.86rem;
+}
+
+.glass{
+  background:var(--panel);
+  border:1px solid var(--border);
+  backdrop-filter:blur(15px);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 24px 75px rgba(0,0,0,.42);
+}
+
+.card-title{
+  font-size:1.45rem;
+  font-weight:950;
+  margin-bottom:10px;
+}
+
+.muted{color:var(--muted);line-height:1.65}
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.kpi{
+  padding:15px;
+  border-radius:16px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.kpi span{
+  display:block;
+  color:rgba(255,255,255,.58);
+  font-size:.82rem;
+  font-weight:850;
+  margin-bottom:5px;
+}
+
+.kpi strong{
+  font-size:1.15rem;
+  font-weight:950;
+}
+
+.section-title{
+  font-size:2rem;
+  font-weight:950;
+  margin:52px 0 10px;
+}
+
+.section-subtitle{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:18px;
+}
+
+.story{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin:32px 0 8px;
+}
+
+.story-card{min-height:190px}
+
+.story-num{
+  width:38px;
+  height:38px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:rgba(59,130,246,.20);
+  border:1px solid rgba(96,165,250,.25);
+  color:#bfdbfe;
+  font-weight:950;
+  margin-bottom:12px;
+}
+
+.story-card h3{font-size:1.05rem;margin-bottom:8px}
+.story-card p{color:var(--muted);line-height:1.58;font-size:.95rem}
+
+.demo-grid{
+  display:grid;
+  grid-template-columns:420px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+}
+
+label{
+  display:block;
+  color:rgba(255,255,255,.76);
+  font-weight:850;
+  margin:14px 0 8px;
+}
+
+select,input[type="date"]{
+  width:100%;
+  padding:13px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.07);
+  color:white;
+  border:1px solid rgba(255,255,255,.14);
+  outline:none;
+}
+
+select option{background:#0f172a;color:white}
+
+.pick-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin-top:12px;
+}
+
+.chance-grid{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.cell{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(59,130,246,.16);
+  border:1px solid rgba(255,255,255,.10);
+  cursor:pointer;
+  font-weight:950;
+  transition:.15s;
+  user-select:none;
+}
+
+.cell:hover{background:rgba(59,130,246,.55);transform:translateY(-1px)}
+.cell.selected{background:rgba(59,130,246,.88);border-color:rgba(96,165,250,.90)}
+.cell.disabled{opacity:.35;cursor:not-allowed;transform:none}
+.cell.chance{background:rgba(239,68,68,.16)}
+.cell.chance:hover,.cell.chance.selected{background:rgba(239,68,68,.88)}
+
+.table-wrap{
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(2,6,23,.30);
+}
+
+table{width:100%;border-collapse:collapse}
+
+th,td{
+  padding:14px 14px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  vertical-align:middle;
+}
+
+th{
+  background:rgba(255,255,255,.08);
+  font-weight:950;
+  color:rgba(255,255,255,.96);
+}
+
+td{color:rgba(255,255,255,.88);font-weight:800}
+.text-end{text-align:right}
+.text-center{text-align:center}
+
+.balls{
+  display:flex;
+  gap:6px;
+  flex-wrap:nowrap;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.ball{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  display:inline-grid;
+  place-items:center;
+  color:white;
+  font-weight:950;
+  background:linear-gradient(145deg,#315b9f,#17386f);
+  border:1px solid rgba(96,165,250,.32);
+}
+
+/*.ball.chance{
+  background:linear-gradient(145deg,#7f1d1d,#ef4444);
+  border-color:rgba(239,68,68,.70);
+}*/
+
+.ball.chance{
+  background:linear-gradient(145deg,#5b1620,#2a0b10);
+  border:1px solid rgba(248,113,113,.45);
+  color:rgba(255,255,255,.86);
+  box-shadow:none;
+}
+
+.draw-inline{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  padding-bottom:2px;
+}
+.draw-inline .balls{
+  overflow:visible;
+  padding-bottom:0;
+}
+
+.ball.win{
+  background:linear-gradient(145deg,#2563eb,#60a5fa);
+  box-shadow:0 0 0 3px rgba(96,165,250,.18);
+}
+
+/*.ball.win-chance{
+  background:linear-gradient(145deg,#dc2626,#f87171);
+  box-shadow:0 0 0 3px rgba(248,113,113,.20);
+}*/
+.ball.win-chance{
+  background:linear-gradient(145deg,#ef4444,#f87171);
+  border:1px solid rgba(254,202,202,.85);
+  color:#fff;
+  box-shadow:
+    0 0 0 3px rgba(248,113,113,.22),
+    inset 0 2px 5px rgba(255,255,255,.25);
+}
+
+.status{
+  display:inline-flex;
+  padding:6px 11px;
+  border-radius:9px;
+  font-weight:950;
+  font-size:.82rem;
+}
+
+.status.win{background:rgba(34,197,94,.92);color:white}
+.status.lose{background:rgba(245,158,11,.96);color:#111827}
+.status.wait{background:rgba(148,163,184,.35);color:white}
+
+.result-box{
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  background:var(--panel-soft);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+.result-line{
+  padding:14px;
+  border-radius:15px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.result-line span{
+  display:block;
+  color:rgba(255,255,255,.58);
+  font-weight:850;
+  font-size:.82rem;
+  margin-bottom:6px;
+}
+
+.result-line strong{font-size:1.10rem;font-weight:950}
+
+.actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:nowrap;
+}
+
+.btn-action{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.075);
+  color:white;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  font-size:1rem;
+  transition:.15s;
+}
+
+.btn-action:hover{background:rgba(255,255,255,.11);transform:translateY(-1px)}
+.btn-action.view{color:#60a5fa}
+.btn-action.edit{color:#facc15}
+.btn-action.delete{color:#fb7185}
+
+.explain{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:18px;
+}
+
+.code-like{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  color:#bfdbfe;
+  background:rgba(15,23,42,.78);
+  border:1px solid rgba(96,165,250,.18);
+  border-radius:16px;
+  padding:16px;
+  line-height:1.7;
+  font-size:.9rem;
+  overflow:auto;
+}
+
+.cta{
+  margin-top:52px;
+  text-align:center;
+  padding:42px 24px;
+}
+
+.cta h2{font-size:2.15rem;font-weight:950;margin-bottom:12px}
+.cta p{color:var(--muted);line-height:1.72;margin:0 auto 24px;max-width:760px}
+
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.62);
+  backdrop-filter:blur(5px);
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal-backdrop.show{display:flex}
+
+.modal{
+  width:min(1160px,100%);
+  max-height:88vh;
+  overflow:auto;
+  background:rgba(15,23,42,.96);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:22px;
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+  padding:22px;
+}
+
+.modal-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.modal-head h3{font-size:1.45rem;font-weight:950}
+.close-btn{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.07);
+  color:white;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+
+.report-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:16px;
+  align-items:start;
+}
+
+.report-card{
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  padding:14px;
+}
+
+.report-card h4{
+  font-size:1rem;
+  font-weight:950;
+  margin-bottom:10px;
+}
+
+.small-table th,.small-table td{font-size:.9rem;padding:9px}
+
+.spin{animation:spin .55s ease}
+@keyframes spin{
+  0%{transform:scale(.94);opacity:.7}
+  50%{transform:scale(1.02)}
+  100%{transform:scale(1);opacity:1}
+}
+
+@media(max-width:980px){
+  .nav{position:relative;align-items:flex-start;flex-direction:column}
+  .nav-links{width:100%}
+  .nav-link{flex:1;text-align:center}
+
+  .hero,.demo-grid,.story,.explain,.report-grid{grid-template-columns:1fr}
+  .hero{min-height:auto;padding-top:16px}
+  .story{grid-template-columns:repeat(2,1fr)}
+  .pick-grid{grid-template-columns:repeat(7,42px);justify-content:center}
+}
+
+@media(max-width:680px){
+  .nav{align-items:flex-start;flex-direction:column}
+  .hero h1{letter-spacing:-1.5px}
+  .story{grid-template-columns:1fr}
+  .cell{width:38px;height:38px}
+  .pick-grid{grid-template-columns:repeat(7,38px);gap:6px}
+  .table-wrap{overflow-x:auto}
+  table{min-width:860px}
+  .kpi-grid,.result-grid{grid-template-columns:1fr}
+}
+
+
+
+.ball.draw-ball{
+  background:linear-gradient(145deg,#2563eb,#60a5fa);
+  border-color:rgba(147,197,253,.72);
+  color:#fff;
+}
+.ball.lose{
+  background:linear-gradient(145deg,#1a2743,#0d1729);
+  border-color:rgba(96,165,250,.14);
+  color:rgba(255,255,255,.62);
+}
+.gain-lines{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  align-items:flex-end;
+  line-height:1.25;
+}
+.gain-lines .second{
+  color:rgba(255,255,255,.66);
+  font-size:.82rem;
+  font-weight:850;
+}
+.loto-codes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+.loto-code{
+  background:rgba(245,158,11,.22);
+  border:1px solid rgba(245,158,11,.35);
+  color:rgba(255,255,255,.95);
+  font-weight:1000;
+  border-radius:10px;
+  padding:10px 12px;
+  min-width:140px;
+  text-align:center;
+}
+
+/* =========================
+   FIX RESPONSIVE LANDING PAGE
+========================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1360px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.glass,
+.panel,
+.result-box,
+.report-card {
+  max-width: 100%;
+}
+
+/* Mobile / tablette */
+@media (max-width: 768px) {
+  .container {
+    padding: 14px 14px 80px;
+  }
+
+  .hero,
+  .demo-grid,
+  .story,
+  .explain,
+  .report-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.05;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .lead,
+  .section-subtitle,
+  .muted {
+    font-size: 0.95rem;
+  }
+
+  .glass {
+    padding: 18px;
+  }
+
+  .pick-grid {
+    grid-template-columns: repeat(7, 34px);
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .cell {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .chance-grid {
+    justify-content: center;
+  }
+
+  .demo-actions,
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 680px;
+  }
+
+  .loto-codes {
+    justify-content: center;
+  }
+
+  .loto-code {
+    min-width: 150px;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 420px) {
+  .pick-grid {
+    grid-template-columns: repeat(7, 31px);
+  }
+
+  .cell {
+    width: 31px;
+    height: 31px;
+    font-size: 0.78rem;
+  }
+
+  .glass {
+    padding: 16px;
+  }
+
+  table {
+    min-width: 620px;
+  }
+}
+
+/* FIX mobile landing page */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .demo-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .glass {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 18px;
+  }
+
+  #formTitle,
+  .card-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .pick-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 34px);
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+  }
+
+  .cell {
+    width: 34px;
+    height: 34px;
+    font-size: 0.82rem;
+  }
+
+  select,
+  input,
+  button {
+    max-width: 100%;
+  }
+
+  .demo-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .demo-actions{
+    margin-top:22px;
+  }
+
+  .btn {
+    font-size: 0.78rem;
+    padding: 10px 12px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 620px;
+  }
+}
+
+/* Espace entre les numéros Chance et les boutons */
+.chance-grid{
+  margin-bottom:24px;
+}
+
+/* Espacement des boutons de la démo */
+.demo-actions{
+  margin-top:18px;
+  gap:14px;
+}
+
+
+
+/* =========================
+   FOOTER FIX BAS DE PAGE
+========================= */
+
+body{
+  min-height:100vh;
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding-bottom:0;
+}
+
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.footer{
+  margin-top:auto;
+  padding:32px 16px 40px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  color:rgba(255,255,255,.70);
+  font-weight:800;
+}
+
+.footer a{
+  color:#38bdf8;
+  font-weight:900;
+}
+
+.footer a:hover{
+  color:#e0f2fe;
+}
+
+</style>
+</head>
+
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<div class="container">
+
+  <header class="nav" role="banner">
+    <div class="brand" aria-label="Loto Tracker">
+      <!-- <div class="brand-logo" aria-hidden="true">🍀</div> -->
+      <img
+        src="/assets/img/loto_tracker.webp"
+        alt="Logo Loto Tracker"
+        class="brand-logo"
+      />
+      <span>Loto Tracker</span>
+    </div>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a class="nav-link" href="#projet">Projet</a>
+      <a class="nav-link" href="#story">Storytelling</a>
+      <a class="nav-link" href="#demo">Démo</a>
+      <a class="nav-link" href="#calcul">Calcul</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn" href="#demo">Voir la démo</a>
+      <a class="btn btn-primary" href="https://loto-tracker.fr">Accéder au site Loto-Tracker</a>
+    </div>
+  </header>
+
+  <main id="main-content"><section class="hero" id="projet">
+    <div>
+      <h1>Suivre ses tickets Loto devient <span class="gradient-text">simple, visuel et précis.</span></h1>
+      <p class="lead">
+        Loto Tracker est mon projet RNCP6 : une application web qui permet de créer un compte,
+        enregistrer ses tickets, comparer automatiquement ses numéros avec les tirages officiels,
+        puis calculer les gains du tirage principal et du second tirage.
+      </p>
+
+      <div class="badges">
+        <span class="badge">Java 21</span>
+        <span class="badge">Spring Boot</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">PostgresSQL</span>
+        <span class="badge">MongoDB</span>
+        <span class="badge">Portfolio RNCP6</span>
+      </div>
+
+      <!-- <div class="hero-actions">
+        <a class="btn btn-primary" href="https://loto-tracker.fr">Créer un compte sur le site Loto-Tracker</a>
+        <a class="btn" href="#demo">Tester la démo sans compte</a>
+      </div> -->
+    </div>
+
+    <div class="glass">
+      <h2 class="card-title">Le besoin utilisateur</h2>
+      <p class="muted">
+        Après un tirage, beaucoup de joueurs vérifient leurs tickets manuellement.
+        Le risque : oublier le second tirage, mal interpréter un rang ou ne pas connaître le gain exact.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi"><span>Étape 1</span><strong>Créer un compte</strong></div>
+        <div class="kpi"><span>Étape 2</span><strong>Ajouter un ticket</strong></div>
+        <div class="kpi"><span>Étape 3</span><strong>Comparer au tirage</strong></div>
+        <div class="kpi"><span>Étape 4</span><strong>Calculer les gains</strong></div>
+      </div>
+    </div>
+  </section>
+
+<section id="story">
+  <h2 class="section-title">Parcours utilisateur</h2>
+  <p class="section-subtitle">
+    Loto Tracker répond à un besoin concret : permettre à un utilisateur de vérifier rapidement ses tickets,
+    de limiter les erreurs de lecture et de conserver un historique clair de ses résultats.
+  </p>
+
+  <div class="story">
+    <div class="glass story-card">
+      <div class="story-num">1</div>
+      <h3>Vérifier un ticket</h3>
+      <p>
+        Après un tirage, l’utilisateur renseigne ses numéros et son numéro Chance
+        afin de contrôler son ticket sans comparaison manuelle fastidieuse.
+      </p>
+    </div>
+
+    <div class="glass story-card">
+      <div class="story-num">2</div>
+      <h3>Comparer automatiquement</h3>
+      <p>
+        L’application compare le ticket avec les données du tirage principal et du second tirage,
+        puis identifie les correspondances obtenues.
+      </p>
+    </div>
+
+    <div class="glass story-card">
+      <div class="story-num">3</div>
+      <h3>Calculer le résultat</h3>
+      <p>
+        Le statut du ticket, le rang associé et le gain estimé sont affichés de manière claire,
+        sans calcul supplémentaire pour l’utilisateur.
+      </p>
+    </div>
+
+    <div class="glass story-card">
+      <div class="story-num">4</div>
+      <h3>Suivre son historique</h3>
+      <p>
+        En créant un compte, l’utilisateur peut enregistrer ses tickets,
+        consulter ses anciens tirages et suivre ses gains dans le temps.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <section id="demo">
+    <h2 class="section-title">Démo interactive</h2>
+    <p class="section-subtitle">
+      Cette démonstration illustre le fonctionnement métier de Loto Tracker : récupération des derniers tirages
+      via l’API, saisie d’un ticket utilisateur, comparaison automatique avec le tirage principal et le second tirage,
+      puis calcul du statut, du rang et du gain estimé.
+    </p>
+
+    <div class="demo-grid">
+      <div class="glass">
+        <h3 class="card-title" id="formTitle">Simulation d’un ticket utilisateur</h3>
+
+        <label for="dateSelect">Date du tirage</label>
+        <select id="dateSelect" aria-label="Choisir une date parmi les derniers tirages"></select>
+
+        <label>Choisissez 5 numéros</label>
+        <div id="grid49" class="pick-grid"></div>
+
+        <label>Sélection du numéro Chance</label>
+        <div id="chanceGrid" class="chance-grid"></div>
+
+        <div class="demo-actions">
+          <button class="btn btn-primary" onclick="valider()" id="submitTicketBtn">Ajouter le ticket</button>
+          <button class="btn" onclick="ticketAleatoire()">Ticket aléatoire</button>
+          <button class="btn" onclick="resetTicket()">Réinitialiser</button>
+        </div>
+
+        <div id="result" class="result-box">
+          Sélectionne un tirage, 5 numéros et 1 numéro Chance pour lancer le calcul.
+        </div>
+      </div>
+
+      <div class="glass">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div>
+            <h3 class="card-title">Suivi des tickets simulés</h3>
+            <p class="section-subtitle">
+              Les tickets validés sont affichés dans un tableau de suivi reprenant les informations métier principales :
+              date du tirage, numéros joués, statut, gains calculés et actions disponibles.
+            </p>
+          </div>
+          <!-- <button class="btn btn-primary" onclick="resetFormForCreate()">+ Ajouter un ticket</button> -->
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Numéros</th>
+                <th>Chance</th>
+                <th>Statut</th>
+                <th class="text-end">Gains</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ticketsTable">
+              <tr>
+                <td colspan="6" class="text-center">Aucun ticket simulé pour le moment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin:16px 0 4px">
+          <!-- <button class="btn btn-primary" onclick="resetFormForCreate()">+ Ajouter un ticket de démonstration</button> -->
+        </div>
+
+        <h3 class="card-title" style="margin-top:22px">Derniers tirages</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Numéros</th>
+                <th>Chance</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tr><td colspan="4" class="text-center">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="calcul">
+    <h2 class="section-title">Règles métier et calcul des gains</h2>
+    <p class="section-subtitle">
+      Cette partie met en évidence la logique fonctionnelle du projet : le ticket utilisateur est comparé aux données
+      du tirage principal et du second tirage afin de déterminer le statut, le rang obtenu et le gain estimé.
+    </p>
+
+    <div class="explain">
+      <div class="glass">
+        <h3 class="card-title">Tirage principal</h3>
+        <p class="muted">
+          Les 5 numéros du ticket et le numéro Chance sont comparés aux données du tirage principal.
+          Le résultat permet d'identifier un rang de gain, selon les règles du jeux.
+        </p>
+      </div>
+
+      <div class="glass">
+        <h3 class="card-title">Second tirage</h3>
+        <p class="muted">
+          Les 5 numéros principaux sont également comparés au second tirage.
+          Si des correspondances sont trouvées, le gain associé est ajouté au résultat global du ticket.
+        </p>
+      </div>
+    </div>
+
+    <div class="code-like" style="margin-top:18px">
+  Ticket utilisateur → 5 numéros + 1 numéro Chance + date du tirage<br>
+  Données de référence (historique des tirages) → tirage principal + second tirage<br>
+  Traitement métier → comparaison, identification du rang, calcul du gain automatiquement<br>
+  Résultat final → statut du ticket + gain total estimé
+    </div>
+  </section>
+
+  <section class="glass cta" id="site">
+    <h2>Accéder à la version complète</h2>
+    <p>
+      La démonstration présente le fonctionnement principal du projet. La version complète ajoute un espace utilisateur
+      permettant de créer un compte, enregistrer ses tickets, consulter son historique, modifier ou supprimer ses données
+      et suivre ses résultats dans le temps.
+    </p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-primary" href="https://loto-tracker.fr">Accéder au site Loto-Tracker</a>
+      <a class="btn" href="#demo">Revoir la démonstration</a>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <!-- <a href="https://loto-tracker.fr/mentions_legales.html">Mentions légales</a>
+    <a href="https://loto-tracker.fr/conditions_utilisation.html">Conditions</a>
+    <a href="https://loto-tracker.fr/politique_confidentialite.html">Confidentialité</a>
+    <span>🍪 Cookies</span> -->
+    <span>© 2026</span>
+    <a href="https://github.com/SDINAHET">SDINAHET</a>
+    <!-- <span><span class="api-dot" aria-hidden="true"></span> API</span> -->
+  </footer>
+</main>
+</div>
+
+<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3 id="detailTitle">Détails du tirage</h3>
+        <p class="muted" id="detailSubtitle">Chargement…</p>
+      </div>
+      <button class="close-btn" onclick="closeModal('detailModal')">×</button>
+    </div>
+    <div id="detailBody"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-head">
+      <div>
+        <h3 id="confirmTitle">Supprimer le ticket</h3>
+        <p class="muted">Cette action supprime uniquement le ticket de démonstration sur cette landing page.</p>
+      </div>
+      <button class="close-btn" onclick="closeModal('confirmModal')">×</button>
+    </div>
+    <div class="demo-actions">
+      <button class="btn" onclick="closeModal('confirmModal')">Annuler</button>
+      <button class="btn btn-primary" onclick="confirmDeleteTicket()">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let draws = [];
+let selected = [];
+let chance = null;
+let demoTickets = [];
+let editingTicketId = null;
+let ticketToDelete = null;
+const tirageDetailsCache = {};
+const API_BASE = "https://loto-tracker.fr";
+
+async function fetchJson(url){
+  const res = await fetch(url, {
+    method:"GET",
+    headers:{ "Accept":"application/json" },
+    cache:"no-store"
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+
+function icon(name){
+  const common = 'width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+  if (name === "eye") return `<svg ${common}><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg>`;
+  if (name === "edit") return `<svg ${common}><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>`;
+  if (name === "trash") return `<svg ${common}><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`;
+  return "";
+}
+
+function parseMoneyLike(v){
+  if (v === null || v === undefined || v === "") return 0;
+  if (typeof v === "number") return v;
+  const s = String(v).replace(/\s/g,"").replace(",",".");
+  const n = parseFloat(s);
+  return Number.isNaN(n) ? 0 : n;
+}
+
+function formatMoney(v){
+  const n = Number(v || 0);
+  return `${n.toLocaleString("fr-FR", {minimumFractionDigits:2, maximumFractionDigits:2})} €`;
+}
+
+function getDateValue(d){
+  return d.dateDeTirage || d.date || d.drawDate || "";
+}
+
+function dateToApi(dateStr){
+  const s = String(dateStr || "").trim();
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(s)){
+    const [dd,mm,yyyy] = s.split("/");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
+  return s;
+}
+
+function parseDrawDate(value){
+  const s = String(value || "").trim();
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(s)){
+    const [day,month,year] = s.split("/");
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)){
+    const [year,month,day] = s.slice(0,10).split("-");
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+  return new Date(s);
+}
+
+function getMainNumbers(draw){
+  return [draw.boule1, draw.boule2, draw.boule3, draw.boule4, draw.boule5]
+    .map(n => parseInt(n,10))
+    .filter(n => !Number.isNaN(n));
+}
+
+function getSecondNumbers(draw){
+  return [
+    draw.boule1SecondTirage,
+    draw.boule2SecondTirage,
+    draw.boule3SecondTirage,
+    draw.boule4SecondTirage,
+    draw.boule5SecondTirage
+  ].map(n => parseInt(n,10)).filter(n => !Number.isNaN(n));
+}
+
+function computeMainDrawGain(ticketNumbers, ticketChance, draw){
+  const winningNumbers = getMainNumbers(draw);
+  const winningChance = parseInt(draw.numeroChance, 10);
+
+  const matches = ticketNumbers.filter(n => winningNumbers.includes(n)).length;
+  const chanceMatch = ticketChance === winningChance;
+
+  let rang = null;
+  if (matches === 5 && chanceMatch) rang = 1;
+  else if (matches === 5) rang = 2;
+  else if (matches === 4 && chanceMatch) rang = 3;
+  else if (matches === 4) rang = 4;
+  else if (matches === 3 && chanceMatch) rang = 5;
+  else if (matches === 3) rang = 6;
+  else if (matches === 2 && chanceMatch) rang = 7;
+  else if (matches === 2) rang = 8;
+  else if (matches === 0 && chanceMatch) rang = 9;
+
+  const gain = rang ? parseMoneyLike(draw[`rapportDuRang${rang}`]) : 0;
+
+  return { matches, chanceMatch, rang, gain };
+}
+
+function computeSecondDrawGain(ticketNumbers, draw){
+  const secondNumbers = getSecondNumbers(draw);
+  if (secondNumbers.length !== 5) return { matches:0, rang:null, gain:0 };
+
+  const matches = ticketNumbers.filter(n => secondNumbers.includes(n)).length;
+
+  let rang = null;
+  if (matches === 5) rang = 1;
+  else if (matches === 4) rang = 2;
+  else if (matches === 3) rang = 3;
+  else if (matches === 2) rang = 4;
+
+  const gain = rang ? parseMoneyLike(draw[`rapportDuRang${rang}SecondTirage`]) : 0;
+  return { matches, rang, gain };
+}
+
+function computeTicket(ticketNumbers, ticketChance, draw){
+  const main = computeMainDrawGain(ticketNumbers, ticketChance, draw);
+  const second = computeSecondDrawGain(ticketNumbers, draw);
+  const total = (main.gain || 0) + (second.gain || 0);
+  const isWinner = main.rang !== null || second.rang !== null;
+
+  return {
+    main,
+    second,
+    total,
+    isWinner,
+    statusLabel: isWinner ? "Gagné" : "Perdu",
+    statusClass: isWinner ? "status win" : "status lose",
+    winningNumbers: getMainNumbers(draw),
+    winningChance: parseInt(draw.numeroChance,10)
+  };
+}
+
+function ballsHtml(numbers, winningNumbers = [], mode = "ticket"){
+  const hasComparison = Array.isArray(winningNumbers) && winningNumbers.length > 0;
+
+  return `<div class="balls">` + numbers.map(n => {
+    let cls = "ball";
+
+    if (mode === "draw") {
+      cls = "ball draw-ball";
+    } else if (hasComparison) {
+      cls = winningNumbers.includes(n) ? "ball win" : "ball lose";
+    }
+
+    return `<span class="${cls}">${n}</span>`;
+  }).join("") + `</div>`;
+}
+
+function chanceHtml(num, winningChance = null){
+  const cls = Number(num) === Number(winningChance) ? "ball chance win-chance" : "ball chance";
+  return `<span class="${cls}">${num}</span>`;
+}
+
+async function load(){
+  const tbody = document.getElementById("tbody");
+  const sel = document.getElementById("dateSelect");
+
+  if (!tbody || !sel) return;
+
+  tbody.innerHTML = `<tr><td colspan="4" class="text-center">Chargement…</td></tr>`;
+
+  try{
+    const data = await fetchJson(`${API_BASE}/api/historique/last20`);
+
+    draws = Array.isArray(data) ? data : [];
+    draws.sort((a,b) => parseDrawDate(getDateValue(b)) - parseDrawDate(getDateValue(a)));
+
+    tbody.innerHTML = "";
+    sel.innerHTML = "";
+
+    if (!draws.length){
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="4" class="text-center">
+            Aucun tirage reçu depuis l’API.
+          </td>
+        </tr>`;
+      return;
+    }
+
+    draws.slice(0,6).forEach(d => {
+      const date = getDateValue(d);
+      tbody.insertAdjacentHTML("beforeend", `
+        <tr>
+          <td><b>${date}</b></td>
+          <td>${ballsHtml(getMainNumbers(d), [], "draw")}</td>
+          <td>${chanceHtml(d.numeroChance)}</td>
+          <td class="text-end">
+            <button class="btn-action view" type="button" aria-label="Voir le détail du tirage ${date}" onclick="showTirageDetails('${date}')">
+              👁
+            </button>
+          </td>
+        </tr>
+      `);
+    });
+
+    draws.forEach(d => {
+      const o = document.createElement("option");
+      o.value = getDateValue(d);
+      o.textContent = getDateValue(d);
+      sel.appendChild(o);
+    });
+
+  }catch(e){
+    console.error("Erreur chargement last20 :", e);
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="text-center">
+          Impossible de charger les 6 derniers tirages.<br>
+          Endpoint testé : <code>${API_BASE}/api/historique/last20</code><br>
+          ${String(e.message || e)}
+        </td>
+      </tr>`;
+  }
+}
+
+function grid(){
+  const g = document.getElementById("grid49");
+  g.innerHTML = "";
+
+  for(let i = 1; i <= 49; i++){
+    const c = document.createElement("div");
+    c.className = "cell";
+    c.textContent = i;
+
+    c.onclick = () => {
+      if (selected.includes(i)){
+        selected = selected.filter(n => n !== i);
+        c.classList.remove("selected");
+      } else if (selected.length < 5){
+        selected.push(i);
+        c.classList.add("selected");
+      }
+      updateDisabledNumbers();
+    };
+
+    g.appendChild(c);
+  }
+
+  const cg = document.getElementById("chanceGrid");
+  cg.innerHTML = "";
+
+  for(let i = 1; i <= 10; i++){
+    const c = document.createElement("div");
+    c.className = "cell chance";
+    c.textContent = i;
+
+    c.onclick = () => {
+      chance = i;
+      document.querySelectorAll(".cell.chance").forEach(x => x.classList.remove("selected"));
+      c.classList.add("selected");
+    };
+
+    cg.appendChild(c);
+  }
+}
+
+function updateDisabledNumbers(){
+  const maxReached = selected.length >= 5;
+  document.querySelectorAll("#grid49 .cell").forEach(el => {
+    const n = Number(el.textContent);
+    if (maxReached && !selected.includes(n)) el.classList.add("disabled");
+    else el.classList.remove("disabled");
+  });
+}
+
+function paintSelections(){
+  document.querySelectorAll(".cell").forEach(c => c.classList.remove("selected","disabled"));
+
+  document.querySelectorAll("#grid49 .cell").forEach(el => {
+    if (selected.includes(Number(el.textContent))) el.classList.add("selected");
+  });
+
+  document.querySelectorAll("#chanceGrid .cell").forEach(el => {
+    if (Number(el.textContent) === Number(chance)) el.classList.add("selected");
+  });
+
+  updateDisabledNumbers();
+}
+
+function resetTicket(){
+  selected = [];
+  chance = null;
+  editingTicketId = null;
+  document.getElementById("formTitle").textContent = "Créer un ticket de démonstration";
+  document.getElementById("submitTicketBtn").textContent = "Ajouter le ticket";
+  document.querySelectorAll(".cell").forEach(c => c.classList.remove("selected","disabled"));
+  document.getElementById("result").innerHTML = "Sélectionne un tirage, 5 numéros et 1 numéro Chance pour lancer le calcul.";
+}
+
+function resetFormForCreate(){
+  resetTicket();
+  document.getElementById("demo").scrollIntoView({behavior:"smooth"});
+}
+
+function ticketAleatoire(){
+  resetTicket();
+
+  while(selected.length < 5){
+    const n = Math.floor(Math.random() * 49) + 1;
+    if (!selected.includes(n)) selected.push(n);
+  }
+
+  chance = Math.floor(Math.random() * 10) + 1;
+  paintSelections();
+}
+
+async function valider(){
+  const resDiv = document.getElementById("result");
+
+  if (selected.length !== 5 || !chance){
+    resDiv.innerHTML = "❌ Sélection incomplète : choisis 5 numéros et 1 numéro Chance.";
+    return;
+  }
+
+const date = document.getElementById("dateSelect").value;
+  let draw = draws.find(d => getDateValue(d) === date);
+
+  resDiv.innerHTML = "Calcul du ticket depuis le détail du tirage…";
+
+  try {
+    const detail = await getTirageDetail(date);
+    if (detail && Object.keys(detail).length) draw = detail;
+  } catch(e) {
+    console.warn("Détail indisponible.", e);
+  }
+
+  if (!draw){
+    resDiv.innerHTML = "❌ Tirage introuvable pour cette date. Choisis une date de tirage disponible.";
+    return;
+  }
+
+  const ticketNumbers = [...selected].sort((a,b) => a - b);
+  const computed = computeTicket(ticketNumbers, chance, draw);
+
+  const ticket = {
+    id: editingTicketId || Date.now(),
+    date,
+    numbers: ticketNumbers,
+    chance,
+    draw,
+    ...computed
+  };
+
+  resDiv.classList.add("spin");
+  setTimeout(() => resDiv.classList.remove("spin"), 600);
+
+  resDiv.innerHTML = `
+    <h3 class="card-title">Résultat du ticket</h3>
+    <div class="result-grid">
+      <div class="result-line"><span>Tirage</span><strong>${date}</strong></div>
+      <div class="result-line"><span>Statut</span><strong>${computed.statusLabel}</strong></div>
+      <div class="result-line"><span>Tirage principal</span><strong>${computed.main.matches} numéro(s) ${computed.main.chanceMatch ? "+ Chance" : ""}</strong></div>
+      <div class="result-line"><span>Gain principal</span><strong>${formatMoney(computed.main.gain)} ${computed.main.rang ? `(rang ${computed.main.rang})` : ""}</strong></div>
+      <div class="result-line"><span>Second tirage</span><strong>${computed.second.matches} numéro(s)</strong></div>
+      <div class="result-line"><span>Gain second tirage</span><strong>${formatMoney(computed.second.gain)} ${computed.second.rang ? `(rang ${computed.second.rang})` : ""}</strong></div>
+    </div>
+    <div class="result-box">
+      <span class="muted">Gain total calculé depuis le détail du tirage :</span>
+      <h2 style="margin-top:6px">${formatMoney(computed.total)}</h2>
+    </div>
+  `;
+
+  if (editingTicketId){
+    demoTickets = demoTickets.map(t => String(t.id) === String(editingTicketId) ? ticket : t);
+  } else {
+    demoTickets.unshift(ticket);
+  }
+
+  renderDemoTickets();
+  resetTicket();
+}
+
+function renderGain(t){
+  const mainGain = t?.main?.gain || 0;
+  const secondGain = t?.second?.gain || 0;
+
+  return `
+    <div class="gain-lines">
+      <div><b>${formatMoney(mainGain)}</b></div>
+      ${secondGain > 0 ? `<div class="second">+ ${formatMoney(secondGain)} (2nd tirage)</div>` : ""}
+    </div>
+  `;
+}
+
+function renderDemoTickets(){
+  const tbody = document.getElementById("ticketsTable");
+
+  if (!demoTickets.length){
+    tbody.innerHTML = `<tr><td colspan="6" class="text-center">Aucun ticket simulé pour le moment.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = demoTickets.slice(0,8).map(t => `
+    <tr>
+      <td><b>${t.date}</b></td>
+      <td>${ballsHtml(t.numbers, t.winningNumbers)}</td>
+      <td>${chanceHtml(t.chance, t.winningChance)}</td>
+      <td><span class="${t.statusClass}">${t.statusLabel}</span></td>
+      <td class="text-end"><b>${renderGain(t)}</b></td>
+      <td class="text-end">
+        <div class="actions">
+          <button class="btn-action view" title="Voir le détail du tirage" aria-label="Voir le détail du tirage" onclick="showTirageDetails('${t.date}')">${icon("eye")}</button>
+          <button class="btn-action edit" title="Modifier le ticket" aria-label="Modifier le ticket" onclick="editTicket('${t.id}')">${icon("edit")}</button>
+          <button class="btn-action delete" title="Supprimer le ticket" aria-label="Supprimer le ticket" onclick="deleteTicket('${t.id}')">${icon("trash")}</button>
+        </div>
+      </td>
+    </tr>
+  `).join("");
+}
+
+function editTicket(id){
+  const t = demoTickets.find(x => String(x.id) === String(id));
+  if (!t) return;
+
+  editingTicketId = t.id;
+  selected = [...t.numbers];
+  chance = t.chance;
+
+  document.getElementById("dateSelect").value = t.date;
+  document.getElementById("formTitle").textContent = "Modifier le ticket de démonstration";
+  document.getElementById("submitTicketBtn").textContent = "Mettre à jour le ticket";
+
+  paintSelections();
+  document.getElementById("demo").scrollIntoView({behavior:"smooth"});
+}
+
+function deleteTicket(id){
+  ticketToDelete = id;
+  openModal("confirmModal");
+}
+
+function confirmDeleteTicket(){
+  if (!ticketToDelete) return;
+  demoTickets = demoTickets.filter(t => String(t.id) !== String(ticketToDelete));
+  ticketToDelete = null;
+  renderDemoTickets();
+  closeModal("confirmModal");
+}
+
+function openModal(id){
+  document.getElementById(id).classList.add("show");
+}
+
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
+
+function comboDotsMain(rang){
+  const rules = {
+    1:{blue:5,red:1}, 2:{blue:5,red:0}, 3:{blue:4,red:1},
+    4:{blue:4,red:0}, 5:{blue:3,red:1}, 6:{blue:3,red:0},
+    7:{blue:2,red:1}, 8:{blue:2,red:0}, 9:{blue:0,red:1}
+  };
+  const r = rules[rang] || {blue:0,red:0};
+  return `${Array.from({length:r.blue},()=>'<span class="ball" style="width:16px;height:16px"></span>').join("")}${Array.from({length:r.red},()=>'<span class="ball chance" style="width:16px;height:16px"></span>').join("")}`;
+}
+
+function comboDotsSecond(rang){
+  const n = {1:5,2:4,3:3,4:2}[rang] || 0;
+  return Array.from({length:n},()=>'<span class="ball" style="width:16px;height:16px"></span>').join("");
+}
+
+function reportRowsMain(data){
+  return Array.from({length:9}, (_,i) => {
+    const r = i + 1;
+    const winners = data[`nombreDeGagnantAuRang${r}`] ?? "-";
+    const gain = data[`rapportDuRang${r}`] ?? "-";
+    return `<tr><td>${r}</td><td><div class="balls">${comboDotsMain(r)}</div></td><td>${winners}</td><td><b>${gain === "-" ? "-" : formatMoney(parseMoneyLike(gain))}</b></td></tr>`;
+  }).join("");
+}
+
+function reportRowsSecond(data){
+  return Array.from({length:4}, (_,i) => {
+    const r = i + 1;
+    const winners = data[`nombreDeGagnantAuRang${r}SecondTirage`] ?? "-";
+    const gain = data[`rapportDuRang${r}SecondTirage`] ?? "-";
+    return `<tr><td>${r}</td><td><div class="balls">${comboDotsSecond(r)}</div></td><td>${winners}</td><td><b>${gain === "-" ? "-" : formatMoney(parseMoneyLike(gain))}</b></td></tr>`;
+  }).join("");
+}
+
+async function getTirageDetail(dateStr){
+  const key = dateToApi(dateStr);
+  if (tirageDetailsCache[key]) return tirageDetailsCache[key];
+
+  const urls = [
+    `${API_BASE}/api/historique/last20/Detail/tirage/${key}`,
+    `${API_BASE}/api/historique/last20/detail/tirage/${key}`
+  ];
+
+  for (const url of urls){
+    try{
+      const data = await fetchJson(url);
+      tirageDetailsCache[key] = data;
+      return data;
+    }catch(e){
+      console.warn("Endpoint détail indisponible :", url, e.message);
+    }
+  }
+
+  const fallback = draws.find(d => getDateValue(d) === dateStr);
+  if (fallback) return fallback;
+  throw new Error("Détail introuvable");
+}
+
+
+function escHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+}
+
+function extractLotoCodes(data){
+  const raw = data?.codesGagnants || data?.codes_gagnants || data?.codes || data?.codeGagnant || data?.codesLoto || data?.codeLoto;
+
+  if (!raw) return [];
+
+  let parts = [];
+
+  if (Array.isArray(raw)) {
+    parts = raw.map(String);
+  } else if (typeof raw === "object") {
+    parts = Object.values(raw).map(String);
+  } else {
+    parts = String(raw)
+      .trim()
+      .split(/[\s,;\n]+/)
+      .map(v => v.trim())
+      .filter(Boolean);
+  }
+
+  const grouped = [];
+
+  for (let i = 0; i < parts.length; i++) {
+    if (/^[A-Z]$/i.test(parts[i]) && parts[i + 1] && parts[i + 2]) {
+      grouped.push(`${parts[i]} ${parts[i + 1]} ${parts[i + 2]}`);
+      i += 2;
+    }
+  }
+
+  return grouped;
+}
+
+function renderLotoCodes(data){
+  const codes = extractLotoCodes(data);
+
+  if (!codes.length){
+    return `
+      <div class="report-card" style="margin-top:14px">
+        <h4>Codes Loto</h4>
+        <p class="muted">Aucun code Loto disponible dans ce tirage.</p>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="report-card" style="margin-top:14px">
+      <h4>Codes Loto</h4>
+      <div class="loto-codes">
+        ${codes.map(code => `<span class="loto-code">${escHtml(code)}</span>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+async function showTirageDetails(dateStr){
+  openModal("detailModal");
+  document.getElementById("detailTitle").textContent = `Détails du tirage — ${dateStr}`;
+  document.getElementById("detailSubtitle").textContent = "Chargement du détail depuis l’API…";
+  document.getElementById("detailBody").innerHTML = "";
+
+  try{
+    const data = await getTirageDetail(dateStr);
+    const mainNums = getMainNumbers(data);
+    const secondNums = getSecondNumbers(data);
+
+    document.getElementById("detailSubtitle").textContent =
+      "Tirage principal, second tirage et rapports de gains utilisés par le calcul JS.";
+
+    document.getElementById("detailBody").innerHTML = `
+      <div class="report-grid">
+        <div class="report-card">
+          <h4>Tirage principal</h4>
+          <div class="draw-inline">
+            ${ballsHtml(mainNums, [], 'draw')}
+            ${chanceHtml(data.numeroChance)}
+          </div>
+        </div>
+        <div class="report-card">
+          <h4>Second tirage</h4>
+          ${secondNums.length ? ballsHtml(secondNums, [], 'draw') : '<p class="muted">Second tirage non disponible.</p>'}
+        </div>
+      </div>
+
+      <div class="report-grid" style="margin-top:14px">
+        <div class="report-card">
+          <h4>Rapports du tirage principal</h4>
+          <div class="table-wrap">
+            <table class="small-table">
+              <thead><tr><th>Rang</th><th>Combinaison</th><th>Gagnants</th><th>Gain</th></tr></thead>
+              <tbody>${reportRowsMain(data)}</tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <h4>Rapports du second tirage</h4>
+          <div class="table-wrap">
+            <table class="small-table">
+              <thead><tr><th>Rang</th><th>Combinaison</th><th>Gagnants</th><th>Gain</th></tr></thead>
+              <tbody>${reportRowsSecond(data)}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      ${renderLotoCodes(data)}
+    `;
+  }catch(e){
+    document.getElementById("detailSubtitle").textContent = "";
+    document.getElementById("detailBody").innerHTML = `<p class="muted">Impossible de charger le détail du tirage.</p>`;
+  }
+}
+
+
+function renderDrawSummary(draw){
+  if (!draw) return `<p class="muted">Aucun tirage trouvé.</p>`;
+
+  const date = getDateValue(draw);
+  const second = getSecondNumbers(draw);
+
+  return `
+    <div>
+      <p><b>Date :</b> ${date}</p>
+      <p><b>Tirage principal :</b></p>
+      <div class="draw-inline">
+        ${ballsHtml(getMainNumbers(draw), [], "draw")}
+        ${chanceHtml(draw.numeroChance)}
+      </div>
+      <p style="margin-top:12px"><b>Second tirage :</b></p>
+      ${second.length ? ballsHtml(second, [], "draw") : `<p class="muted">Non disponible.</p>`}
+      <div style="margin-top:12px">
+        <button class="btn" onclick="showTirageDetails('${date}')">Voir le détail complet</button>
+      </div>
+    </div>
+  `;
+}
+
+async function aiSearchDraw(){
+  const box = document.getElementById("aiSearchResult");
+  const dateIso = document.getElementById("aiDate").value;
+
+  if (!dateIso){
+    box.innerHTML = "Choisis une date.";
+    return;
+  }
+
+  box.innerHTML = "Recherche du tirage…";
+
+  try{
+    const draw = await getTirageDetail(dateIso);
+    box.innerHTML = renderDrawSummary(draw);
+  }catch(e){
+    box.innerHTML = "Aucun tirage trouvé pour cette date.";
+  }
+}
+
+function aiUseLastDraw(){
+  const box = document.getElementById("aiSearchResult");
+  const draw = draws[0];
+  box.innerHTML = renderDrawSummary(draw);
+}
+
+function addChatMessage(role, text){
+  const chat = document.getElementById("aiChat");
+  const cls = role === "user" ? "user" : "bot";
+  const label = role === "user" ? "Vous" : "Assistant Loto";
+
+  chat.insertAdjacentHTML("beforeend", `
+    <div class="chat-message ${cls}">
+      <strong>${label}</strong>
+      <div>${text}</div>
+    </div>
+  `);
+
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function askLotoAssistant(){
+  const input = document.getElementById("aiQuestion");
+  const q = input.value.trim();
+
+  if (!q) return;
+
+  addChatMessage("user", escHtml(q));
+  input.value = "";
+
+  const question = q.toLowerCase();
+  let answer = "";
+
+  if (question.includes("second")) {
+    answer = "Le second tirage utilise uniquement les 5 numéros principaux du ticket. Le numéro Chance n’intervient pas. Le gain est calculé avec les champs rapportDuRang1SecondTirage à rapportDuRang4SecondTirage.";
+  } else if (question.includes("rang")) {
+    answer = "Pour le tirage principal : rang 1 = 5 numéros + Chance, rang 2 = 5 numéros, rang 3 = 4 numéros + Chance, jusqu’au rang 9 = uniquement le numéro Chance.";
+  } else if (question.includes("dernier") || question.includes("récent")) {
+    const d = draws[0];
+    answer = d
+      ? `Dernier tirage chargé : <b>${getDateValue(d)}</b><br>${ballsHtml(getMainNumbers(d), [], "draw")}<br>Chance : ${chanceHtml(d.numeroChance)}`
+      : "Les derniers tirages ne sont pas encore chargés.";
+  } else if (question.includes("ticket")) {
+    answer = "Pour créer un ticket : choisis une date de tirage, sélectionne 5 numéros entre 1 et 49, puis 1 numéro Chance entre 1 et 10. Le calcul compare ensuite ton ticket au tirage principal et au second tirage.";
+  } else {
+    answer = "Je peux expliquer les rangs, le second tirage, la création d’un ticket ou retrouver le dernier tirage chargé par l’API.";
+  }
+
+  addChatMessage("bot", answer);
+}
+
+
+window.onload = () => {
+  load();
+  grid();
+
+  document.querySelectorAll(".modal-backdrop").forEach(backdrop => {
+    backdrop.addEventListener("click", (e) => {
+      if (e.target === backdrop) backdrop.classList.remove("show");
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal-backdrop.show").forEach(m => m.classList.remove("show"));
+    }
+  });
+};
+</script>
+</body>
+</html>

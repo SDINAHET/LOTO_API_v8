@@ -1,0 +1,60 @@
+services:
+  postgres_test:
+    image: postgres:14
+    # ports:
+    # - "55433:5432"
+    environment:
+      POSTGRES_DB: lotodb_test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test -d lotodb_test"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mongo_test:
+    # image: mongo:6
+    # image: mongo:7
+    image: mongo:8
+    # ports:
+    # - "27018:27017"
+    tmpfs:
+      - /data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping').ok\" | grep 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  tests:
+    image: maven:3.9.8-eclipse-temurin-21
+    working_dir: /workspace
+    depends_on:
+      postgres_test:
+        condition: service_healthy
+      mongo_test:
+        condition: service_healthy
+    volumes:
+      - ./:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock   # 🔥 CRUCIAL
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_test:5432/lotodb_test
+      SPRING_DATASOURCE_USERNAME: test
+      SPRING_DATASOURCE_PASSWORD: test
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      # SPRING_DATA_MONGODB_URI: mongodb://mongo_test:27017/lotodb_test
+      # SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@mongo_test:27017/lotodb_test?authSource=admin
+      SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@mongo_test:27017/lotodb_test?authSource=lotodb_test
+      # MONGO_INITDB_ROOT_USERNAME: mongotest
+      # MONGO_INITDB_ROOT_PASSWORD: mongotest
+      SPRING_TASK_SCHEDULING_ENABLED: "false"
+    # command: mvn -q verify -Djacoco.skip=true
+    command: >
+      mvn clean verify
+      -Dsurefire.printSummary=true
+      -DtrimStackTrace=false
+      -Djacoco.skip=true

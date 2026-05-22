@@ -1,0 +1,27 @@
+# # Exposer le port de l'API
+# EXPOSE 8082
+
+# 1) BUILD STAGE
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /build
+
+COPY pom.xml .
+COPY .mvn .mvn
+COPY mvnw .
+RUN chmod +x mvnw
+
+# (optionnel) pré-télécharge les deps
+RUN ./mvnw -B -DskipTests dependency:go-offline
+
+COPY src src
+RUN ./mvnw -B -DskipTests clean package
+# RUN ./mvnw -B clean package
+
+# 2) RUN STAGE
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+
+COPY --from=build /build/target/*.jar app.jar
+
+EXPOSE 8082
+ENTRYPOINT ["java","-jar","/app/app.jar"]

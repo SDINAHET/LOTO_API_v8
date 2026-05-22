@@ -1,0 +1,518 @@
+// // // package com.fdjloto.api.config;
+
+// // // import org.springframework.boot.test.context.TestConfiguration;
+// // // import org.springframework.context.annotation.Bean;
+// // // import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+// // // import org.springframework.security.web.SecurityFilterChain;
+
+// // // @TestConfiguration
+// // // public class TestSecurityConfig {
+
+// // //     @Bean
+// // //     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+// // //         http
+// // //             .csrf(csrf -> csrf.disable())
+// // //             .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+
+// // //         return http.build();
+// // //     }
+// // // }
+// // package com.fdjloto.api.config;
+
+// // import org.springframework.boot.test.context.TestConfiguration;
+// // import org.springframework.context.annotation.Bean;
+// // import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+// // import org.springframework.security.web.SecurityFilterChain;
+
+// // @TestConfiguration
+// // public class TestSecurityConfig {
+
+// //     @Bean
+// //     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+// //         http
+// //             .csrf(csrf -> csrf.disable())
+// //             .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+
+// //         return http.build();
+// //     }
+// // }
+
+// package com.fdjloto.api.security;
+
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
+// import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+// import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+// import org.springframework.security.config.core.GrantedAuthorityDefaults;
+// import org.springframework.security.config.http.SessionCreationPolicy;
+// import org.springframework.security.core.userdetails.UserDetailsService;
+// // import org.springframework.security.core.userdetails.UserDetailsService;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+// import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+// import org.springframework.security.web.SecurityFilterChain;
+// import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+// import org.springframework.web.cors.CorsConfiguration;
+// import org.springframework.http.HttpMethod;
+// import org.springframework.security.config.Customizer; // si tu utilises Customizer.withDefaults()
+// import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
+
+
+// // import org.springframework.web.cors.CorsConfiguration;
+// import org.springframework.web.cors.CorsConfigurationSource;
+// import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+// // import main.java.com.fdjloto.api.security.CspNonceFilter;
+
+// // import main.java.com.fdjloto.api.security.CspNonceFilter;
+// // import com.fdjloto.api.security.CspNonceFilter;
+// import com.fdjloto.api.security.CspNonceFilter;
+
+// import java.util.Arrays;
+// import java.util.List;
+
+// import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+// import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
+
+// import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+
+// import org.springframework.security.web.header.HeaderWriterFilter;
+
+
+// @Configuration
+// @EnableWebSecurity
+// public class SecurityConfig {
+
+//     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+//     private final UserDetailsService userDetailsService;
+
+//     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, UserDetailsService userDetailsService) {
+//         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+//         this.userDetailsService = userDetailsService;
+//     }
+
+//     @Bean
+//     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+//         return authenticationConfiguration.getAuthenticationManager();
+//     }
+
+//     // @Bean
+//     // public PasswordEncoder passwordEncoder() {
+//     //     return new BCryptPasswordEncoder();
+//     // }
+
+//     @Bean
+//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+//         CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
+//         requestHandler.setCsrfRequestAttributeName("_csrf");
+
+//         return http
+//                 // ✅ Autoriser les iframes depuis la même origine (Swagger dans ton dashboard)
+//                 // .headers(headers -> headers
+//                 //         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
+//                 // )
+//                 // .headers(headers -> headers
+//                 //     // Autoriser iframe seulement même origine (utile si tu embed swagger/admin)
+//                 //     .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
+
+//                 //     // Empêche le MIME sniffing
+//                 //     .contentTypeOptions(Customizer.withDefaults())
+
+//                 //     // Referrer policy (évite fuite d’URL sensibles)
+//                 //     .referrerPolicy(ref -> ref.policy(
+//                 //         org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER
+//                 //     ))
+
+//                 //     // CSP (anti-XSS / anti-script externe)
+//                 //     .contentSecurityPolicy(csp -> csp.policyDirectives(
+//                 //         "default-src 'self'; " +
+//                 //         // "script-src 'self'; " +
+//                 //         "script-src 'self' 'nonce-{nonce}'; " +
+//                 //         // "script-src 'self' 'unsafe-inline'; " +
+//                 //         "style-src 'self' 'unsafe-inline'; " +
+//                 //         // "style-src 'self'; " +
+//                 //         "img-src 'self' data:; " +
+//                 //         "font-src 'self'; " +
+//                 //         // "connect-src 'self' https://stephanedinahet.fr https://www.stephanedinahet.fr http://localhost:8082; " +
+//                 //         "connect-src 'self' http://localhost:8082 http://127.0.0.1:8082 https://stephanedinahet.fr https://www.stephanedinahet.fr https://loto-tracker.fr https://www.loto-tracker.fr; " +
+//                 //         "frame-ancestors 'self'; " +
+//                 //         "base-uri 'self'; " +
+//                 //         "form-action 'self'"
+//                 //     ))
+//                 .headers(headers -> headers
+//                     .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
+//                     .contentTypeOptions(Customizer.withDefaults())
+//                     .referrerPolicy(ref -> ref.policy(
+//                         org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER
+//                     ))
+//                     .addHeaderWriter((request, response) -> {
+//                         String nonce = (String) request.getAttribute(CspNonceFilter.ATTR_NAME);
+//                         if (nonce == null) return;
+
+//                         String csp =
+//                             "default-src 'self'; " +
+//                             "script-src 'self' 'nonce-" + nonce + "'; " +
+//                             "style-src 'self' 'unsafe-inline'; " +
+//                             "img-src 'self' data:; " +
+//                             "font-src 'self'; " +
+//                             "connect-src 'self' http://localhost:8082 http://127.0.0.1:8082 https://stephanedinahet.fr https://www.stephanedinahet.fr https://loto-tracker.fr https://www.loto-tracker.fr; " +
+//                             "frame-ancestors 'self'; " +
+//                             "base-uri 'self'; " +
+//                             "form-action 'self'";
+
+//                         response.setHeader("Content-Security-Policy", csp);
+//                     })
+//                     .httpStrictTransportSecurity(hsts -> hsts
+//                         .includeSubDomains(true)
+//                         .preload(true)
+//                         .maxAgeInSeconds(31536000)
+//                     )
+//                 )
+
+//                     // HSTS (uniquement si tu es en HTTPS en prod)
+//                     // .httpStrictTransportSecurity(hsts -> hsts
+//                     //     .includeSubDomains(true)
+//                     //     .preload(true)
+//                     //     .maxAgeInSeconds(31536000)
+//                     // )
+
+
+//                 // .headers(headers -> headers
+//                 //     .frameOptions(frame -> frame.sameOrigin()) // ✅ Autoriser les iframes depuis la même origine
+//                 //     .xssProtection(xss -> xss.disable()) // ✅ Désactiver la protection XSS si nécessaire
+//                 // )
+//                 // .csrf(csrf -> csrf.disable()) // 🔴 Désactive CSRF pour les APIs REST stateless
+//                 // .csrf(AbstractHttpConfigurer::disable) // ✅ Version optimisée
+//                 // .anonymous(anonymous -> anonymous.disable()) // Supprime l'authentification anonyme
+//                 // .cors(cors -> cors.disable()) // 🔴 Désactive CORS (ajoute une config si nécessaire)
+//                 // .cors(cors -> {}) // ✅ Active CORS, configuration à venir
+//                 .csrf(csrf -> csrf
+//                     // ✅ CSRF token dans un cookie "XSRF-TOKEN" lisible par le front
+//                     .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                     .csrfTokenRequestHandler(requestHandler)
+//                     .ignoringRequestMatchers("/api/**")
+
+//                     // ✅ évite de casser login/register au début
+//                     // (tu peux ensuite décider de les protéger aussi, mais d’abord: stable)
+//                     .ignoringRequestMatchers(
+//                         "/api/auth/csrf",          // ✅ AJOUT IMPORTANT
+//                         // "/api/auth/refresh",       // ✅ recommandé
+//                         "/api/auth/logout",   // ✅ AJOUTE ÇA
+//                         "/api/auth/login3",
+//                         "/api/auth/register",
+//                         "/api/admin/logs",
+//                         // "/api/auth/login4",
+//                         // "/admin/**",
+//                         "/api/admin/**",
+//                         "/api/health",
+//                         "/api/hello",
+//                         "/swagger-ui/**",
+//                         "/v3/api-docs/**",
+//                         "/api/analytics/**",
+//                         "/api/auth/login-swagger",
+//                         "/admin-login.html"
+//                     )
+//                 )
+//                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+//                 // .httpBasic(httpBasic -> httpBasic.disable()) // 🔴 Désactive l'authentification basique
+//                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 🔴 JWT = stateless
+//                 .exceptionHandling(ex -> ex
+//                     // Non authentifié (401)
+//                     .authenticationEntryPoint((request, response, authException) -> {
+//                         String uri = request.getRequestURI();
+//                         if (uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs")) {
+//                             // 🔁 Redirection vers la page de login admin
+//                             response.sendRedirect("/admin-login.html");
+//                         } else {
+//                             // 🔁 Réponse JSON standard pour les appels API
+//                             response.setStatus(401);
+//                             response.setContentType("application/json");
+//                             response.getWriter().write("{\"error\":\"Unauthorized\"}");
+//                         }
+//                     })
+//                     // Authentifié mais pas le bon rôle (403)
+//                     .accessDeniedHandler((request, response, accessDeniedException) -> {
+//                         String uri = request.getRequestURI();
+//                         if (uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs")) {
+//                             response.sendRedirect("/admin-login.html");
+//                         } else {
+//                             response.setStatus(403);
+//                             response.setContentType("application/json");
+//                             response.getWriter().write("{\"error\":\"Forbidden\"}");
+//                         }
+//                     })
+//                 )
+
+//                 .authorizeHttpRequests(auth -> auth
+//                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+//                         .requestMatchers(HttpMethod.GET, "/api/admin/logs").hasRole("ADMIN")
+//                         // .requestMatchers(HttpMethod.GET, "/admin/logs").permitAll()
+//                         // .requestMatchers(HttpMethod.GET, "/api/admin/logs").permitAll()
+//                         // .requestMatchers("/api/admin/logs").permitAll()
+//                         .requestMatchers("/admin-login", "/admin-login.html").permitAll()
+//                         // =====================
+//                         // 🔓 PUBLIC ENDPOINTS
+//                         // =====================
+//                         .requestMatchers("/admin/ping").hasRole("ADMIN")
+//                         // .requestMatchers("/admin/ping").permitAll()
+//                         .requestMatchers("/actuator/health").permitAll()
+//                         .requestMatchers(
+//                             "/api/health",
+//                             "/api/hello"
+//                         ).permitAll()
+//                         .requestMatchers(HttpMethod.POST, "/api/auth/refresh").permitAll()
+
+//                         .requestMatchers("/api/auth/**").permitAll()
+//                         .requestMatchers(HttpMethod.GET, "/api/visits/**").permitAll()
+//                         // .requestMatchers(
+//                         //     "/favicon.ico",
+//                         //     "/favicon-admin.ico",
+//                         //     "/admin-32.png",
+//                         //     "/admin-180.png",
+//                         //     "/admin.png"
+//                         // ).permitAll()
+//                         // .requestMatchers(HttpMethod.GET, "/dernier-tirage", "/dernier-tirage/").permitAll()
+//                         // .requestMatchers("/tirage/**").permitAll()
+//                         // .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+//                         // .requestMatchers("/sitemap.xml", "/robots.txt").permitAll()
+//                         // =====================
+//                         // =====================
+//                         // 🔓 PAGES SEO PUBLIQUES (GET + HEAD)
+//                         // =====================
+//                         // .requestMatchers(HttpMethod.GET,  "/dernier-tirage/**").permitAll()
+//                         // .requestMatchers(HttpMethod.HEAD, "/dernier-tirage/**").permitAll()
+
+//                         // .requestMatchers(HttpMethod.GET,  "/tirage/**").permitAll()
+//                         // .requestMatchers(HttpMethod.HEAD, "/tirage/**").permitAll()
+
+//                         // .requestMatchers(HttpMethod.GET,  "/sitemap.xml", "/robots.txt").permitAll()
+//                         // .requestMatchers(HttpMethod.HEAD, "/sitemap.xml", "/robots.txt").permitAll()
+//                         // =====================
+//                         // 🔓 PAGES SEO PUBLIQUES (GET + HEAD)
+//                         // =====================
+//                         .requestMatchers(HttpMethod.GET,  "/dernier-tirage/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/dernier-tirage/**").permitAll()
+
+//                         .requestMatchers(HttpMethod.GET,  "/tirage/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/tirage/**").permitAll()
+
+//                         // ✅ SITEMAPS COMPLETS (il te manquait ceux-là)
+//                         .requestMatchers(HttpMethod.GET,  "/sitemap.xml", "/robots.txt").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/sitemap.xml", "/robots.txt").permitAll()
+
+//                         .requestMatchers(HttpMethod.GET,  "/sitemap-tirages.xml", "/sitemap-pages.xml", "/sitemap-static.xml").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/sitemap-tirages.xml", "/sitemap-pages.xml", "/sitemap-static.xml").permitAll()
+
+//                         // ✅ URLS SEO “alias” (il te manquait celles-là)
+//                         .requestMatchers(HttpMethod.GET,  "/resultat-loto-*").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/resultat-loto-*").permitAll()
+
+//                         .requestMatchers(HttpMethod.GET,  "/tirage-loto-*").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/tirage-loto-*").permitAll()
+
+//                         // ✅ Pages SEO “dynamiques”
+//                         .requestMatchers(HttpMethod.GET,  "/resultat-loto-aujourdhui", "/resultat-loto-hier", "/prochain-tirage-loto").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/resultat-loto-aujourdhui", "/resultat-loto-hier", "/prochain-tirage-loto").permitAll()
+
+//                         // ✅ Variantes avec slash
+//                         .requestMatchers(HttpMethod.GET,  "/tirage-loto/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/tirage-loto/**").permitAll()
+
+//                         // ✅ Si tu as des alias du type /tirage-loto-samedi/2026-03-28
+//                         .requestMatchers(HttpMethod.GET,  "/tirage-loto-*/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/tirage-loto-*/**").permitAll()
+
+//                         // ✅ Si tu as des alias du type /resultat-loto-YYYY-MM-DD/... (au cas où)
+//                         .requestMatchers(HttpMethod.GET,  "/resultat-loto-*/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/resultat-loto-*/**").permitAll()
+
+//                         // ✅ Si tu as /prochain-tirage (tu le testes)
+//                         .requestMatchers(HttpMethod.GET,  "/prochain-tirage", "/prochain-tirage/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/prochain-tirage", "/prochain-tirage/**").permitAll()
+
+//                         // =====================
+//                         // 🔓 RESSOURCES STATIQUES (GET + HEAD)
+//                         // =====================
+//                         .requestMatchers(HttpMethod.GET,  "/css/**", "/js/**", "/images/**", "/assets/**").permitAll()
+//                         .requestMatchers(HttpMethod.HEAD, "/css/**", "/js/**", "/images/**", "/assets/**").permitAll()
+
+//                         .requestMatchers(HttpMethod.GET, "/ai/**").permitAll()
+//                         .requestMatchers(HttpMethod.POST, "/ai/**").permitAll()
+//                         .requestMatchers(HttpMethod.OPTIONS, "/ai/**").permitAll()
+
+//                         // ✅ CORS preflight
+//                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                         .requestMatchers("/api/analytics/**").permitAll()
+
+
+//                         // --- AUTH PUBLIC ---
+//                         .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+//                         .requestMatchers(HttpMethod.POST, "/api/auth/login3").permitAll()
+//                         // .requestMatchers("/api/auth/**").permitAll()
+//                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                         // 🔓 Pages d’erreur accessibles à tout le monde
+//                         // .requestMatchers("/errors/**", "/401", "/403", "/404", "/500").permitAll()
+//                         .requestMatchers("/errors/**", "/error", "/error/**", "/401", "/403", "/404", "/500").permitAll()
+//                         .requestMatchers("/admin-login.html").permitAll()
+
+//                         // 🔓 le HTML du dashboard peut être public, les vraies données restent derrière /api/admin/**
+//                         // .requestMatchers("/admin/**").permitAll()
+//                         .requestMatchers(
+//                             "/admin-login",
+//                             "/admin-login.html",
+//                             "/assets/**",
+//                             "/favicon-admin.ico"
+//                         ).permitAll()
+//                         // .requestMatchers("/admin/**").hasRole("ADMIN")
+
+
+
+//                         // Swagger UI accessible sans authentification
+//                         // .requestMatchers("/swagger-ui/**", "/v3/api-docs", "/v3/api-docs/**", "/v1/api-docs/**", "/swagger-ui.html", "/login-swagger").permitAll() // ✅ Swagger accessible sans JWT
+//                         // 🔒 Swagger accessible uniquement aux ADMIN
+//                         .requestMatchers(
+//                                 "/swagger-ui/**",
+//                                 "/v3/api-docs",
+//                                 "/v3/api-docs/**",
+//                                 "/v1/api-docs/**",
+//                                 "/swagger-ui.html",
+//                                 "/swagger-ui/index.html"
+//                                 // "/admin-login",
+//                                 // "/admin-login.html",
+//                                 // "/assets/**",
+//                                 // "/favicon-admin.ico"
+//                         ).hasRole("ADMIN")
+//                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
+
+//                         // .requestMatchers("/api/health").permitAll()
+//                         // Auth API accessible sans authentification
+//                         .requestMatchers("/api/hello", "/localhost:5500/**", "/api/loto/scrape").permitAll()
+//                         // Endpoints protégés par JWT
+//                         // .requestMatchers("/api/protected/**").permitAll()
+//                         // .requestMatchers("/api/tickets/**").authenticated()
+//                         .requestMatchers(HttpMethod.GET, "/api/tickets/**").hasAnyRole("ADMIN", "USER") // 🔥 GET accessible aux admins et utilisateurs
+//                         // .requestMatchers(HttpMethod.POST, "/api/tickets/**").hasAnyRole("ADMIN", "USER") // 🔥 POST accessible aux admins et utilisateurs
+//                         //.requestMatchers(HttpMethod.POST, "/api/tickets/**").permitAll() // 🔥 POST accessible tout le monde
+//                         .requestMatchers(HttpMethod.POST, "/api/tickets/**").hasAnyRole("ADMIN", "USER")
+//                         .requestMatchers(HttpMethod.PUT, "/api/tickets/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
+//                         .requestMatchers(HttpMethod.DELETE, "/api/tickets/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
+//                         // .requestMatchers(HttpMethod.GET, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 GET accessible aux admins et utilisateurs
+//                         // 🔥 LIST users → ADMIN uniquement
+//                         .requestMatchers(HttpMethod.GET, "/api/users")
+//                             .hasRole("ADMIN")
+
+//                         // 🔥 GET user by ID → ADMIN + USER
+//                         .requestMatchers(HttpMethod.GET, "/api/users/*")
+//                             .hasAnyRole("ADMIN", "USER")
+
+//                         // 🔥 REGISTER reste public (si tu veux)
+//                         .requestMatchers(HttpMethod.POST, "/api/users/register")
+//                             .permitAll()
+
+//                         // 🔥 PUT → ADMIN + USER
+//                         .requestMatchers(HttpMethod.PUT, "/api/users/**")
+//                             .hasAnyRole("ADMIN", "USER")
+
+//                         // 🔥 DELETE → ADMIN + USER (delete /me)
+//                         .requestMatchers(HttpMethod.DELETE, "/api/users/**")
+//                             .hasAnyRole("ADMIN", "USER")
+//                         .requestMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 POST accessible aux admins et utilisateurs
+//                         .requestMatchers(HttpMethod.PUT, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
+//                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
+//                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                         // .requestMatchers(HttpMethod.DELETE, "/api/tickets/**").hasRole("ADMIN") // 🔥 DELETE réservé aux admins
+//                         // .requestMatchers("/api/tickets/**", "/api/tickets", "/api/tickets/{ticketId}").hasAnyRole("USER", "ADMIN") // 🔐 Accès USER et ADMIN
+//                         .requestMatchers("/api/historique/last20").permitAll()
+//                         .requestMatchers("/api/predictions/generate", "/api/generate", "/api/predictions/latest").permitAll()
+//                         .requestMatchers("/api/historique/last20/Detail/**").permitAll()
+//                         .requestMatchers("/api/historique/last20/detail/**").permitAll()
+//                         .requestMatchers("/api/historique/**").permitAll()
+//                         .requestMatchers("/api/tirages", "/api/tirages/**").permitAll()
+//                         .requestMatchers("/api/gains/calculate", "/api/gains","/api/gains/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
+//                         // .requestMatchers("/api/users/**", "/api/users").authenticated()  // Protégé par JWT
+//                         // .requestMatchers("/api/users/**").hasRole("ADMIN")
+
+//                         /* ==========  ADMIN CRUD MINI-HEIDISQL ========== */
+//                         .requestMatchers(HttpMethod.GET,    "/api/admin/users/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.POST,   "/api/admin/users/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.PUT,    "/api/admin/users/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.DELETE, "/api/admin/users/**").hasRole("ADMIN")
+
+//                         .requestMatchers(HttpMethod.GET,    "/api/admin/tickets/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.POST,   "/api/admin/tickets/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.PUT,    "/api/admin/tickets/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.DELETE, "/api/admin/tickets/**").hasRole("ADMIN")
+
+//                         .requestMatchers(HttpMethod.GET,    "/api/admin/ticket-gains/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.POST,   "/api/admin/ticket-gains/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.PUT,    "/api/admin/ticket-gains/**").hasRole("ADMIN")
+//                         .requestMatchers(HttpMethod.DELETE, "/api/admin/ticket-gains/**").hasRole("ADMIN")
+
+//                         .requestMatchers("/api/admin/**").hasRole("ADMIN")  // 🔐 Accès ADMIN
+//                         // .requestMatchers("/api/users/**").hasAnyRole("USER", "ADMIN") // 🔐 Accès USER et ADMIN
+//                         // .requestMatchers("/api/users/**").hasRole("ADMIN")  // 🔐 Accès ADMIN
+//                         // .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN") // 🔐 Accès USER et ADMIN
+//                         // .requestMatchers("/api/admin/**").hasAuthority("ROLE_ADMIN")
+//                         // // 🔐 Accès USER et ADMIN
+//                         // .requestMatchers("/api/user/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+//                         // .requestMatchers("/api/protected/userinfo").hasAuthority("SCOPE_user") // Vérifie si l'utilisateur a le bon scope
+//                         // .requestMatchers("/api/user/**").authenticated()  // Protégé par JWT
+//                         .requestMatchers("/api/protected/**").authenticated()  // Protégé par JWT
+//                         .anyRequest().authenticated()
+//                 )
+//                 // .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
+//                 // .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 🔴 JWT = stateless
+//                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)  // 🔐 Ajoute le filtre JWT
+//                 .addFilterBefore(new CspNonceFilter(), HeaderWriterFilter.class)
+//                 // .httpBasic(httpBasic -> {})   // ✅ Active HTTP Basic (popup login/mdp du navigateur)
+//                 .build();
+//     }
+
+//     @Bean
+//     public CorsConfigurationSource corsConfigurationSource() {
+//         CorsConfiguration configuration = new CorsConfiguration();
+//         // configuration.setAllowedOriginPatterns(List.of(
+//         //     "http://localhost:*",
+//         //     "http://127.0.0.1:*",
+//             // "http://192.168.*.*:*",
+//         // configuration.setAllowedOrigins(List.of(
+//         configuration.setAllowedOriginPatterns(List.of(
+//             "http://localhost:*",
+//             "http://127.0.0.1:*",
+//             "http://localhost:8082",
+//             "http://127.0.0.1:5500", //live server
+//             "https://stephanedinahet.fr",
+//             "https://loto-tracker.fr",
+//             "https://www.loto-tracker.fr",
+//             "http://192.168.*.*:*",
+//             // "http://localhost:8082", // add sd
+// 	        "http://localhost:5500", // add sd
+//             "https://www.stephanedinahet.fr", // add sd
+//             "https://loto-api-black.vercel.app"
+//         ));
+//         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//         configuration.setAllowedHeaders(List.of(
+//             "Content-Type",
+//             "Authorization",
+//             "X-XSRF-TOKEN",
+//             "X-Requested-With",
+//             "Cache-Control",
+//             "Pragma"
+//         ));
+//         configuration.setExposedHeaders(List.of("Set-Cookie"));
+
+//         // configuration.setAllowedHeaders(List.of("*"));
+//         // configuration.setAllowedHeaders(List.of("Content-Type","Authorization","X-Requested-With"));
+// 	    configuration.setAllowCredentials(true); // Important pour cookies JWT
+
+//         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//         source.registerCorsConfiguration("/**", configuration);
+//         return source;
+//     }
+
+
+// }

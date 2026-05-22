@@ -1,0 +1,109 @@
+# # spring:
+# #   datasource:
+# #     url: jdbc:h2:mem:testdb
+# #     driver-class-name: org.h2.Driver
+# #     username: sa
+# #     password: ""
+
+# #   jpa:
+# #     database-platform: org.hibernate.dialect.H2Dialect
+# #     hibernate:
+# #       ddl-auto: create-drop
+
+# #   h2:
+# #     console:
+# #       enabled: true
+
+# #   datasource.hikari:
+# #     maximum-pool-size: 5
+
+# spring:
+#   datasource:
+#     url: jdbc:h2:mem:testdb
+#     driver-class-name: org.h2.Driver
+#     username: sa
+#     password: ""
+
+#   jpa:
+#     database-platform: org.hibernate.dialect.H2Dialect
+#     hibernate:
+#       ddl-auto: create-drop
+
+#   datasource.hikari:
+#     maximum-pool-size: 2
+
+
+
+
+
+
+spring:
+  jackson:
+    time-zone: Europe/Paris
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lotodb_test
+    # driver-class-name: org.postgresql.Driver
+    username: postgrestest
+    password: postgrestest
+    hikari:
+      maximum-pool-size: 5   # 🔥 évite saturation
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # reset DB à chaque test
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+    show-sql: false
+
+  data:
+    mongodb:
+      # uri: mongodb://localhost:27017/lotodb_test
+      uri: mongodb://mongo:mongo@localhost:27017/lotodb_test?authSource=lotodb_test
+      # uri: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
+
+logging:
+  level:
+    root: WARN
+
+
+# spring:
+#   datasource:
+#     url: jdbc:tc:postgresql:14:///lotodb_test
+#     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+#   jpa:
+#     hibernate:
+#       ddl-auto: create-drop
+
+#   data:
+#     mongodb:
+#       uri: mongodb://localhost:27017/test # ou via container aussi
+
+# logging:
+#   level:
+#     root: WARN
+
+
+# pring:
+#   datasource:
+#     url: jdbc:postgresql://localhost:5432/lotodb_test
+#     # driver-class-name: org.postgresql.Driver
+#     username: postgrestest
+#     password: postgrestest
+#     hikari:
+#       maximum-pool-size: 5   # 🔥 évite saturation
+
+#   jpa:
+#     hibernate:
+#       ddl-auto: create-drop  # reset DB à chaque test
+#     show-sql: false
+
+#   data:
+#     mongodb:
+#       uri: mongodb://localhost:27017/lotodb_test
+
+# logging:
+#   level:
+#     root: WARN
