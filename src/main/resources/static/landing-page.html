@@ -14,7 +14,7 @@
 
 html{
   scroll-behavior:smooth;
-  scroll-padding-top:70px;
+  scroll-padding-top:85px;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -94,6 +94,24 @@ a{text-decoration:none;color:inherit}
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
+@media(max-width:768px){
+
+  .nav{
+    padding:10px 14px;
+    gap:12px;
+  }
+
+  .brand-logo{
+    width:52px;
+    height:52px;
+  }
+
+  .brand span{
+    font-size:1rem;
+  }
+
+}
+
 .brand{
   display:flex;
   align-items:center;
@@ -120,8 +138,16 @@ a{text-decoration:none;color:inherit}
 }
 
 main{
-  padding-top:130px;
+  padding-top:70px;
 }
+@media(max-width:768px){
+
+  main{
+    padding-top:90px;
+  }
+
+}
+
 
 .nav-actions,.hero-actions,.demo-actions{
   display:flex;
@@ -129,11 +155,35 @@ main{
   flex-wrap:wrap;
 }
 
-.nav-links{
+/*.nav-links{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
   align-items:center;
+}*/
+.nav-links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+}
+
+@media(max-width:768px){
+
+  .nav-links{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .nav-link{
+    text-align:center;
+    padding:10px;
+    font-size:.92rem;
+  }
+
 }
 
 .nav-link{
@@ -183,7 +233,8 @@ main{
 }
 
 .hero{
-  min-height:540px;
+  min-height:auto;
+  padding-bottom:40px;
   display:grid;
   grid-template-columns:1.06fr .94fr;
   gap:28px;
@@ -196,6 +247,65 @@ main{
   font-weight:950;
   letter-spacing:-2.3px;
   margin-bottom:20px;
+}
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:2.4rem;
+    line-height:1.02;
+    letter-spacing:-1.4px;
+  }
+
+}
+@media(max-width:768px){
+
+  .btn{
+    width:100%;
+    justify-content:center;
+    min-height:46px;
+    font-size:.9rem;
+  }
+
+  .nav-actions{
+    width:100%;
+    flex-direction:column;
+  }
+
+}
+@media(max-width:768px){
+
+  .section-title{
+    margin-top:34px;
+  }
+
+  .hero{
+    gap:18px;
+  }
+
+  .badges{
+    margin:18px 0 28px;
+  }
+
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top,
+    rgba(59,130,246,.16),
+    transparent 40%);
+  z-index:-1;
+}
+@media(max-width:768px){
+
+  .lead{
+    max-width:95%;
+    font-size:1rem;
+    line-height:1.7;
+  }
+
 }
 
 /*.gradient-text{
@@ -640,25 +750,92 @@ td{color:rgba(255,255,255,.88);font-weight:800}
 }
 
 @media(max-width:980px){
-  .nav{position:relative;align-items:flex-start;flex-direction:column}
-  .nav-links{width:100%}
-  .nav-link{flex:1;text-align:center}
 
-  .hero,.demo-grid,.story,.explain,.report-grid{grid-template-columns:1fr}
-  .hero{min-height:auto;padding-top:16px}
-  .story{grid-template-columns:repeat(2,1fr)}
-  .pick-grid{grid-template-columns:repeat(7,42px);justify-content:center}
+  .nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:row;
+
+    z-index:9999;
+  }
+
+  .nav-links{
+    width:100%;
+  }
+
+  .nav-link{
+    flex:1;
+    text-align:center;
+  }
+
+  .hero,
+  .demo-grid,
+  .story,
+  .explain,
+  .report-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:auto;
+    padding-top:16px;
+  }
+
+  .story{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .pick-grid{
+    grid-template-columns:repeat(7,42px);
+    justify-content:center;
+  }
+
 }
 
 @media(max-width:680px){
-  .nav{align-items:flex-start;flex-direction:column}
-  .hero h1{letter-spacing:-1.5px}
-  .story{grid-template-columns:1fr}
-  .cell{width:38px;height:38px}
-  .pick-grid{grid-template-columns:repeat(7,38px);gap:6px}
-  .table-wrap{overflow-x:auto}
-  table{min-width:860px}
-  .kpi-grid,.result-grid{grid-template-columns:1fr}
+
+  .nav{
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:row;
+  }
+
+  .hero h1{
+    letter-spacing:-1.5px;
+  }
+
+  .story{
+    grid-template-columns:1fr;
+  }
+
+  .cell{
+    width:38px;
+    height:38px;
+  }
+
+  .pick-grid{
+    grid-template-columns:repeat(7,38px);
+    gap:6px;
+  }
+
+  .table-wrap{
+    overflow-x:auto;
+  }
+
+  table{
+    min-width:860px;
+  }
+
+  .kpi-grid,
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
 }
 
 
@@ -965,6 +1142,136 @@ main{
   color:#e0f2fe;
 }
 
+/* =========================
+   BURGER MENU MOBILE
+========================= */
+
+.burger{
+  display:none;
+  width:52px;
+  height:52px;
+  border:none;
+  background:rgba(255,255,255,.06);
+  border-radius:14px;
+  cursor:pointer;
+  position:relative;
+  z-index:10001;
+}
+
+.burger span{
+  position:absolute;
+  left:14px;
+  width:24px;
+  height:3px;
+  border-radius:999px;
+  background:white;
+  transition:.25s ease;
+}
+
+.burger span:nth-child(1){
+  top:16px;
+}
+
+.burger span:nth-child(2){
+  top:24px;
+}
+
+.burger span:nth-child(3){
+  top:32px;
+}
+
+/* animation croix */
+
+.burger.active span:nth-child(1){
+  transform:rotate(45deg);
+  top:24px;
+}
+
+.burger.active span:nth-child(2){
+  opacity:0;
+}
+
+.burger.active span:nth-child(3){
+  transform:rotate(-45deg);
+  top:24px;
+}
+
+@media(max-width:768px){
+
+  .nav{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 14px;
+  }
+
+  .burger{
+    display:block;
+  }
+
+  .nav-actions{
+    display:flex;
+    width:100%;
+    margin-top:8px;
+  }
+
+.nav-actions .btn{
+  width:100%;
+}
+
+  .nav-links{
+    position:absolute;
+    top:84px;
+    left:0;
+    right:0;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    padding:18px;
+
+    background:rgba(6,10,18,.98);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transform:translateY(-20px);
+    opacity:0;
+    pointer-events:none;
+
+    transition:.25s ease;
+  }
+
+  .nav-links.open{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .nav-link{
+    width:100%;
+    text-align:center;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+  }
+}
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+}
+
+
+
 </style>
 </head>
 
@@ -981,19 +1288,41 @@ main{
         class="brand-logo"
       />
       <span>Loto Tracker</span>
+
     </div>
 
-    <nav class="nav-links" aria-label="Navigation principale">
+    <button
+      class="burger"
+      id="burgerBtn"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- <nav class="nav-links" aria-label="Navigation principale"> -->
+    <nav
+      class="nav-links"
+      id="mobileMenu"
+      aria-label="Navigation principale"
+    >
+
       <a class="nav-link" href="#projet">Projet</a>
       <a class="nav-link" href="#story">Storytelling</a>
       <a class="nav-link" href="#demo">Démo</a>
       <a class="nav-link" href="#calcul">Calcul</a>
+
+
+
+      <div class="nav-actions">
+        <!-- <a class="btn" href="#demo">Voir la démo</a> -->
+        <a class="btn btn-primary" href="https://loto-tracker.fr">Accéder au site Loto-Tracker</a>
+      </div>
     </nav>
 
-    <div class="nav-actions">
-      <a class="btn" href="#demo">Voir la démo</a>
-      <a class="btn btn-primary" href="https://loto-tracker.fr">Accéder au site Loto-Tracker</a>
-    </div>
+
   </header>
 
   <main id="main-content"><section class="hero" id="projet">
@@ -2001,6 +2330,45 @@ window.onload = () => {
     }
   });
 };
+
+
+const burgerBtn = document.getElementById("burgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+burgerBtn.addEventListener("click", () => {
+
+  burgerBtn.classList.toggle("active");
+  mobileMenu.classList.toggle("open");
+
+  const expanded =
+    burgerBtn.getAttribute("aria-expanded") === "true";
+
+  burgerBtn.setAttribute(
+    "aria-expanded",
+    !expanded
+  );
+
+});
+
+/* fermer menu après clic */
+
+document.querySelectorAll(".nav-link").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    burgerBtn.classList.remove("active");
+    mobileMenu.classList.remove("open");
+
+    burgerBtn.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  });
+
+});
+
 </script>
+
 </body>
 </html>
