@@ -105,6 +105,31 @@
     <!-- ✅ Sidebar injectée -->
     <div id="appSidebar"></div>
 
+
+    <!-- <div class="left-extra-card">
+
+      <div class="map-head">
+        <div>
+          <h2>
+            <i class="fa-solid fa-cloud-sun"></i>
+            Météo Bretagne IA
+          </h2>
+
+          <div class="small">
+            Carte météo temps réel
+          </div>
+        </div>
+      </div>
+
+      <iframe
+        src="https://xn--mto-bretagne-bebb.loto-tracker.fr/widget.html"
+        title="Carte météo Bretagne IA"
+        class="meteo-frame-left"
+        loading="lazy">
+      </iframe>
+
+    </div> -->
+
     <!-- Main -->
     <main class="main">
 
@@ -445,5 +470,78 @@
   </script>
   <script data-goatcounter="https://lototracker.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script> -->
+
+<!-- <script>
+window.addEventListener("load", () => {
+
+  function injectWeatherCard() {
+
+    const mapBlock = document.getElementById("sidebarMapBlock");
+
+    if (!mapBlock) {
+      setTimeout(injectWeatherCard, 300);
+      return;
+    }
+
+    if (document.querySelector(".left-extra-card")) return;
+
+    mapBlock.insertAdjacentHTML("beforeend", `
+
+      <div class="left-extra-card">
+
+        <div class="nav-sep"></div>
+
+        <div class="nav-title">
+          Météo Bretagne IA
+        </div>
+
+        <iframe
+          src="https://xn--mto-bretagne-bebb.loto-tracker.fr/widget.html"
+          title="Carte météo Bretagne IA"
+          class="meteo-frame-left"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    `);
+  }
+
+  injectWeatherCard();
+
+});
+</script> -->
+<!-- <script>
+(function waitSidebar() {
+  const sidebar = document.getElementById("sidebar");
+
+  if (!sidebar) {
+    setTimeout(waitSidebar, 300);
+    return;
+  }
+
+  if (document.getElementById("meteoWidgetSidebar")) return;
+
+  sidebar.insertAdjacentHTML("beforeend", `
+    <div id="meteoWidgetSidebar" style="margin-top:14px;">
+      <div class="nav-sep"></div>
+      <div class="nav-title">Météo Bretagne IA</div>
+
+      <iframe
+        src="https://xn--mto-bretagne-bebb.loto-tracker.fr/widget.html"
+        title="Carte météo Bretagne IA"
+        style="
+          width:100%;
+          height:260px;
+          border:2px solid red;
+          border-radius:14px;
+          display:block;
+          background:#020617;
+        ">
+      </iframe>
+    </div>
+  `);
+})();
+</script> -->
 </body>
 </html>

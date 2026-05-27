@@ -189,7 +189,7 @@
 
             </div> -->
 
-            <div id="sidebarMapBlock">
+            <!-- <div id="sidebarMapBlock">
 
               <div class="nav-sep"></div>
 
@@ -206,7 +206,20 @@
               >
                 <i class="fa-solid fa-map-location-dot"></i>
                 Ouvrir la carte
-              </button>
+              </button> -->
+
+              <div class="nav-sep"></div>
+
+                <div class="nav-title">
+                  Météo Bretagne
+                </div>
+
+              <iframe
+                src="https://xn--mto-bretagne-bebb.loto-tracker.fr/widget.html?lat=48.1173&lon=-1.6778&zoom=8"
+                title="Carte météo Bretagne"
+                class="meteo-frame-left"
+                loading="lazy">
+              </iframe>
 
             </div>
           </aside>

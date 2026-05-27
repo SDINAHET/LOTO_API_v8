@@ -765,12 +765,20 @@
           <span>SDINAHET</span>
         </a>
 
-        <a href="assets/pdf/CV_Stephane_Dinahet.pdf"
+        <!-- <a href="assets/pdf/CV_Stephane_Dinahet.pdf"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Télécharger le CV de Stéphane Dinahet au format PDF (nouvel onglet)">
           <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
           <span>CV</span>
+        </a> -->
+
+        <a href="https://xn--mto-bretagne-bebb.loto-tracker.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ouvrir le site Météo Bretagne">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span>Météo Bretagne</span>
         </a>
 
         <span class="api-status"
