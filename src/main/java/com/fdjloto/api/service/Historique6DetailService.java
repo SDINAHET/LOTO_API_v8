@@ -1,7 +1,7 @@
 package com.fdjloto.api.service;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.repository.Historique20DetailRepository;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.repository.Historique6DetailRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,20 +16,20 @@ import org.slf4j.LoggerFactory;
 
 @Service
 
-public class Historique20DetailService {
+public class Historique6DetailService {
 
-    private static final Logger logger = LoggerFactory.getLogger(Historique20DetailService.class);
+    private static final Logger logger = LoggerFactory.getLogger(Historique6DetailService.class);
 
-    private final Historique20DetailRepository repository;
+    private final Historique6DetailRepository repository;
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public Historique20DetailService(Historique20DetailRepository repository) {
+    public Historique6DetailService(Historique6DetailRepository repository) {
         this.repository = repository;
     }
 
     // 🔹 Recherche par date unique
-    public Optional<Historique20Detail> getTirageByDate(String date) {
+    public Optional<Historique6Detail> getTirageByDate(String date) {
         try {
             LocalDate localDate = LocalDate.parse(date, formatter);
             // ✅ Zone fixée à Paris (important en production)
@@ -45,7 +45,7 @@ public class Historique20DetailService {
 
 
     // 🔹 Recherche par plage de dates
-    public List<Historique20Detail> getTiragesParPlageDeDates(String startDate, String endDate) {
+    public List<Historique6Detail> getTiragesParPlageDeDates(String startDate, String endDate) {
         try {
             // 🔥 Parse les dates
             LocalDate startLocalDate = LocalDate.parse(startDate, formatter);
@@ -72,17 +72,17 @@ public class Historique20DetailService {
     }
 
     // ✅ AJOUT : utilisé par sitemap-tirages.xml
-    public List<Historique20Detail> getAllTirages() {
+    public List<Historique6Detail> getAllTirages() {
         return repository.findAll();
     }
 
-    public Optional<Historique20Detail> getTiragePrecedent(LocalDate date) {
+    public Optional<Historique6Detail> getTiragePrecedent(LocalDate date) {
         return repository.findTopByDateDeTirageBeforeOrderByDateDeTirageDesc(
             Date.from(date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant())
         );
     }
 
-    public Optional<Historique20Detail> getTirageSuivant(LocalDate date) {
+    public Optional<Historique6Detail> getTirageSuivant(LocalDate date) {
         return repository.findTopByDateDeTirageAfterOrderByDateDeTirageAsc(
             Date.from(date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant())
         );

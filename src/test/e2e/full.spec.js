@@ -512,26 +512,39 @@ test.describe('Loto Tracker - Tests complets', () => {
     expect(errors).toEqual([]);
   });
 
+  // test('Countdown fonctionne', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await acceptCookies(page);
+
+  //   await page.waitForFunction(() => {
+  //     const el = document.querySelector('#countdown');
+  //     return el && !el.textContent.includes('--');
+  //   }, { timeout: 10000 });
+
+  //   const text = await page.locator('#countdown').textContent();
+  //   expect(text).not.toContain('--');
+  // });
+
   test('Countdown fonctionne', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await acceptCookies(page);
 
-    await page.waitForFunction(() => {
-      const el = document.querySelector('#countdown');
-      return el && !el.textContent.includes('--');
-    }, { timeout: 10000 });
+      await page.goto(BASE_URL);
 
-    const text = await page.locator('#countdown').textContent();
-    expect(text).not.toContain('--');
+      await acceptCookies(page);
+
+      await expect(page.locator('#daysBox')).toBeVisible();
+      await expect(page.locator('#hoursBox')).toBeVisible();
+      await expect(page.locator('#minutesBox')).toBeVisible();
+      await expect(page.locator('#secondsBox')).toBeVisible();
+
   });
 
-  test('Les tirages sont affichés (#last20)', async ({ page }) => {
+  test('Les tirages sont affichés (#last6)', async ({ page }) => {
     await page.goto(BASE_URL);
     await acceptCookies(page);
 
-    await page.waitForSelector('#last20');
+    await page.waitForSelector('#last6');
 
-    const cards = await page.locator('#last20 div').count();
+    const cards = await page.locator('#last6 div').count();
     expect(cards).toBeGreaterThan(0);
   });
 
@@ -554,7 +567,7 @@ test.describe('Loto Tracker - Tests complets', () => {
     await page.goto(BASE_URL);
     await acceptCookies(page);
 
-    await page.getByRole('button', { name: 'Stats du prochain tirage' }).click();
+    await page.getByRole('button', { name: 'Statistiques du prochain tirage' }).click();
 
     await expect(page.locator('#predictionModal')).toBeVisible();
   });

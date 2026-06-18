@@ -728,14 +728,14 @@ startCountdown();
     }
 
     /* =========================
-      Last20
+      Last6
     ========================== */
-    async function loadLast20() {
+    async function loadLast6() {
       try {
         // const res = await axios.get(`${API_BASE}/api/historique/last20`);
-        const res = await axios.get(`${window.API_BASE}/api/historique/last20`);
+        const res = await axios.get(`${window.API_BASE}/api/historique/last6`);
         const data = res.data || [];
-        const container = document.getElementById("last20");
+        const container = document.getElementById("last6");
         container.innerHTML = "";
 
         // 1) Render cards
@@ -771,7 +771,7 @@ startCountdown();
       }
     }
 
-    loadLast20();
+    loadLast6();
 
 
     /* =========================
@@ -781,7 +781,7 @@ startCountdown();
       try{
         const formattedDate = formatDateForAPI(date);
         // const apiUrl = `${API_BASE}/api/historique/last20/Detail/tirage/${formattedDate}`;
-        const apiUrl = `${window.API_BASE}/api/historique/last20/Detail/tirage/${formattedDate}`;
+        const apiUrl = `${window.API_BASE}/api/historique/last6/Detail/tirage/${formattedDate}`;
 
         const res = await axios.get(apiUrl);
         const data = res.data;
@@ -1119,9 +1119,9 @@ startCountdown();
 
       let apiUrl;
       if(!endDate){
-        apiUrl = `${window.API_BASE}/api/historique/last20/Detail/tirages?startDate=${startDate}`;
+        apiUrl = `${window.API_BASE}/api/historique/last6/Detail/tirages?startDate=${startDate}`;
       }else{
-        apiUrl = `${window.API_BASE}/api/historique/last20/Detail/tirages?startDate=${startDate}&endDate=${endDate}`;
+        apiUrl = `${window.API_BASE}/api/historique/last6/Detail/tirages?startDate=${startDate}&endDate=${endDate}`;
       }
 
       const container = document.getElementById("searchResults");

@@ -518,9 +518,9 @@
 
 package com.fdjloto.api.integration.controller;
 
-import com.fdjloto.api.model.Historique20Detail;
+import com.fdjloto.api.model.Historique6Detail;
 import com.fdjloto.api.security.JwtAuthenticationFilter;
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.service.Historique6DetailService;
 import com.fdjloto.api.service.PredictionTirageService;
 import com.fdjloto.api.service.UserServiceImpl;
 
@@ -553,7 +553,7 @@ class TirageParDateControllerIT {
 
     // 🔥 Mock des dépendances du controller
     @MockBean
-    private Historique20DetailService detailService;
+    private Historique6DetailService detailService;
 
     @MockBean
     private PredictionTirageService predictionService;
@@ -571,7 +571,7 @@ class TirageParDateControllerIT {
     @DisplayName("Should return draw page when draw exists")
     void shouldReturnDrawWhenExists() throws Exception {
 
-        Historique20Detail detail = new Historique20Detail();
+        Historique6Detail detail = new Historique6Detail();
 
         Mockito.when(detailService.getTirageByDate("2026-03-04"))
                 .thenReturn(Optional.of(detail));

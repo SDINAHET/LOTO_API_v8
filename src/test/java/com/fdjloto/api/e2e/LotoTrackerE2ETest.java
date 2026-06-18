@@ -241,7 +241,7 @@ public class LotoTrackerE2ETest {
         // -------------------------------
         // HISTORIQUE
         // -------------------------------
-        mockMvc.perform(get("/api/historique/last20")
+        mockMvc.perform(get("/api/historique/last6")
                         .cookie(jwtCookie))
                 .andExpect(status().isOk());
 

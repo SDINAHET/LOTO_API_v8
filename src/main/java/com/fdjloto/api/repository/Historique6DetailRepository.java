@@ -1,6 +1,6 @@
 package com.fdjloto.api.repository;
 
-import com.fdjloto.api.model.Historique20Detail;
+import com.fdjloto.api.model.Historique6Detail;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * This interface extends **MongoRepository**, providing built-in CRUD operations.
  */
 @Repository
-public interface Historique20DetailRepository extends MongoRepository<Historique20Detail, String> {
+public interface Historique6DetailRepository extends MongoRepository<Historique6Detail, String> {
 
     /**
      * Finds a **lottery draw detail** by its draw date.
@@ -21,7 +21,7 @@ public interface Historique20DetailRepository extends MongoRepository<Historique
      * @param dateDeTirage The date of the draw.
      * @return An **Optional** containing the draw details if found, otherwise empty.
      */
-    Optional<Historique20Detail> findByDateDeTirage(Date dateDeTirage);
+    Optional<Historique6Detail> findByDateDeTirage(Date dateDeTirage);
 
     /**
      * Retrieves a list of historical draw details within a specified date range.
@@ -30,20 +30,20 @@ public interface Historique20DetailRepository extends MongoRepository<Historique
      * @param endDate   The end date of the search range.
      * @return A **List** of `Historique20Detail` objects within the specified range.
      */
-    List<Historique20Detail> findByDateDeTirageBetween(Date startDate, Date endDate);
+    List<Historique6Detail> findByDateDeTirageBetween(Date startDate, Date endDate);
 
     // 🔥 AJOUTER CES DEUX MÉTHODES :
 
     /**
      * Finds the previous draw before the given date.
      */
-    Optional<Historique20Detail>
+    Optional<Historique6Detail>
     findTopByDateDeTirageBeforeOrderByDateDeTirageDesc(Date date);
 
     /**
      * Finds the next draw after the given date.
      */
-    Optional<Historique20Detail>
+    Optional<Historique6Detail>
     findTopByDateDeTirageAfterOrderByDateDeTirageAsc(Date date);
 }
 

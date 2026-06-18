@@ -16,7 +16,7 @@ import java.util.Date;
 
 @Document(collection = "historique")
 @Schema(description = "Represents detailed lottery results for historical draws.")
-public class Historique20Detail {
+public class Historique6Detail {
 
 	@Id
 	@Schema(description = "Unique identifier of the draw", example = "605c72df98eb2f001f7a6c91")
@@ -174,7 +174,7 @@ public class Historique20Detail {
     private String devise;
 
 	// ✅ Constructeur vide (nécessaire pour Spring Boot)
-	public Historique20Detail() {}
+	public Historique6Detail() {}
 
 	// ✅ Getters et Setters
 	public String getId() { return id; }

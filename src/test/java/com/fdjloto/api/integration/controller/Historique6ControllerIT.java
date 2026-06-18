@@ -1,7 +1,7 @@
 package com.fdjloto.api.integration.controller;
 
-import com.fdjloto.api.model.Historique20Result;
-import com.fdjloto.api.service.Historique20Service;
+import com.fdjloto.api.model.Historique6Result;
+import com.fdjloto.api.service.Historique6Service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,23 +25,23 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class Historique20ControllerIT {
+class Historique6ControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private Historique20Service historique20Service;
+    private Historique6Service historique6Service;
 
     // ============================================================
     // 1️⃣ SUCCESS → 200 OK
     // ============================================================
 
     @Test
-    @DisplayName("GET /api/historique/last20 should return list of results")
-    void shouldReturnLast20Results() throws Exception {
+    @DisplayName("GET /api/historique/last6 should return list of results")
+    void shouldReturnLast6Results() throws Exception {
 
-        Historique20Result mockResult = new Historique20Result();
+        Historique6Result mockResult = new Historique6Result();
         mockResult.setId("abc123");
         mockResult.setDateDeTirage(new Date());
         mockResult.setBoule1(1);
@@ -51,10 +51,10 @@ class Historique20ControllerIT {
         mockResult.setBoule5(5);
         mockResult.setNumeroChance(7);
 
-        when(historique20Service.getLast20Results())
+        when(historique6Service.getLast6Results())
                 .thenReturn(List.of(mockResult));
 
-        mockMvc.perform(get("/api/historique/last20"))
+        mockMvc.perform(get("/api/historique/last6"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith("application/json"))
                 .andExpect(jsonPath("$[0].id").value("abc123"))
@@ -67,13 +67,13 @@ class Historique20ControllerIT {
     // ============================================================
 
     @Test
-    @DisplayName("GET /api/historique/last20 should return empty list")
+    @DisplayName("GET /api/historique/last6 should return empty list")
     void shouldReturnEmptyList() throws Exception {
 
-        when(historique20Service.getLast20Results())
+        when(historique6Service.getLast6Results())
                 .thenReturn(List.of());
 
-        mockMvc.perform(get("/api/historique/last20"))
+        mockMvc.perform(get("/api/historique/last6"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
     }
@@ -87,7 +87,7 @@ class Historique20ControllerIT {
     void shouldReturn405ForWrongMethod() throws Exception {
 
         mockMvc.perform(
-                org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post("/api/historique/last20")
+                org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post("/api/historique/last6")
         )
                 .andExpect(status().isMethodNotAllowed());
     }

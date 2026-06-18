@@ -1,6 +1,6 @@
 package com.fdjloto.api.controller;
 
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.service.Historique6DetailService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,7 +16,7 @@ class TirageParDateControllerTest {
 
     @BeforeEach
     void setup() {
-        controller = new TirageParDateController(Mockito.mock(Historique20DetailService.class));
+        controller = new TirageParDateController(Mockito.mock(Historique6DetailService.class));
     }
 
     // ===============================

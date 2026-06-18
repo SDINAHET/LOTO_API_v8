@@ -339,10 +339,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/historique/last20").permitAll()
+                        .requestMatchers("/api/historique/last6").permitAll()
                         .requestMatchers("/api/predictions/generate", "/api/generate", "/api/predictions/latest").permitAll()
-                        .requestMatchers("/api/historique/last20/Detail/**").permitAll()
-                        .requestMatchers("/api/historique/last20/detail/**").permitAll()
+                        .requestMatchers("/api/historique/last6/Detail/**").permitAll()
+                        .requestMatchers("/api/historique/last6/detail/**").permitAll()
                         .requestMatchers("/api/historique/**").permitAll()
                         .requestMatchers("/api/tirages", "/api/tirages/**").permitAll()
                         .requestMatchers("/api/gains/calculate", "/api/gains","/api/gains/**").hasAnyRole("ADMIN", "USER") // 🔥 PUT accessible aux admins et utilisateurs

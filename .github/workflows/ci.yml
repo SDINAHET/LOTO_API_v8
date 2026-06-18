@@ -125,6 +125,30 @@ jobs:
           docker compose logs --no-color backend
           exit 1
 
+
+      - name: 📊 JaCoCo Report
+        run: mvn -B jacoco:report
+
+      - name: 📤 Upload JaCoCo HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/
+
+      - name: 📝 JaCoCo Summary
+        if: always()
+        run: |
+          echo "## 📊 JaCoCo Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Rapport HTML généré dans l'artifact : **jacoco-report**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f target/site/jacoco/index.html ]; then
+            echo "✅ Rapport JaCoCo généré avec succès." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Rapport JaCoCo introuvable." >> $GITHUB_STEP_SUMMARY
+          fi
+
       # ✅ Fix du problème "relation public.users does not exist"
       # On attend explicitement que les migrations/DDL aient créé la table.
       - name: 🗃️ Wait for users table
@@ -202,3 +226,40 @@ jobs:
       - name: 🛑 Stop containers
         if: always()
         run: docker compose down -v
+  frontend:
+    name: 🎭 Playwright
+    needs: integration
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps
+
+      - name: Front Static
+        run: |
+          python3 -m http.server 5500 --directory src/main/resources/static &
+
+      - name: Playwright
+        run: npm run test:e2e
+
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+
+      - name: 📝 Playwright Summary
+        if: always()
+        run: |
+          echo "## 🎭 Playwright E2E Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Rapport HTML disponible dans l'artifact : **playwright-report**" >> $GITHUB_STEP_SUMMARY

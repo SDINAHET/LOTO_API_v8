@@ -1,7 +1,7 @@
 package com.fdjloto.api.integration.controller;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.service.Historique6DetailService;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,7 @@ class Historique20DetailControllerIT {
     private MockMvc mockMvc;
 
     @MockBean
-    private Historique20DetailService lotoService;
+    private Historique6DetailService lotoService;
 
     // ============================================================
     // 1️⃣ GET TIRAGE BY DATE → 200 OK
@@ -41,7 +41,7 @@ class Historique20DetailControllerIT {
     @DisplayName("Should return draw details by date")
     void shouldReturnTirageByDate() throws Exception {
 
-        Historique20Detail detail = new Historique20Detail();
+        Historique6Detail detail = new Historique6Detail();
 
         Date date = new SimpleDateFormat("dd/MM/yyyy")
                 .parse("15/03/2025");
@@ -58,7 +58,7 @@ class Historique20DetailControllerIT {
                 .thenReturn(Optional.of(detail));
 
         mockMvc.perform(
-                get("/api/historique/last20/Detail/tirage/2025-03-15")
+                get("/api/historique/last6/Detail/tirage/2025-03-15")
         )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.numeroChance").value(6));
@@ -89,7 +89,7 @@ class Historique20DetailControllerIT {
     @DisplayName("Should return draws within date range")
     void shouldReturnTiragesInRange() throws Exception {
 
-        Historique20Detail detail = new Historique20Detail();
+        Historique6Detail detail = new Historique6Detail();
 
         Date date = new SimpleDateFormat("dd/MM/yyyy")
                 .parse("15/03/2025");
@@ -101,7 +101,7 @@ class Historique20DetailControllerIT {
                 .thenReturn(List.of(detail));
 
         mockMvc.perform(
-                get("/api/historique/last20/Detail/tirages")
+                get("/api/historique/last6/Detail/tirages")
                         .param("startDate", "2025-03-01")
                         .param("endDate", "2025-03-31")
         )
@@ -117,7 +117,7 @@ class Historique20DetailControllerIT {
     @DisplayName("Should return single day search if endDate missing")
     void shouldHandleSingleDateSearch() throws Exception {
 
-        Historique20Detail detail = new Historique20Detail();
+        Historique6Detail detail = new Historique6Detail();
 
         Date date = new SimpleDateFormat("dd/MM/yyyy")
                 .parse("15/03/2025");
@@ -129,7 +129,7 @@ class Historique20DetailControllerIT {
                 .thenReturn(List.of(detail));
 
         mockMvc.perform(
-                get("/api/historique/last20/Detail/tirages")
+                get("/api/historique/last6/Detail/tirages")
                         .param("startDate", "2025-03-15")
         )
         .andExpect(status().isOk())
@@ -148,7 +148,7 @@ class Historique20DetailControllerIT {
                 .thenReturn(List.of());
 
         mockMvc.perform(
-                get("/api/historique/last20/Detail/tirages")
+                get("/api/historique/last6/Detail/tirages")
                         .param("startDate", "2025-01-01")
                         .param("endDate", "2025-01-31")
         )
@@ -164,7 +164,7 @@ class Historique20DetailControllerIT {
     void shouldReturn405ForWrongMethod() throws Exception {
 
         mockMvc.perform(
-                post("/api/historique/last20/Detail/tirage/2025-03-15")
+                post("/api/historique/last6/Detail/tirage/2025-03-15")
         )
         .andExpect(status().isMethodNotAllowed());
     }
@@ -178,7 +178,7 @@ class Historique20DetailControllerIT {
     void shouldReturn404ForUnknownUrl() throws Exception {
 
         mockMvc.perform(
-                get("/api/historique/last20/Detail/unknown")
+                get("/api/historique/last6/Detail/unknown")
         )
         .andExpect(status().isNotFound());
     }

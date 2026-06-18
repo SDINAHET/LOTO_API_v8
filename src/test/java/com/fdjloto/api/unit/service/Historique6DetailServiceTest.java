@@ -54,8 +54,8 @@
 
 package com.fdjloto.api.service;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.repository.Historique20DetailRepository;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.repository.Historique6DetailRepository;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -68,20 +68,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(org.mockito.junit.jupiter.MockitoExtension.class)
-class Historique20DetailServiceTest {
+class Historique6DetailServiceTest {
 
     @Mock
-    Historique20DetailRepository repository;
+    Historique6DetailRepository repository;
 
     @InjectMocks
-    Historique20DetailService service;
+    Historique6DetailService service;
 
     @Test
     void getTirageByDate_valid() {
         when(repository.findByDateDeTirage(any()))
-                .thenReturn(Optional.of(new Historique20Detail()));
+                .thenReturn(Optional.of(new Historique6Detail()));
 
-        Optional<Historique20Detail> result =
+        Optional<Historique6Detail> result =
                 service.getTirageByDate("2024-01-01");
 
         assertThat(result).isPresent();
@@ -89,7 +89,7 @@ class Historique20DetailServiceTest {
 
     @Test
     void getTirageByDate_invalid() {
-        Optional<Historique20Detail> result =
+        Optional<Historique6Detail> result =
                 service.getTirageByDate("bad-date");
 
         assertThat(result).isEmpty();
@@ -98,9 +98,9 @@ class Historique20DetailServiceTest {
     @Test
     void getTiragesParPlage_valid() {
         when(repository.findByDateDeTirageBetween(any(), any()))
-                .thenReturn(List.of(new Historique20Detail()));
+                .thenReturn(List.of(new Historique6Detail()));
 
-        List<Historique20Detail> result =
+        List<Historique6Detail> result =
                 service.getTiragesParPlageDeDates("2024-01-01", "2024-01-10");
 
         assertThat(result).isNotEmpty();
@@ -108,7 +108,7 @@ class Historique20DetailServiceTest {
 
     @Test
     void getTiragesParPlage_invalid() {
-        List<Historique20Detail> result =
+        List<Historique6Detail> result =
                 service.getTiragesParPlageDeDates("bad", "bad");
 
         assertThat(result).isEmpty();
@@ -116,9 +116,9 @@ class Historique20DetailServiceTest {
 
     @Test
     void getAllTirages() {
-        when(repository.findAll()).thenReturn(List.of(new Historique20Detail()));
+        when(repository.findAll()).thenReturn(List.of(new Historique6Detail()));
 
-        List<Historique20Detail> result = service.getAllTirages();
+        List<Historique6Detail> result = service.getAllTirages();
 
         assertThat(result).isNotEmpty();
     }
@@ -126,9 +126,9 @@ class Historique20DetailServiceTest {
     @Test
     void getTiragePrecedent() {
         when(repository.findTopByDateDeTirageBeforeOrderByDateDeTirageDesc(any()))
-                .thenReturn(Optional.of(new Historique20Detail()));
+                .thenReturn(Optional.of(new Historique6Detail()));
 
-        Optional<Historique20Detail> result =
+        Optional<Historique6Detail> result =
                 service.getTiragePrecedent(LocalDate.now());
 
         assertThat(result).isPresent();
@@ -137,9 +137,9 @@ class Historique20DetailServiceTest {
     @Test
     void getTirageSuivant() {
         when(repository.findTopByDateDeTirageAfterOrderByDateDeTirageAsc(any()))
-                .thenReturn(Optional.of(new Historique20Detail()));
+                .thenReturn(Optional.of(new Historique6Detail()));
 
-        Optional<Historique20Detail> result =
+        Optional<Historique6Detail> result =
                 service.getTirageSuivant(LocalDate.now());
 
         assertThat(result).isPresent();

@@ -1,6 +1,6 @@
 package com.fdjloto.api.repository;
 
-import com.fdjloto.api.model.Historique20Result;
+import com.fdjloto.api.model.Historique6Result;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -10,14 +10,14 @@ import java.util.List;
  * This interface extends **MongoRepository**, providing built-in CRUD operations.
  */
 @Repository
-public interface Historique20Repository extends MongoRepository<Historique20Result, String> {
+public interface Historique6Repository extends MongoRepository<Historique6Result, String> {
 
     /**
      * Retrieves the **latest 6 lottery results**, ordered by draw date in descending order.
      *
      * @return A **List** of the most recent 6 `Historique20Result` objects.
      */
-    List<Historique20Result> findTop6ByOrderByDateDeTirageDesc();
+    List<Historique6Result> findTop6ByOrderByDateDeTirageDesc();
 }
 
 /**

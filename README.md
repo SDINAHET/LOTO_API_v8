@@ -453,7 +453,7 @@ une documentation exhaustive,
 # 📘 LOTO TRACKER API
 Portfolio 2026 – Holberton School RENNES
 
-Version : v5.0.0
+Version : v8.0.0
 
 Spécification : OpenAPI 3.0
 
@@ -816,11 +816,11 @@ docker compose -f docker-compose.test.yml up --build --abort-on-container-exit
 
 
 
-root@batriviere-serv1:~/Loto_API_prod/src/main/resources/static# sudo chmod -x /root/.nvm/versions/node/v20.19.2/bin/htt
+root:~/Loto_API_prod/src/main/resources/static# sudo chmod -x /root/.nvm/versions/node/v20.19.2/bin/htt
 p-server
-root@batriviere-serv1:~/Loto_API_prod/src/main/resources/static# sudo chmod +x /root/.nvm/versions/node/v20.19.2/bin/htt
+root:~/Loto_API_prod/src/main/resources/static# sudo chmod +x /root/.nvm/versions/node/v20.19.2/bin/htt
 p-server
-root@batriviere-serv1:~/Loto_API_prod/src/main/resources/static# lsof -i :5500
+root:~/Loto_API_prod/src/main/resources/static# lsof -i :5500
 COMMAND    PID     USER   FD   TYPE    DEVICE SIZE/OFF NODE NAME
 apache2 471765 www-data   44u  IPv4 156272529      0t0  TCP localhost:57356->localhost:5500 (CLOSE_WAIT)
 apache2 471766 www-data   44u  IPv4 156282032      0t0  TCP localhost:55852->localhost:5500 (CLOSE_WAIT)
@@ -830,7 +830,7 @@ apache2 471801 www-data   44u  IPv4 156272531      0t0  TCP localhost:57360->loc
 apache2 471968 www-data   44u  IPv4 156273245      0t0  TCP localhost:58362->localhost:5500 (CLOSE_WAIT)
 apache2 478177 www-data   44u  IPv4 156272533      0t0  TCP localhost:57376->localhost:5500 (CLOSE_WAIT)
 apache2 478178 www-data   44u  IPv4 156273428      0t0  TCP localhost:57342->localhost:5500 (CLOSE_WAIT)
-root@batriviere-serv1:~/Loto_API_prod/src/main/resources/static# http-server -p 5500
+root:~/Loto_API_prod/src/main/resources/static# http-server -p 5500
 
 
 export default {
@@ -885,3 +885,29 @@ git clone -b add_password_mongodb https://github.com/SDINAHET/LOTO_API_v7.git
 
 
 http://localhost:8081/ mongo express
+
+
+Maquette du projet:
+Loto-tracker.fr
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=2010-387&t=mH4uOwoJrXRGhy04-1
+
+wireframe
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=2091-174&t=yGrHjmycWnqBtdLu-1
+
+responsive
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=2086-2&t=mH4uOwoJrXRGhy04-1
+
+admin-console:
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=2017-203&t=mH4uOwoJrXRGhy04-1
+
+monitoring
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=2019-176&t=mH4uOwoJrXRGhy04-1
+
+stephane.dinahet.fr
+https://www.figma.com/design/TbLcDOtKStMsAQZ3oJr1um/Figma_Loto_tracker?node-id=0-1&t=mH4uOwoJrXRGhy04-1
+
+
+
+Commande sur le serveur pour lancer le docker......
+docker compose -f docker-compose_serveur.yml down
+docker compose -f docker-compose_serveur.yml up --build -d

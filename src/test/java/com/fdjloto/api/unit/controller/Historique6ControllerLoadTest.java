@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Historique20ControllerLoadTest {
+class Historique6ControllerLoadTest {
 @Test void classLoads_01() {
-            assertDoesNotThrow(() -> Class.forName("com.fdjloto.api.controller.Historique20Controller"));
+            assertDoesNotThrow(() -> Class.forName("com.fdjloto.api.controller.Historique6Controller"));
         }
 // @Test void classLoads_02() {
 //             assertDoesNotThrow(() -> Class.forName("com.fdjloto.api.controller.Historique20Controller"));

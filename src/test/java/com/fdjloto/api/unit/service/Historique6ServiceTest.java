@@ -3,16 +3,16 @@ package com.fdjloto.api.service;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-import com.fdjloto.api.repository.Historique20Repository;
+import com.fdjloto.api.repository.Historique6Repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(org.mockito.junit.jupiter.MockitoExtension.class)
-class Historique20ServiceTest {
-    @Mock Historique20Repository historique20Repository;
+class Historique6ServiceTest {
+    @Mock Historique6Repository historique20Repository;
 
-    @InjectMocks Historique20Service service;
+    @InjectMocks Historique6Service service;
 
 @Test void smoke_01() {
             assertNotNull(service);

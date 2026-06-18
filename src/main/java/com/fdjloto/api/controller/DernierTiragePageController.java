@@ -1,10 +1,10 @@
 package com.fdjloto.api.controller;
 
 import com.fdjloto.api.dto.LotoResultDTO;
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.model.Historique20Result;
-import com.fdjloto.api.service.Historique20DetailService;
-import com.fdjloto.api.service.Historique20Service;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.model.Historique6Result;
+import com.fdjloto.api.service.Historique6DetailService;
+import com.fdjloto.api.service.Historique6Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,25 +20,25 @@ import java.util.Optional;
 @Controller
 public class DernierTiragePageController {
 
-    private final Historique20Service historique20Service;
-    private final Historique20DetailService detailService;
+    private final Historique6Service historique6Service;
+    private final Historique6DetailService detailService;
 
-    public DernierTiragePageController(Historique20Service historique20Service,
-                                       Historique20DetailService detailService) {
-        this.historique20Service = historique20Service;
+    public DernierTiragePageController(Historique6Service historique6Service,
+                                       Historique6DetailService detailService) {
+        this.historique6Service = historique6Service;
         this.detailService = detailService;
     }
 
     @GetMapping({"/dernier-tirage", "/dernier-tirage/"})
     public String dernierTirage(Model model) {
 
-        List<Historique20Result> results = historique20Service.getLast20Results();
+        List<Historique6Result> results = historique6Service.getLast6Results();
         if (results == null || results.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aucun tirage disponible");
         }
 
         // 1er résultat = dernier tirage
-        Historique20Result r = results.get(0);
+        Historique6Result r = results.get(0);
         if (r.getDateDeTirage() == null) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Date de tirage manquante");
         }
@@ -63,7 +63,7 @@ public class DernierTiragePageController {
 
         String dateIso = ld.format(DateTimeFormatter.ISO_LOCAL_DATE);
 
-        Optional<Historique20Detail> detailsOpt = detailService.getTirageByDate(dateIso);
+        Optional<Historique6Detail> detailsOpt = detailService.getTirageByDate(dateIso);
 
         // String dateFr = ld.format(DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.FRENCH));
         String dateFr = ld.format(DateTimeFormatter.ofPattern("EEEE d MMMM yyyy", Locale.FRENCH));

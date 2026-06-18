@@ -855,8 +855,8 @@ class AdminUserStatsControllerDBTest {
     private JdbcTemplate jdbc;
 
     // 🔥 mocks obligatoires pour éviter crash Spring context
-    @MockBean private com.fdjloto.api.repository.Historique20Repository historique20Repository;
-    @MockBean private com.fdjloto.api.repository.Historique20DetailRepository historique20DetailRepository;
+    @MockBean private com.fdjloto.api.repository.Historique6Repository historique6Repository;
+    @MockBean private com.fdjloto.api.repository.Historique6DetailRepository historique6DetailRepository;
     @MockBean private com.fdjloto.api.repository.PredictionRepository predictionRepository;
     @MockBean private com.fdjloto.api.service.PredictionService predictionService;
     @MockBean private com.fdjloto.api.service.PredictionTirageService predictionTirageService;

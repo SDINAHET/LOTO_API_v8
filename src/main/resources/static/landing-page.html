@@ -1762,7 +1762,7 @@ async function load(){
   tbody.innerHTML = `<tr><td colspan="4" class="text-center">Chargement…</td></tr>`;
 
   try{
-    const data = await fetchJson(`${API_BASE}/api/historique/last20`);
+    const data = await fetchJson(`${API_BASE}/api/historique/last6`);
 
     draws = Array.isArray(data) ? data : [];
     draws.sort((a,b) => parseDrawDate(getDateValue(b)) - parseDrawDate(getDateValue(a)));
@@ -1804,12 +1804,12 @@ async function load(){
     });
 
   }catch(e){
-    console.error("Erreur chargement last20 :", e);
+    console.error("Erreur chargement last6 :", e);
     tbody.innerHTML = `
       <tr>
         <td colspan="4" class="text-center">
           Impossible de charger les 6 derniers tirages.<br>
-          Endpoint testé : <code>${API_BASE}/api/historique/last20</code><br>
+          Endpoint testé : <code>${API_BASE}/api/historique/last6</code><br>
           ${String(e.message || e)}
         </td>
       </tr>`;
@@ -2086,8 +2086,8 @@ async function getTirageDetail(dateStr){
   if (tirageDetailsCache[key]) return tirageDetailsCache[key];
 
   const urls = [
-    `${API_BASE}/api/historique/last20/Detail/tirage/${key}`,
-    `${API_BASE}/api/historique/last20/detail/tirage/${key}`
+    `${API_BASE}/api/historique/last6/Detail/tirage/${key}`,
+    `${API_BASE}/api/historique/las6/detail/tirage/${key}`
   ];
 
   for (const url of urls){

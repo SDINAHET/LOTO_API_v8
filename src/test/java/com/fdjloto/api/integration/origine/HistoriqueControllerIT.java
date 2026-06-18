@@ -11,7 +11,7 @@ class HistoriqueControllerIT extends BaseIntegrationTest {
     @Test
     void shouldGetLast20Draws() throws Exception {
 
-        mockMvc.perform(get("/api/historique/last20"))
+        mockMvc.perform(get("/api/historique/last6"))
                 .andExpect(status().isOk());
     }
 

@@ -55,7 +55,7 @@
       const ME_URL      = `${API_BASE}/api/auth/me`;
       const API_TICKETS = `${API_BASE}/api/tickets`;
       const API_GAINS   = `${API_BASE}/api/gains`;
-      const API_TIRAGE  = `${API_BASE}/api/historique/last20/Detail/tirage/`;
+      const API_TIRAGE  = `${API_BASE}/api/historique/last6/Detail/tirage/`;
 
       const okBox  = document.getElementById("okBox");
       const okText = document.getElementById("okText");

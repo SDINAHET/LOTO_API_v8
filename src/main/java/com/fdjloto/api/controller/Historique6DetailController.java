@@ -1,7 +1,7 @@
 package com.fdjloto.api.controller;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.service.Historique6DetailService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -21,18 +21,18 @@ import java.util.List;
 @CrossOrigin(origins = "http://127.0.0.1:5500") // 🔥 Allows CORS for Live Server
 // @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500", "https://stephanedinahet.fr", "https://loto-tracker.fr"})
 @RestController
-@RequestMapping("/api/historique/last20/Detail")
+@RequestMapping("/api/historique/last6/Detail")
 @Tag(name = "Lottery Details", description = "Endpoints for retrieving detailed historical lottery results.")
-public class Historique20DetailController {
+public class Historique6DetailController {
 
-    private final Historique20DetailService lotoService;
+    private final Historique6DetailService lotoService;
 
     /**
      * **Constructor to inject the Historique20DetailService dependency.**
      *
      * @param lotoService Service handling historical lottery details.
      */
-    public Historique20DetailController(Historique20DetailService lotoService) {
+    public Historique6DetailController(Historique6DetailService lotoService) {
         this.lotoService = lotoService;
     }
 
@@ -50,8 +50,8 @@ public class Historique20DetailController {
         @ApiResponse(responseCode = "404", description = "No draw found for the given date.")
     })
     @GetMapping("/tirage/{date}")
-    public ResponseEntity<Historique20Detail> getTirage(@PathVariable String date) {
-        Optional<Historique20Detail> result = lotoService.getTirageByDate(date);
+    public ResponseEntity<Historique6Detail> getTirage(@PathVariable String date) {
+        Optional<Historique6Detail> result = lotoService.getTirageByDate(date);
         return result.map(ResponseEntity::ok)
                      .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
@@ -72,11 +72,11 @@ public class Historique20DetailController {
         @ApiResponse(responseCode = "404", description = "No draws found in the specified date range.")
     })
     @GetMapping("/tirages")
-    public ResponseEntity<List<Historique20Detail>> getTiragesParPlageDeDates(
+    public ResponseEntity<List<Historique6Detail>> getTiragesParPlageDeDates(
             @RequestParam String startDate,
             @RequestParam(required = false) String endDate) {
 
-        List<Historique20Detail> result;
+        List<Historique6Detail> result;
 
         // ✅ If endDate is null, only search for the given startDate
         if (endDate == null || endDate.isEmpty()) {

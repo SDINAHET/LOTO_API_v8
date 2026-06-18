@@ -10,7 +10,7 @@ import java.util.Date;
  * Model representing detailed lottery results for historical draws.
  */
 @Document(collection = "historique")
-public class Historique20Result {
+public class Historique6Result {
     @Id
 	@Schema(description = "Unique identifier for the draw result", example = "123e4567-e89b-12d3-a456-426614174000")
     private String id;
@@ -38,10 +38,10 @@ public class Historique20Result {
 	@Schema(description = "The lucky number (Numéro Chance)", example = "7")
     private int numeroChance;
 
-    public Historique20Result() {}
+    public Historique6Result() {}
 
     // public Historique20Result(Date dateDeTirage, String combinaisonGagnante, int numeroChance) {
-	public Historique20Result(Date dateDeTirage, int boule1, int boule2, int boule3, int boule4, int boule5, int numeroChance) {
+	public Historique6Result(Date dateDeTirage, int boule1, int boule2, int boule3, int boule4, int boule5, int numeroChance) {
         this.dateDeTirage = dateDeTirage;
         // this.combinaisonGagnante = combinaisonGagnante;
 		this.boule1 = boule1;

@@ -8,15 +8,15 @@ import java.time.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Historique20ResultTest {
+class Historique6ResultTest {
 
 @Test void defaultConstructor_createsInstance() {
-                Historique20Result obj = new Historique20Result();
+                Historique6Result obj = new Historique6Result();
                 assertNotNull(obj);
             }
 
 @Test void smoke_02() {
-            Historique20Result obj = new Historique20Result();
+            Historique6Result obj = new Historique6Result();
             assertNotNull(obj);
         }
 

@@ -1,7 +1,7 @@
 package com.fdjloto.api.controller;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.service.Historique6DetailService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,9 +30,9 @@ public class SitemapController {
     // ✅ Heure de fin "théorique" du tirage (après : on bascule au prochain tirage)
     private static final LocalTime DRAW_CUTOFF = LocalTime.of(20, 35);
 
-    private final Historique20DetailService detailService;
+    private final Historique6DetailService detailService;
 
-    public SitemapController(Historique20DetailService detailService) {
+    public SitemapController(Historique6DetailService detailService) {
         this.detailService = detailService;
     }
 
@@ -151,15 +151,15 @@ public class SitemapController {
         // =========================
         // 1) ✅ Tirages PASSÉS (DB)
         // =========================
-        List<Historique20Detail> tirages = detailService.getAllTirages();
+        List<Historique6Detail> tirages = detailService.getAllTirages();
 
         // Trier récent -> ancien
-        tirages.sort(Comparator.comparing(Historique20Detail::getDateDeTirage,
+        tirages.sort(Comparator.comparing(Historique6Detail::getDateDeTirage,
                 Comparator.nullsLast(Comparator.naturalOrder())).reversed());
 
         int pastAdded = 0;
 
-        for (Historique20Detail t : tirages) {
+        for (Historique6Detail t : tirages) {
 
             if (t.getDateDeTirage() == null) continue;
 
@@ -285,13 +285,13 @@ public class SitemapController {
     private String getLastDrawDateIsoOrToday() {
 
         try {
-            List<Historique20Detail> tirages = detailService.getAllTirages();
+            List<Historique6Detail> tirages = detailService.getAllTirages();
             if (tirages == null || tirages.isEmpty()) return LocalDate.now(PARIS).toString();
 
-            tirages.sort(Comparator.comparing(Historique20Detail::getDateDeTirage,
+            tirages.sort(Comparator.comparing(Historique6Detail::getDateDeTirage,
                     Comparator.nullsLast(Comparator.naturalOrder())).reversed());
 
-            for (Historique20Detail t : tirages) {
+            for (Historique6Detail t : tirages) {
                 if (t.getDateDeTirage() == null) continue;
                 LocalDate ld = t.getDateDeTirage().toInstant().atZone(PARIS).toLocalDate();
                 if (isDrawDay(ld)) return ld.toString();

@@ -1,7 +1,7 @@
 package com.fdjloto.api.controller;
 
-import com.fdjloto.api.model.Historique20Detail;
-import com.fdjloto.api.service.Historique20DetailService;
+import com.fdjloto.api.model.Historique6Detail;
+import com.fdjloto.api.service.Historique6DetailService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +18,9 @@ import java.util.Optional;
 @Controller
 public class TirageParDateController {
 
-    private final Historique20DetailService detailService;
+    private final Historique6DetailService detailService;
 
-    public TirageParDateController(Historique20DetailService detailService) {
+    public TirageParDateController(Historique6DetailService detailService) {
         this.detailService = detailService;
     }
 
@@ -81,7 +81,7 @@ public String tirageParDate(@PathVariable String date, Model model) {
     if (!isDrawDay) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
     // 3) Chercher en base
-    Optional<Historique20Detail> detailsOpt = detailService.getTirageByDate(date);
+    Optional<Historique6Detail> detailsOpt = detailService.getTirageByDate(date);
 
     // Helpers prev/next (calendrier pur, marche même sans DB)
     String prevIso = previousDrawDay(ld).toString();
@@ -125,7 +125,7 @@ public String tirageParDate(@PathVariable String date, Model model) {
     }
 
     // 5) Cas OK (en base)
-    Historique20Detail details = detailsOpt.get();
+    Historique6Detail details = detailsOpt.get();
     model.addAttribute("details", details);
     model.addAttribute("isPending", false);
 

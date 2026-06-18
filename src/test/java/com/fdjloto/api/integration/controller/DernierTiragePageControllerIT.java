@@ -1,7 +1,7 @@
 package com.fdjloto.api.integration.controller;
 
-import com.fdjloto.api.model.Historique20Result;
-import com.fdjloto.api.repository.Historique20Repository;
+import com.fdjloto.api.model.Historique6Result;
+import com.fdjloto.api.repository.Historique6Repository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,11 +26,11 @@ class DernierTiragePageControllerIT {
     private MockMvc mockMvc;
 
     @Autowired
-    private Historique20Repository historique20Repository;
+    private Historique6Repository historique6Repository;
 
     @BeforeEach
     void cleanDb() {
-        historique20Repository.deleteAll();
+        historique6Repository.deleteAll();
     }
 
     // ============================================================
@@ -41,7 +41,7 @@ class DernierTiragePageControllerIT {
     @DisplayName("Should return dernier-tirage page with model")
     void shouldReturnDernierTiragePage() throws Exception {
 
-        Historique20Result result = new Historique20Result();
+        Historique6Result result = new Historique6Result();
         result.setDateDeTirage(Date.from(Instant.now()));
         result.setBoule1(1);
         result.setBoule2(2);
@@ -50,7 +50,7 @@ class DernierTiragePageControllerIT {
         result.setBoule5(5);
         result.setNumeroChance(7);
 
-        historique20Repository.save(result);
+        historique6Repository.save(result);
 
         mockMvc.perform(get("/dernier-tirage"))
                 .andExpect(status().isOk())
@@ -82,7 +82,7 @@ class DernierTiragePageControllerIT {
     @DisplayName("Should return 500 if dateDeTirage is null")
     void shouldReturn500IfDateMissing() throws Exception {
 
-        Historique20Result result = new Historique20Result();
+        Historique6Result result = new Historique6Result();
         result.setDateDeTirage(null);
         result.setBoule1(1);
         result.setBoule2(2);
@@ -91,7 +91,7 @@ class DernierTiragePageControllerIT {
         result.setBoule5(5);
         result.setNumeroChance(7);
 
-        historique20Repository.save(result);
+        historique6Repository.save(result);
 
         mockMvc.perform(get("/dernier-tirage"))
                 .andExpect(status().isInternalServerError());
