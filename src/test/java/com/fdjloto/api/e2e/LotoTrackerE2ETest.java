@@ -158,11 +158,27 @@ import org.springframework.test.context.DynamicPropertySource;
 public class LotoTrackerE2ETest {
 
     @Container
+    static PostgreSQLContainer<?> postgres =
+            new PostgreSQLContainer<>("postgres:14")
+                    .withDatabaseName("lotodb_test")
+                    .withUsername("postgrestest")
+                    .withPassword("postgrestest");
+
+    @Container
     static MongoDBContainer mongo =
         new MongoDBContainer("mongo:6.0");
 
+//     @DynamicPropertySource
+//     static void setMongoProperties(DynamicPropertyRegistry registry) {
+//         registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
+//     }
     @DynamicPropertySource
-    static void setMongoProperties(DynamicPropertyRegistry registry) {
+    static void setProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
+        registry.add("spring.datasource.driver-class-name", postgres::getDriverClassName);
+
         registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
     }
 
