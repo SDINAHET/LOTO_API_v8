@@ -54,7 +54,7 @@ jobs:
         run: mvn -B test -Dtest='*Test' -Dsurefire.failIfNoSpecifiedTests=false -Dspring.profiles.active=ci
 
   integration:
-    name: 🐳 Docker Compose Integration Tests
+    name: 🐳 Docker Compose Integration Tests + Jacoco reports
     runs-on: ubuntu-latest
     needs: build
 
@@ -209,11 +209,11 @@ jobs:
             -d '{"numbers":[1,2,3,4,5],"luckyNumber":6,"drawDate":"2025-03-12"}'
           cat ticket.json | jq . || true
 
-      - name: 📜 Last 20 Results
+      - name: 📜 Last 6 Results
         run: |
-          curl -s -o last20.json -w "\nHTTP=%{http_code}\n" \
-            -X GET "http://localhost:8082/api/historique/last20"
-          cat last20.json | jq . || true
+          curl -s -o last6.json -w "\nHTTP=%{http_code}\n" \
+            -X GET "http://localhost:8082/api/historique/last6"
+          cat last6.json | jq . || true
 
       - name: 🧾 Logs (only if failure)
         if: failure()
@@ -226,40 +226,77 @@ jobs:
       - name: 🛑 Stop containers
         if: always()
         run: docker compose down -v
+
+        
   frontend:
-    name: 🎭 Playwright
+    name: 🎭 Playwright E2E Front + Accessibility
     needs: integration
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.59.0-noble
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 🛠 Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+      - name: 📦 Install npm dependencies
+        run: npm ci
 
-      - run: npm ci
+      - name: 🐳 Start backend stack
+        run: docker compose up -d --build postgres mongodb backend
 
-      - run: npx playwright install --with-deps
+      - name: ⏳ Wait API
+        run: |
+          for i in {1..60}; do
+            if curl --silent --fail http://backend:8082/api/hello > /dev/null; then
+              echo "✅ API ready"
+              exit 0
+            fi
+            echo "Waiting API..."
+            sleep 5
+          done
+          docker compose ps
+          docker compose logs --no-color backend
+          exit 1
 
-      - name: Front Static
+      - name: 🌐 Start frontend static
         run: |
           python3 -m http.server 5500 --directory src/main/resources/static &
 
-      - name: Playwright
-        run: npm run test:e2e
+      - name: ⏳ Wait frontend
+        run: |
+          for i in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:5500/index.html > /dev/null; then
+              echo "✅ Front ready"
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
 
-      - name: Upload Playwright Report
+      - name: 🎭 Run Playwright
+        run: npm run test:e2e
+        env:
+          CI: true
+
+      - name: 📤 Upload Playwright Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 30
 
       - name: 📝 Playwright Summary
         if: always()
         run: |
           echo "## 🎭 Playwright E2E Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Rapport HTML disponible dans l'artifact : **playwright-report**" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Tests Playwright exécutés." >> $GITHUB_STEP_SUMMARY
+          echo "📦 Rapport HTML disponible dans l'artifact : **playwright-report**" >> $GITHUB_STEP_SUMMARY
+
+      - name: 🛑 Stop containers
+        if: always()
+        run: docker compose down -v
