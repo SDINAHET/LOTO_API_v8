@@ -153,7 +153,8 @@ import org.springframework.test.context.DynamicPropertySource;
 @SpringBootTest
 @AutoConfigureMockMvc
 // @ActiveProfiles("ci")
-@ActiveProfiles("test")
+// @ActiveProfiles("test")
+@ActiveProfiles({"ci", "test"})
 public class LotoTrackerE2ETest {
 
     @Container
