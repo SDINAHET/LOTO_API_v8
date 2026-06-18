@@ -138,7 +138,8 @@ jobs:
       # - name: 📊 Run tests + JaCoCo Report
       #   # run: mvn -B clean verify -Dspring.profiles.active=ci
       #   run: mvn -B clean verify jacoco:report
-        run: mvn -B clean verify -Dspring.profiles.active=ci
+        # run: mvn -B clean verify -Dspring.profiles.active=ci
+        run: mvn -B clean verify jacoco:report -Dspring.profiles.active=test
 
       - name: 📤 Upload JaCoCo HTML Report
         if: always()
