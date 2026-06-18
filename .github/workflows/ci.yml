@@ -134,10 +134,11 @@ jobs:
 
 
       - name: 📊 JaCoCo Report
-        run: mvn -B jacoco:report
+        # run: mvn -B jacoco:report
       # - name: 📊 Run tests + JaCoCo Report
       #   # run: mvn -B clean verify -Dspring.profiles.active=ci
       #   run: mvn -B clean verify jacoco:report
+        run: mvn -B clean verify -Dspring.profiles.active=ci
 
       - name: 📤 Upload JaCoCo HTML Report
         if: always()
