@@ -149,15 +149,39 @@ jobs:
           path: rows
           merge-multiple: true
 
-      - name: 📊 Build global summary
+      - name: 📊 Build global reports
         run: |
-          echo "## 🧪 Tableau global de compatibilité" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Ubuntu | Java | PostgreSQL | MongoDB | Résultat |" >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          mkdir -p compatibility-report
 
-          if ls rows/*.md >/dev/null 2>&1; then
-            sort rows/*.md >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "| Aucun résultat | - | - | - | ❌ |" >> "$GITHUB_STEP_SUMMARY"
-          fi
+          {
+            echo "# 🧪 Tableau global de compatibilité"
+            echo ""
+            echo "| Ubuntu | Java | PostgreSQL | MongoDB | Résultat |"
+            echo "|---|---|---|---|---|"
+
+            if ls rows/*.md >/dev/null 2>&1; then
+              sort rows/*.md
+            else
+              echo "| Aucun résultat | - | - | - | ❌ |"
+            fi
+          } > compatibility-report/compatibility-summary.md
+
+          {
+            echo "Ubuntu,Java,PostgreSQL,MongoDB,Result"
+            if ls rows/*.md >/dev/null 2>&1; then
+              cat rows/*.md \
+                | sed 's/^| //' \
+                | sed 's/ |$//' \
+                | sed 's/ | /,/g' \
+                | sort
+            fi
+          } > compatibility-report/compatibility-summary.csv
+
+          cat compatibility-report/compatibility-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 📤 Upload global compatibility report
+        uses: actions/upload-artifact@v4
+        with:
+          name: compatibility-global-report
+          path: compatibility-report/
+          retention-days: 30
