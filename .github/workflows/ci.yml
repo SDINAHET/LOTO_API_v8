@@ -304,15 +304,13 @@ jobs:
             exit 1
           fi
 
-          # 1) Récupérer le cookie CSRF
-          curl -s -c cookies.txt \
-            "http://localhost:8082/api/auth/csrf" \
-            -H "Authorization: Bearer $JWT_TOKEN" \
-            -o csrf.json
+          curl -s -c cookies.txt -o csrf.json -w "\nHTTP=%{http_code}\n" \
+            -X POST "http://localhost:8082/api/auth/csrf" \
+            -H "Authorization: Bearer $JWT_TOKEN"
 
           cat csrf.json | jq . || cat csrf.json || true
+          cat cookies.txt
 
-          # 2) Extraire le XSRF-TOKEN depuis les cookies
           XSRF_TOKEN=$(awk '/XSRF-TOKEN/ {print $7}' cookies.txt | tail -1)
 
           if [ -z "$XSRF_TOKEN" ]; then
@@ -323,7 +321,6 @@ jobs:
 
           echo "✅ CSRF token found"
 
-          # 3) Créer le ticket avec JWT + CSRF
           curl -s -b cookies.txt -o ticket.json -w "\nHTTP=%{http_code}\n" \
             -X POST "http://localhost:8082/api/tickets" \
             -H "Content-Type: application/json" \
