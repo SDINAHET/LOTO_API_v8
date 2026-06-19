@@ -102,7 +102,6 @@ jobs:
           set +e
 
           mvn -B clean test \
-          # mvn -B clean verify \
             -Dspring.profiles.active=ci \
             -Dsurefire.failIfNoSpecifiedTests=false \
             > compatibility.log 2>&1

@@ -20,7 +20,7 @@ jobs:
             spring_boot: 3.2.3
             expected: supported
           - java: 24
-            spring_boot: 3.2.3
+            spring_boot: 4.0.0
             expected: experimental
           - java: 25
             spring_boot: 4.0.0
