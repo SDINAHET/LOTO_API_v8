@@ -667,6 +667,22 @@ jobs:
             spring_boot: 3.5.0
             expected: minor-upgrade
             migration_level: realistic
+          - java: 22
+            spring_boot: 3.2.3
+            expected: java-future-test
+            migration_level: exploratory
+          - java: 22
+            spring_boot: 3.5.0
+            expected: java-future-test
+            migration_level: exploratory
+          - java: 23
+            spring_boot: 3.2.3
+            expected: java-future-test
+            migration_level: exploratory
+          - java: 23
+            spring_boot: 3.5.0
+            expected: java-future-test
+            migration_level: exploratory
 
           - java: 24
             spring_boot: 3.5.0
