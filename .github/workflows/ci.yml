@@ -134,8 +134,8 @@ jobs:
 
 
 
-      - name: 📊 JaCoCo Report
-        run: mvn -B jacoco:report
+      # - name: 📊 JaCoCo Report
+      #   run: mvn -B jacoco:report
         # run: mvn -B clean verify jacoco:report
       # - name: 📊 Run tests + JaCoCo Report
       #   # run: mvn -B clean verify -Dspring.profiles.active=ci
@@ -144,10 +144,10 @@ jobs:
         # run: mvn -B clean verify jacoco:report -Dspring.profiles.active=test
         # run: mvn -B clean verify -Dspring.profiles.active=ci
 
-      # - name: 📊 Run tests + JaCoCo
-      #   run: |
-      #       mvn -B clean verify \
-      #           -Dspring.profiles.active=ci
+      - name: 📊 Run tests + JaCoCo
+        run: |
+            mvn -B clean verify \
+                -Dspring.profiles.active=ci
       - name: 🔎 Debug JaCoCo
         if: always()
         run: |
