@@ -295,12 +295,13 @@
 #           retention-days: 30
 
 
-name: 🧪 Compatibility Matrix - Migration Exploratoire
+# name: 🧪 Compatibility Matrix - Migration Exploratoire
+name: 🧪 Migration Audit - Java Spring Boot
 
 on:
   workflow_dispatch:
-  # push:
-  # pull_request:
+  push:
+  pull_request:
 
 jobs:
   exploratory:
