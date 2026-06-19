@@ -145,6 +145,8 @@ import jakarta.servlet.http.Cookie;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
+
 import org.testcontainers.junit.jupiter.Container;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -153,7 +155,7 @@ import org.springframework.test.context.DynamicPropertySource;
 @SpringBootTest
 @AutoConfigureMockMvc
 // @ActiveProfiles("ci")
-// @ActiveProfiles("test")
+@ActiveProfiles("test")
 // @ActiveProfiles({"ci", "test"})
 public class LotoTrackerE2ETest {
 
@@ -171,16 +173,38 @@ public class LotoTrackerE2ETest {
 //     @DynamicPropertySource
 //     static void setMongoProperties(DynamicPropertyRegistry registry) {
 //         registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
-//     }
-    @DynamicPropertySource
-    static void setProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", postgres::getJdbcUrl);
-        registry.add("spring.datasource.username", postgres::getUsername);
-        registry.add("spring.datasource.password", postgres::getPassword);
-        registry.add("spring.datasource.driver-class-name", postgres::getDriverClassName);
+// //     }
+//     @DynamicPropertySource
+//     static void setProperties(DynamicPropertyRegistry registry) {
+//         registry.add("spring.datasource.url", postgres::getJdbcUrl);
+//         registry.add("spring.datasource.username", postgres::getUsername);
+//         registry.add("spring.datasource.password", postgres::getPassword);
+//         registry.add("spring.datasource.driver-class-name", postgres::getDriverClassName);
 
-        registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
-    }
+//         registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
+//     }
+        @DynamicPropertySource
+        static void setProperties(DynamicPropertyRegistry registry) {
+
+                registry.add("spring.datasource.url",
+                postgres::getJdbcUrl);
+
+                registry.add("spring.datasource.username",
+                postgres::getUsername);
+
+                registry.add("spring.datasource.password",
+                postgres::getPassword);
+
+                registry.add("spring.datasource.driver-class-name",
+                postgres::getDriverClassName);
+
+                registry.add("spring.data.mongodb.uri",
+                mongo::getReplicaSetUrl);
+
+        registry.add(
+                "spring.jpa.hibernate.ddl-auto",
+                () -> "create-drop");
+        }
 
     @Autowired
     private MockMvc mockMvc;

@@ -112,28 +112,42 @@ echo "==> Build Spring Boot"
 # mvn clean install
 # mvn clean install -DskipTests
 
+echo "==> Build Spring Boot"
+
+set +e
 mvn clean install | tee /tmp/maven_loto_tests.log
+MAVEN_EXIT_CODE=${PIPESTATUS[0]}
+set -e
 
 echo ""
 echo "========================================"
 echo "📊 RÉSUMÉ TESTS BACKEND / E2E API"
 echo "========================================"
 
-grep "Tests run:" /tmp/maven_loto_tests.log | tail -20
+grep "Tests run:" /tmp/maven_loto_tests.log | tail -20 || true
 
 echo ""
 echo "========================================"
-echo "✅ SYNTHÈSE MAVEN"
+echo "📊 SYNTHÈSE MAVEN"
 echo "========================================"
 echo ""
-echo "✅ Tests backend terminés"
-echo "   Maven/JUnit/Failsafe : OK"
-echo "   E2E API Backend      : OK"
-echo "   JaCoCo couverture    : OK"
-echo ""
 
-grep -E "BUILD SUCCESS|Tests run:|Failures:|Errors:|Skipped:|All coverage checks" /tmp/maven_loto_tests.log | tail -20
+if [ "$MAVEN_EXIT_CODE" -eq 0 ]; then
+  echo "✅ Tests backend terminés"
+  echo "   Maven/JUnit/Failsafe : OK"
+  echo "   E2E API Backend      : OK"
+  echo "   JaCoCo couverture    : OK"
+else
+  echo "❌ Tests backend en échec"
+  echo "   Maven/JUnit/Failsafe : FAILED"
+  echo "   E2E API Backend      : NON VALIDÉ"
+  echo "   JaCoCo couverture    : NON GÉNÉRÉE"
+  echo ""
+  echo "👉 Voir les logs Maven au-dessus."
+  exit "$MAVEN_EXIT_CODE"
+fi
 
+# grep -E "BUILD SUCCESS|Tests run:|Failures:|Errors:|Skipped:|All coverage checks" /tmp/maven_loto_tests.log | tail -20 || true
 
 echo "==> Démarrage Spring Boot"
 nohup mvn spring-boot:run \
