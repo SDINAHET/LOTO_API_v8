@@ -1,4 +1,302 @@
-# name: 🧪 Compatibility Matrix - Migration Exploratoire
+# # name: 🧪 Compatibility Matrix - Migration Exploratoire
+
+# # on:
+# #   workflow_dispatch:
+# #   push:
+# #   pull_request:
+
+# # jobs:
+# #   exploratory:
+# #     name: Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}
+# #     runs-on: ubuntu-24.04
+# #     continue-on-error: true
+
+# #     strategy:
+# #       fail-fast: false
+# #       max-parallel: 1
+# #       matrix:
+# #         include:
+# #           - java: 21
+# #             spring_boot: 3.2.3
+# #             expected: stable-current
+# #             migration_level: production
+# #           - java: 21
+# #             spring_boot: 3.5.0
+# #             expected: minor-upgrade
+# #             migration_level: realistic
+# #           - java: 24
+# #             spring_boot: 3.5.0
+# #             expected: java-future-test
+# #             migration_level: exploratory
+# #           - java: 25
+# #             spring_boot: 4.0.0
+# #             expected: major-upgrade
+# #             migration_level: exploratory
+# #           - java: 26
+# #             spring_boot: 4.1.0
+# #             expected: very-experimental
+# #             migration_level: research
+
+# #     services:
+# #       postgres:
+# #         image: postgres:17
+# #         env:
+# #           POSTGRES_DB: lotodb
+# #           POSTGRES_USER: postgres
+# #           POSTGRES_PASSWORD: postgres
+# #         ports:
+# #           - 5432:5432
+# #         options: >-
+# #           --health-cmd="pg_isready -U postgres -d lotodb"
+# #           --health-interval=10s
+# #           --health-timeout=5s
+# #           --health-retries=20
+
+# #       mongodb:
+# #         image: mongo:8
+# #         env:
+# #           MONGO_INITDB_ROOT_USERNAME: mongotest
+# #           MONGO_INITDB_ROOT_PASSWORD: mongotest
+# #           MONGO_INITDB_DATABASE: lotodb_test
+# #         ports:
+# #           - 27017:27017
+
+# #     steps:
+# #       - name: 🛠 Checkout
+# #         uses: actions/checkout@v4
+
+# #       - name: 🔧 Setup Java ${{ matrix.java }}
+# #         uses: actions/setup-java@v4
+# #         continue-on-error: true
+# #         with:
+# #           distribution: temurin
+# #           java-version: ${{ matrix.java }}
+# #           cache: maven
+
+# #       - name: 🧰 Install tools
+# #         run: |
+# #           sudo apt-get update
+# #           sudo apt-get install -y netcat-openbsd postgresql-client
+
+# #       - name: 📁 Prepare report folder
+# #         run: |
+# #           mkdir -p migration-report
+# #           echo "Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}" > migration-report/context.txt
+# #           java -version > migration-report/java-version.txt 2>&1 || true
+# #           mvn -version > migration-report/maven-version.txt 2>&1 || true
+
+# #       - name: 🔬 Patch pom.xml temporarily
+# #         run: |
+# #           sed -i "s|<java.version>.*</java.version>|<java.version>${{ matrix.java }}</java.version>|g" pom.xml
+# #           sed -i "/<parent>/,/<\/parent>/s|<version>.*</version>|<version>${{ matrix.spring_boot }}</version>|" pom.xml
+
+# #           cp pom.xml migration-report/pom-patched.xml
+
+# #           grep -n "spring-boot-starter-parent\|<java.version>\|<version>" pom.xml | head -80 \
+# #             > migration-report/pom-key-versions.txt || true
+
+# #       - name: ✅ Validate patched pom.xml
+# #         continue-on-error: true
+# #         run: |
+# #           set +e
+
+# #           mvn -B help:effective-pom \
+# #             > migration-report/effective-pom.xml 2> migration-report/effective-pom-errors.log
+# #           EFFECTIVE_CODE=$?
+
+# #           mvn -B validate \
+# #             > migration-report/maven-validate.log 2>&1
+# #           VALIDATE_CODE=$?
+
+# #           if [ "$EFFECTIVE_CODE" -eq 0 ] && [ "$VALIDATE_CODE" -eq 0 ]; then
+# #             echo "POM_STATUS=✅ POM OK" >> "$GITHUB_ENV"
+# #           else
+# #             echo "POM_STATUS=❌ POM FAILED" >> "$GITHUB_ENV"
+# #           fi
+
+# #           exit 0
+
+# #       - name: ⏳ Wait PostgreSQL
+# #         run: |
+# #           for i in {1..60}; do
+# #             if pg_isready -h localhost -p 5432 -U postgres -d lotodb; then
+# #               echo "✅ PostgreSQL ready"
+# #               exit 0
+# #             fi
+# #             sleep 2
+# #           done
+# #           echo "❌ PostgreSQL not ready"
+# #           exit 1
+
+# #       - name: ⏳ Wait MongoDB
+# #         run: |
+# #           for i in {1..60}; do
+# #             if nc -z localhost 27017; then
+# #               echo "✅ MongoDB ready"
+# #               exit 0
+# #             fi
+# #             sleep 2
+# #           done
+# #           echo "❌ MongoDB not ready"
+# #           exit 1
+
+# #       - name: 📦 Maven dependency audit
+# #         continue-on-error: true
+# #         run: |
+# #           set +e
+# #           mvn -B versions:display-dependency-updates > migration-report/dependency-updates.txt 2>&1
+# #           mvn -B versions:display-plugin-updates > migration-report/plugin-updates.txt 2>&1
+# #           mvn -B versions:display-property-updates > migration-report/property-updates.txt 2>&1
+# #           mvn -B dependency:tree > migration-report/dependency-tree.txt 2>&1
+# #           mvn -B dependency:analyze > migration-report/dependency-analyze.txt 2>&1
+# #           exit 0
+
+# #       - name: 🧪 Compile and test
+# #         env:
+# #           SPRING_PROFILES_ACTIVE: ci
+# #           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/lotodb
+# #           SPRING_DATASOURCE_USERNAME: postgres
+# #           SPRING_DATASOURCE_PASSWORD: postgres
+# #           SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
+# #         run: |
+# #           set +e
+
+# #           mvn -B clean verify \
+# #             -Dspring.profiles.active=ci \
+# #             -Dsurefire.failIfNoSpecifiedTests=false \
+# #             > migration-report/exploratory.log 2>&1
+
+# #           CODE=$?
+
+# #           STATUS="❌ FAILED"
+# #           RAW_STATUS="FAILED"
+
+# #           if [ "$CODE" -eq 0 ]; then
+# #             STATUS="✅ OK"
+# #             RAW_STATUS="OK"
+# #           fi
+
+# #           ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
+
+# #           echo "| Java ${{ matrix.java }} | Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $POM_STATUS | $STATUS |" > "$ROW_FILE"
+# #           echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
+
+# #           {
+# #             echo "# Rapport exploratoire"
+# #             echo ""
+# #             echo "- Java : ${{ matrix.java }}"
+# #             echo "- Spring Boot : ${{ matrix.spring_boot }}"
+# #             echo "- Statut attendu : ${{ matrix.expected }}"
+# #             echo "- Niveau de migration : ${{ matrix.migration_level }}"
+# #             echo "- POM patché : $POM_STATUS"
+# #             echo "- Résultat tests : $RAW_STATUS"
+# #           } > migration-report/result-summary.md
+
+# #           exit 0
+
+# #       - name: 📤 Upload row
+# #         if: always()
+# #         uses: actions/upload-artifact@v4
+# #         with:
+# #           name: row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
+# #           path: ${{ env.ROW_FILE }}
+# #           retention-days: 30
+
+# #       - name: 📤 Upload migration report
+# #         if: always()
+# #         uses: actions/upload-artifact@v4
+# #         with:
+# #           name: migration-report-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
+# #           path: migration-report/
+# #           retention-days: 30
+
+# #   summary:
+# #     name: 📊 Exploratory Compatibility Table
+# #     runs-on: ubuntu-latest
+# #     needs: exploratory
+# #     if: always()
+
+# #     steps:
+# #       - name: 📥 Download rows
+# #         uses: actions/download-artifact@v4
+# #         with:
+# #           pattern: row-*
+# #           path: rows
+# #           merge-multiple: true
+
+# #       - name: 📊 Build final migration report
+# #         run: |
+# #           mkdir -p exploratory-report
+
+# #           TOTAL=$(ls rows/*.md 2>/dev/null | wc -l | tr -d ' ')
+# #           POM_OK=$(grep -h "POM OK" rows/*.md 2>/dev/null | wc -l | tr -d ' ')
+# #           TEST_OK=$(grep -h "✅ OK" rows/*.md 2>/dev/null | wc -l | tr -d ' ')
+
+# #           {
+# #             echo "# 🧪 Rapport final - Migration exploratoire Java / Spring Boot"
+# #             echo ""
+# #             echo "## Tableau de compatibilité"
+# #             echo ""
+# #             echo "| Java | Spring Boot | Objectif | Niveau | POM patché | Tests |"
+# #             echo "|---|---|---|---|---|---|"
+
+# #             if ls rows/*.md >/dev/null 2>&1; then
+# #               sort rows/*.md
+# #             else
+# #               echo "| Aucun résultat | - | - | - | ❌ | ❌ |"
+# #             fi
+
+# #             echo ""
+# #             echo "## Synthèse"
+# #             echo ""
+# #             echo "| Elément | Valeur |"
+# #             echo "|---|---|"
+# #             echo "| Configurations testées | $TOTAL |"
+# #             echo "| Java stable | Java 21 |"
+# #             echo "| Spring Boot stable | 3.2.3 |"
+# #             echo "| POM valides | $POM_OK/$TOTAL |"
+# #             echo "| Tests réussis | $TEST_OK/$TOTAL |"
+# #             echo "| PostgreSQL | 17 |"
+# #             echo "| MongoDB | 8 |"
+# #             echo "| Workflow | Migration exploratoire |"
+# #             echo "| Outil CI/CD | GitHub Actions |"
+# #             echo "| Environnement | Ubuntu 24.04 |"
+# #             echo "| Objectif | Préparer les migrations futures Java / Spring Boot |"
+# #             echo "| Artifacts générés | Logs Maven, effective-pom, pom patché, dependency tree, plugin updates, dependency updates |"
+
+# #             echo ""
+# #             echo "## Interprétation"
+# #             echo ""
+# #             echo "Ce workflow permet d'identifier les configurations stables, les migrations réalistes et les migrations expérimentales."
+# #             echo "La configuration de production reste Java 21 avec Spring Boot 3.2.3."
+# #             echo "Les autres combinaisons servent à anticiper les adaptations nécessaires pour les futures migrations."
+# #           } > exploratory-report/exploratory-summary.md
+
+# #           cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+# #       - name: 📄 Generate CSV report
+# #         run: |
+# #           {
+# #             echo "Java,SpringBoot,Objectif,Niveau,POM,Tests"
+# #             if ls rows/*.md >/dev/null 2>&1; then
+# #               cat rows/*.md \
+# #                 | sed 's/^| //' \
+# #                 | sed 's/ |$//' \
+# #                 | sed 's/ | /,/g' \
+# #                 | sort
+# #             fi
+# #           } > exploratory-report/exploratory-summary.csv
+
+# #       - name: 📤 Upload final exploratory report
+# #         uses: actions/upload-artifact@v4
+# #         with:
+# #           name: exploratory-final-report
+# #           path: exploratory-report/
+# #           retention-days: 30
+
+
+# # name: 🧪 Compatibility Matrix - Migration Exploratoire
+# name: 🧪 Migration Audit - Java Spring Boot
 
 # on:
 #   workflow_dispatch:
@@ -20,18 +318,22 @@
 #             spring_boot: 3.2.3
 #             expected: stable-current
 #             migration_level: production
+
 #           - java: 21
 #             spring_boot: 3.5.0
 #             expected: minor-upgrade
 #             migration_level: realistic
+
 #           - java: 24
 #             spring_boot: 3.5.0
 #             expected: java-future-test
 #             migration_level: exploratory
+
 #           - java: 25
 #             spring_boot: 4.0.0
 #             expected: major-upgrade
 #             migration_level: exploratory
+
 #           - java: 26
 #             spring_boot: 4.1.0
 #             expected: very-experimental
@@ -81,7 +383,8 @@
 #       - name: 📁 Prepare report folder
 #         run: |
 #           mkdir -p migration-report
-#           echo "Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}" > migration-report/context.txt
+#           echo "POM actuel : Java 21 / Spring Boot 3.2.3" > migration-report/context.txt
+#           echo "POM patché : Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}" >> migration-report/context.txt
 #           java -version > migration-report/java-version.txt 2>&1 || true
 #           mvn -version > migration-report/maven-version.txt 2>&1 || true
 
@@ -108,12 +411,12 @@
 #             > migration-report/maven-validate.log 2>&1
 #           VALIDATE_CODE=$?
 
+#           POM_STATUS="❌ FAILED"
 #           if [ "$EFFECTIVE_CODE" -eq 0 ] && [ "$VALIDATE_CODE" -eq 0 ]; then
-#             echo "POM_STATUS=✅ POM OK" >> "$GITHUB_ENV"
-#           else
-#             echo "POM_STATUS=❌ POM FAILED" >> "$GITHUB_ENV"
+#             POM_STATUS="✅ OK"
 #           fi
 
+#           echo "POM_STATUS=$POM_STATUS" >> "$GITHUB_ENV"
 #           exit 0
 
 #       - name: ⏳ Wait PostgreSQL
@@ -151,7 +454,23 @@
 #           mvn -B dependency:analyze > migration-report/dependency-analyze.txt 2>&1
 #           exit 0
 
-#       - name: 🧪 Compile and test
+#       - name: 🏗 Compile
+#         continue-on-error: true
+#         run: |
+#           set +e
+#           mvn -B clean compile \
+#             -Dspring.profiles.active=ci \
+#             > migration-report/compile.log 2>&1
+
+#           CODE=$?
+#           STATUS="❌ FAILED"
+#           [ "$CODE" -eq 0 ] && STATUS="✅ OK"
+
+#           echo "COMPILE_STATUS=$STATUS" >> "$GITHUB_ENV"
+#           exit 0
+
+#       - name: 🧪 Unit tests
+#         continue-on-error: true
 #         env:
 #           SPRING_PROFILES_ACTIVE: ci
 #           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/lotodb
@@ -160,39 +479,60 @@
 #           SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
 #         run: |
 #           set +e
-
-#           mvn -B clean verify \
+#           mvn -B test \
 #             -Dspring.profiles.active=ci \
 #             -Dsurefire.failIfNoSpecifiedTests=false \
-#             > migration-report/exploratory.log 2>&1
+#             > migration-report/unit-tests.log 2>&1
 
 #           CODE=$?
-
 #           STATUS="❌ FAILED"
-#           RAW_STATUS="FAILED"
+#           [ "$CODE" -eq 0 ] && STATUS="✅ OK"
 
-#           if [ "$CODE" -eq 0 ]; then
-#             STATUS="✅ OK"
-#             RAW_STATUS="OK"
-#           fi
+#           echo "UNIT_STATUS=$STATUS" >> "$GITHUB_ENV"
+#           exit 0
 
+#       - name: 🔗 Integration tests
+#         continue-on-error: true
+#         env:
+#           SPRING_PROFILES_ACTIVE: ci
+#           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/lotodb
+#           SPRING_DATASOURCE_USERNAME: postgres
+#           SPRING_DATASOURCE_PASSWORD: postgres
+#           SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
+#         run: |
+#           set +e
+#           mvn -B failsafe:integration-test failsafe:verify \
+#             -Dspring.profiles.active=ci \
+#             -Dsurefire.failIfNoSpecifiedTests=false \
+#             > migration-report/integration-tests.log 2>&1
+
+#           CODE=$?
+#           STATUS="❌ FAILED"
+#           [ "$CODE" -eq 0 ] && STATUS="✅ OK"
+
+#           echo "INTEGRATION_STATUS=$STATUS" >> "$GITHUB_ENV"
+#           exit 0
+
+#       - name: 🧾 Generate row report
+#         run: |
 #           ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
 
-#           echo "| Java ${{ matrix.java }} | Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $POM_STATUS | $STATUS |" > "$ROW_FILE"
-#           echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
+#           echo "| Java 21 / Spring Boot 3.2.3 | Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $POM_STATUS | $COMPILE_STATUS | $UNIT_STATUS | $INTEGRATION_STATUS |" > "$ROW_FILE"
 
 #           {
 #             echo "# Rapport exploratoire"
 #             echo ""
-#             echo "- Java : ${{ matrix.java }}"
-#             echo "- Spring Boot : ${{ matrix.spring_boot }}"
-#             echo "- Statut attendu : ${{ matrix.expected }}"
-#             echo "- Niveau de migration : ${{ matrix.migration_level }}"
-#             echo "- POM patché : $POM_STATUS"
-#             echo "- Résultat tests : $RAW_STATUS"
+#             echo "- POM actuel : Java 21 / Spring Boot 3.2.3"
+#             echo "- POM patché : Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}"
+#             echo "- Objectif : ${{ matrix.expected }}"
+#             echo "- Niveau : ${{ matrix.migration_level }}"
+#             echo "- Validation POM : $POM_STATUS"
+#             echo "- Compilation : $COMPILE_STATUS"
+#             echo "- Tests unitaires : $UNIT_STATUS"
+#             echo "- Tests d'intégration : $INTEGRATION_STATUS"
 #           } > migration-report/result-summary.md
 
-#           exit 0
+#           echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
 
 #       - name: 📤 Upload row
 #         if: always()
@@ -211,7 +551,7 @@
 #           retention-days: 30
 
 #   summary:
-#     name: 📊 Exploratory Compatibility Table
+#     name: 📊 Final Migration Report
 #     runs-on: ubuntu-latest
 #     needs: exploratory
 #     if: always()
@@ -229,47 +569,51 @@
 #           mkdir -p exploratory-report
 
 #           TOTAL=$(ls rows/*.md 2>/dev/null | wc -l | tr -d ' ')
-#           POM_OK=$(grep -h "POM OK" rows/*.md 2>/dev/null | wc -l | tr -d ' ')
-#           TEST_OK=$(grep -h "✅ OK" rows/*.md 2>/dev/null | wc -l | tr -d ' ')
+#           POM_OK=$(awk -F'|' '{print $6}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+#           COMPILE_OK=$(awk -F'|' '{print $7}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+#           UNIT_OK=$(awk -F'|' '{print $8}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+#           INTEGRATION_OK=$(awk -F'|' '{print $9}' rows/*.md 2>/dev/null | grep -c "OK" || true)
 
 #           {
 #             echo "# 🧪 Rapport final - Migration exploratoire Java / Spring Boot"
 #             echo ""
 #             echo "## Tableau de compatibilité"
 #             echo ""
-#             echo "| Java | Spring Boot | Objectif | Niveau | POM patché | Tests |"
-#             echo "|---|---|---|---|---|---|"
+#             echo "| POM actuel | POM patché | Objectif | Niveau | Validation POM | Compilation | Tests unitaires | Tests intégration |"
+#             echo "|---|---|---|---|---|---|---|---|"
 
 #             if ls rows/*.md >/dev/null 2>&1; then
 #               sort rows/*.md
 #             else
-#               echo "| Aucun résultat | - | - | - | ❌ | ❌ |"
+#               echo "| Aucun résultat | - | - | - | ❌ | ❌ | ❌ | ❌ |"
 #             fi
 
 #             echo ""
 #             echo "## Synthèse"
 #             echo ""
-#             echo "| Elément | Valeur |"
+#             echo "| Élément | Valeur |"
 #             echo "|---|---|"
 #             echo "| Configurations testées | $TOTAL |"
-#             echo "| Java stable | Java 21 |"
-#             echo "| Spring Boot stable | 3.2.3 |"
-#             echo "| POM valides | $POM_OK/$TOTAL |"
-#             echo "| Tests réussis | $TEST_OK/$TOTAL |"
-#             echo "| PostgreSQL | 17 |"
-#             echo "| MongoDB | 8 |"
-#             echo "| Workflow | Migration exploratoire |"
+#             echo "| Socle stable actuel | Java 21 / Spring Boot 3.2.3 |"
+#             echo "| POM patchés valides | $POM_OK/$TOTAL |"
+#             echo "| Compilations réussies | $COMPILE_OK/$TOTAL |"
+#             echo "| Tests unitaires réussis | $UNIT_OK/$TOTAL |"
+#             echo "| Tests d'intégration réussis | $INTEGRATION_OK/$TOTAL |"
+#             echo "| PostgreSQL utilisé | 17 |"
+#             echo "| MongoDB utilisé | 8 |"
+#             echo "| Environnement CI | Ubuntu 24.04 |"
 #             echo "| Outil CI/CD | GitHub Actions |"
-#             echo "| Environnement | Ubuntu 24.04 |"
 #             echo "| Objectif | Préparer les migrations futures Java / Spring Boot |"
-#             echo "| Artifacts générés | Logs Maven, effective-pom, pom patché, dependency tree, plugin updates, dependency updates |"
+#             echo "| Artifacts générés | POM patché, effective-pom, logs Maven, dependency tree, plugin updates, dependency updates, property updates |"
 
 #             echo ""
 #             echo "## Interprétation"
 #             echo ""
-#             echo "Ce workflow permet d'identifier les configurations stables, les migrations réalistes et les migrations expérimentales."
-#             echo "La configuration de production reste Java 21 avec Spring Boot 3.2.3."
-#             echo "Les autres combinaisons servent à anticiper les adaptations nécessaires pour les futures migrations."
+#             echo "La validation du POM indique que Maven accepte la configuration patchée."
+#             echo "La compilation permet d'identifier les incompatibilités de code ou de dépendances."
+#             echo "Les tests unitaires vérifient le comportement fonctionnel isolé."
+#             echo "Les tests d'intégration vérifient le comportement avec PostgreSQL, MongoDB et le contexte Spring."
+#             echo "Ce workflow ne migre pas automatiquement le projet, mais fournit une base d'analyse pour préparer une migration maîtrisée."
 #           } > exploratory-report/exploratory-summary.md
 
 #           cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
@@ -277,7 +621,7 @@
 #       - name: 📄 Generate CSV report
 #         run: |
 #           {
-#             echo "Java,SpringBoot,Objectif,Niveau,POM,Tests"
+#             echo "POM actuel,POM patché,Objectif,Niveau,Validation POM,Compilation,Tests unitaires,Tests integration"
 #             if ls rows/*.md >/dev/null 2>&1; then
 #               cat rows/*.md \
 #                 | sed 's/^| //' \
@@ -295,13 +639,11 @@
 #           retention-days: 30
 
 
-# name: 🧪 Compatibility Matrix - Migration Exploratoire
+
 name: 🧪 Migration Audit - Java Spring Boot
 
 on:
   workflow_dispatch:
-  push:
-  pull_request:
 
 jobs:
   exploratory:
@@ -367,7 +709,16 @@ jobs:
       - name: 🛠 Checkout
         uses: actions/checkout@v4
 
+      - name: 🧩 Init statuses
+        run: |
+          echo "JAVA_STATUS=❌ NOT_RUN" >> "$GITHUB_ENV"
+          echo "POM_STATUS=❌ NOT_RUN" >> "$GITHUB_ENV"
+          echo "COMPILE_STATUS=❌ NOT_RUN" >> "$GITHUB_ENV"
+          echo "UNIT_STATUS=❌ NOT_RUN" >> "$GITHUB_ENV"
+          echo "INTEGRATION_STATUS=❌ NOT_RUN" >> "$GITHUB_ENV"
+
       - name: 🔧 Setup Java ${{ matrix.java }}
+        id: setup_java
         uses: actions/setup-java@v4
         continue-on-error: true
         with:
@@ -375,20 +726,34 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: maven
 
+      - name: ✅ Mark Java status
+        if: always()
+        run: |
+          if [ "${{ steps.setup_java.outcome }}" = "success" ]; then
+            echo "JAVA_STATUS=✅ OK" >> "$GITHUB_ENV"
+          else
+            echo "JAVA_STATUS=❌ FAILED" >> "$GITHUB_ENV"
+          fi
+
       - name: 🧰 Install tools
+        if: steps.setup_java.outcome == 'success'
         run: |
           sudo apt-get update
           sudo apt-get install -y netcat-openbsd postgresql-client
 
       - name: 📁 Prepare report folder
+        if: always()
         run: |
           mkdir -p migration-report
           echo "POM actuel : Java 21 / Spring Boot 3.2.3" > migration-report/context.txt
           echo "POM patché : Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}" >> migration-report/context.txt
+          echo "Niveau : ${{ matrix.migration_level }}" >> migration-report/context.txt
+          echo "Objectif : ${{ matrix.expected }}" >> migration-report/context.txt
           java -version > migration-report/java-version.txt 2>&1 || true
           mvn -version > migration-report/maven-version.txt 2>&1 || true
 
       - name: 🔬 Patch pom.xml temporarily
+        if: steps.setup_java.outcome == 'success'
         run: |
           sed -i "s|<java.version>.*</java.version>|<java.version>${{ matrix.java }}</java.version>|g" pom.xml
           sed -i "/<parent>/,/<\/parent>/s|<version>.*</version>|<version>${{ matrix.spring_boot }}</version>|" pom.xml
@@ -399,6 +764,7 @@ jobs:
             > migration-report/pom-key-versions.txt || true
 
       - name: ✅ Validate patched pom.xml
+        if: steps.setup_java.outcome == 'success'
         continue-on-error: true
         run: |
           set +e
@@ -419,7 +785,15 @@ jobs:
           echo "POM_STATUS=$POM_STATUS" >> "$GITHUB_ENV"
           exit 0
 
+      - name: ⏭️ Skip after invalid Java or POM
+        if: steps.setup_java.outcome != 'success' || env.POM_STATUS != '✅ OK'
+        run: |
+          echo "COMPILE_STATUS=⏭️ SKIPPED" >> "$GITHUB_ENV"
+          echo "UNIT_STATUS=⏭️ SKIPPED" >> "$GITHUB_ENV"
+          echo "INTEGRATION_STATUS=⏭️ SKIPPED" >> "$GITHUB_ENV"
+
       - name: ⏳ Wait PostgreSQL
+        if: steps.setup_java.outcome == 'success' && env.POM_STATUS == '✅ OK'
         run: |
           for i in {1..60}; do
             if pg_isready -h localhost -p 5432 -U postgres -d lotodb; then
@@ -432,6 +806,7 @@ jobs:
           exit 1
 
       - name: ⏳ Wait MongoDB
+        if: steps.setup_java.outcome == 'success' && env.POM_STATUS == '✅ OK'
         run: |
           for i in {1..60}; do
             if nc -z localhost 27017; then
@@ -444,6 +819,7 @@ jobs:
           exit 1
 
       - name: 📦 Maven dependency audit
+        if: steps.setup_java.outcome == 'success' && env.POM_STATUS == '✅ OK'
         continue-on-error: true
         run: |
           set +e
@@ -455,6 +831,7 @@ jobs:
           exit 0
 
       - name: 🏗 Compile
+        if: steps.setup_java.outcome == 'success' && env.POM_STATUS == '✅ OK'
         continue-on-error: true
         run: |
           set +e
@@ -469,7 +846,18 @@ jobs:
           echo "COMPILE_STATUS=$STATUS" >> "$GITHUB_ENV"
           exit 0
 
+      - name: ⏭️ Skip tests if compile failed
+        if: env.COMPILE_STATUS != '✅ OK'
+        run: |
+          if [ "$UNIT_STATUS" = "❌ NOT_RUN" ]; then
+            echo "UNIT_STATUS=⏭️ SKIPPED" >> "$GITHUB_ENV"
+          fi
+          if [ "$INTEGRATION_STATUS" = "❌ NOT_RUN" ]; then
+            echo "INTEGRATION_STATUS=⏭️ SKIPPED" >> "$GITHUB_ENV"
+          fi
+
       - name: 🧪 Unit tests
+        if: env.COMPILE_STATUS == '✅ OK'
         continue-on-error: true
         env:
           SPRING_PROFILES_ACTIVE: ci
@@ -492,6 +880,7 @@ jobs:
           exit 0
 
       - name: 🔗 Integration tests
+        if: env.COMPILE_STATUS == '✅ OK'
         continue-on-error: true
         env:
           SPRING_PROFILES_ACTIVE: ci
@@ -514,10 +903,11 @@ jobs:
           exit 0
 
       - name: 🧾 Generate row report
+        if: always()
         run: |
           ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
 
-          echo "| Java 21 / Spring Boot 3.2.3 | Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $POM_STATUS | $COMPILE_STATUS | $UNIT_STATUS | $INTEGRATION_STATUS |" > "$ROW_FILE"
+          echo "| Java 21 / Spring Boot 3.2.3 | Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $JAVA_STATUS | $POM_STATUS | $COMPILE_STATUS | $UNIT_STATUS | $INTEGRATION_STATUS |" > "$ROW_FILE"
 
           {
             echo "# Rapport exploratoire"
@@ -526,6 +916,7 @@ jobs:
             echo "- POM patché : Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}"
             echo "- Objectif : ${{ matrix.expected }}"
             echo "- Niveau : ${{ matrix.migration_level }}"
+            echo "- Java : $JAVA_STATUS"
             echo "- Validation POM : $POM_STATUS"
             echo "- Compilation : $COMPILE_STATUS"
             echo "- Tests unitaires : $UNIT_STATUS"
@@ -569,23 +960,24 @@ jobs:
           mkdir -p exploratory-report
 
           TOTAL=$(ls rows/*.md 2>/dev/null | wc -l | tr -d ' ')
-          POM_OK=$(awk -F'|' '{print $6}' rows/*.md 2>/dev/null | grep -c "OK" || true)
-          COMPILE_OK=$(awk -F'|' '{print $7}' rows/*.md 2>/dev/null | grep -c "OK" || true)
-          UNIT_OK=$(awk -F'|' '{print $8}' rows/*.md 2>/dev/null | grep -c "OK" || true)
-          INTEGRATION_OK=$(awk -F'|' '{print $9}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+          JAVA_OK=$(awk -F'|' '{print $6}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+          POM_OK=$(awk -F'|' '{print $7}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+          COMPILE_OK=$(awk -F'|' '{print $8}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+          UNIT_OK=$(awk -F'|' '{print $9}' rows/*.md 2>/dev/null | grep -c "OK" || true)
+          INTEGRATION_OK=$(awk -F'|' '{print $10}' rows/*.md 2>/dev/null | grep -c "OK" || true)
 
           {
             echo "# 🧪 Rapport final - Migration exploratoire Java / Spring Boot"
             echo ""
             echo "## Tableau de compatibilité"
             echo ""
-            echo "| POM actuel | POM patché | Objectif | Niveau | Validation POM | Compilation | Tests unitaires | Tests intégration |"
-            echo "|---|---|---|---|---|---|---|---|"
+            echo "| POM actuel | POM patché | Objectif | Niveau | Java | Validation POM | Compilation | Tests unitaires | Tests intégration |"
+            echo "|---|---|---|---|---|---|---|---|---|"
 
             if ls rows/*.md >/dev/null 2>&1; then
               sort rows/*.md
             else
-              echo "| Aucun résultat | - | - | - | ❌ | ❌ | ❌ | ❌ |"
+              echo "| Aucun résultat | - | - | - | ❌ | ❌ | ❌ | ❌ | ❌ |"
             fi
 
             echo ""
@@ -595,6 +987,7 @@ jobs:
             echo "|---|---|"
             echo "| Configurations testées | $TOTAL |"
             echo "| Socle stable actuel | Java 21 / Spring Boot 3.2.3 |"
+            echo "| Java installés avec succès | $JAVA_OK/$TOTAL |"
             echo "| POM patchés valides | $POM_OK/$TOTAL |"
             echo "| Compilations réussies | $COMPILE_OK/$TOTAL |"
             echo "| Tests unitaires réussis | $UNIT_OK/$TOTAL |"
@@ -609,11 +1002,10 @@ jobs:
             echo ""
             echo "## Interprétation"
             echo ""
-            echo "La validation du POM indique que Maven accepte la configuration patchée."
-            echo "La compilation permet d'identifier les incompatibilités de code ou de dépendances."
-            echo "Les tests unitaires vérifient le comportement fonctionnel isolé."
-            echo "Les tests d'intégration vérifient le comportement avec PostgreSQL, MongoDB et le contexte Spring."
-            echo "Ce workflow ne migre pas automatiquement le projet, mais fournit une base d'analyse pour préparer une migration maîtrisée."
+            echo "Ce workflow est volontairement exploratoire et non destructif."
+            echo "Le pom.xml est modifié uniquement dans le runner GitHub Actions."
+            echo "Si une configuration ne compile pas, les tests sont marqués comme SKIPPED afin de ne pas perdre de temps."
+            echo "Le projet reste officiellement ciblé sur Java 21 / Spring Boot 3.2.3 tant qu'une migration n'est pas validée."
           } > exploratory-report/exploratory-summary.md
 
           cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
@@ -621,7 +1013,7 @@ jobs:
       - name: 📄 Generate CSV report
         run: |
           {
-            echo "POM actuel,POM patché,Objectif,Niveau,Validation POM,Compilation,Tests unitaires,Tests integration"
+            echo "POM actuel,POM patché,Objectif,Niveau,Java,Validation POM,Compilation,Tests unitaires,Tests integration"
             if ls rows/*.md >/dev/null 2>&1; then
               cat rows/*.md \
                 | sed 's/^| //' \
