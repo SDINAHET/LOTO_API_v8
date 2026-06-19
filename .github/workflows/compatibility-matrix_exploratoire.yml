@@ -1,4 +1,173 @@
-name: 🧪 Compatibility Matrix - Exploratoire
+# name: 🧪 Compatibility Matrix - Exploratoire
+
+# on:
+#   workflow_dispatch:
+#   push:
+#   pull_request:
+
+# jobs:
+#   exploratory:
+#     name: Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}
+#     runs-on: ubuntu-24.04
+#     continue-on-error: true
+
+#     strategy:
+#       fail-fast: false
+#       max-parallel: 1
+#       matrix:
+#         include:
+#           - java: 21
+#             spring_boot: 3.2.3
+#             expected: supported-current
+
+#           - java: 24
+#             spring_boot: 3.2.3
+#             expected: experimental-old-boot
+
+#           - java: 25
+#             spring_boot: 3.2.3
+#             expected: experimental-old-boot
+
+#           - java: 25
+#             spring_boot: 4.0.0
+#             expected: experimental-supported-by-boot4
+
+#           - java: 26
+#             spring_boot: 4.1.0
+#             expected: experimental-supported-by-boot4.1
+
+#     services:
+#       postgres:
+#         image: postgres:17
+#         env:
+#           POSTGRES_DB: lotodb
+#           POSTGRES_USER: postgres
+#           POSTGRES_PASSWORD: postgres
+#         ports:
+#           - 5432:5432
+#         options: >-
+#           --health-cmd="pg_isready -U postgres -d lotodb"
+#           --health-interval=10s
+#           --health-timeout=5s
+#           --health-retries=20
+
+#       mongodb:
+#         image: mongo:8
+#         env:
+#           MONGO_INITDB_ROOT_USERNAME: mongotest
+#           MONGO_INITDB_ROOT_PASSWORD: mongotest
+#           MONGO_INITDB_DATABASE: lotodb_test
+#         ports:
+#           - 27017:27017
+
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: 🔧 Setup Java ${{ matrix.java }}
+#         uses: actions/setup-java@v4
+#         with:
+#           distribution: temurin
+#           java-version: ${{ matrix.java }}
+#           cache: maven
+
+#       - name: 🧰 Install tools
+#         run: sudo apt-get update && sudo apt-get install -y netcat-openbsd postgresql-client
+
+#       - name: 🔬 Patch pom.xml temporarily
+#         run: |
+#           echo "Patch temporaire du pom.xml dans GitHub Actions uniquement."
+
+#           sed -i "s|<java.version>.*</java.version>|<java.version>${{ matrix.java }}</java.version>|g" pom.xml
+
+#           sed -i "/<parent>/,/<\/parent>/s|<version>.*</version>|<version>${{ matrix.spring_boot }}</version>|" pom.xml
+
+#           grep -n "spring-boot-starter-parent\|<java.version>\|<version>" pom.xml | head -40
+
+#       - name: ⏳ Wait PostgreSQL
+#         run: |
+#           for i in {1..60}; do
+#             pg_isready -h localhost -p 5432 -U postgres -d lotodb && exit 0
+#             sleep 2
+#           done
+#           exit 1
+
+#       - name: ⏳ Wait MongoDB
+#         run: |
+#           for i in {1..60}; do
+#             nc -z localhost 27017 && exit 0
+#             sleep 2
+#           done
+#           exit 1
+
+#       - name: 🧪 Exploratory Test
+#         run: |
+#           set +e
+#           mvn -B clean verify \
+#             -Dspring.profiles.active=ci \
+#             -Dsurefire.failIfNoSpecifiedTests=false \
+#             > exploratory.log 2>&1
+#           CODE=$?
+
+#           STATUS="❌ FAILED"
+#           [ "$CODE" -eq 0 ] && STATUS="✅ OK"
+
+#           ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
+#           echo "| Java ${{ matrix.java }} | Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | $STATUS |" > "$ROW_FILE"
+#           echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
+#           exit 0
+#         env:
+#           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/lotodb
+#           SPRING_DATASOURCE_USERNAME: postgres
+#           SPRING_DATASOURCE_PASSWORD: postgres
+#           SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
+
+#       - name: 📤 Upload row
+#         uses: actions/upload-artifact@v4
+#         if: always()
+#         with:
+#           name: row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
+#           path: ${{ env.ROW_FILE }}
+
+#       - name: 📤 Upload log
+#         uses: actions/upload-artifact@v4
+#         if: always()
+#         with:
+#           name: log-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
+#           path: exploratory.log
+
+#   summary:
+#     name: 📊 Exploratory Compatibility Table
+#     runs-on: ubuntu-latest
+#     needs: exploratory
+#     if: always()
+
+#     steps:
+#       - uses: actions/download-artifact@v4
+#         with:
+#           pattern: row-*
+#           path: rows
+#           merge-multiple: true
+
+#       - name: 📊 Build exploratory report
+#         run: |
+#           mkdir -p exploratory-report
+#           {
+#             echo "# 🧪 Tableau exploratoire Java / Spring Boot"
+#             echo ""
+#             echo "| Java | Spring Boot | Statut attendu | Résultat |"
+#             echo "|---|---|---|---|"
+#             sort rows/*.md
+#           } > exploratory-report/exploratory-summary.md
+
+#           cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+#       - uses: actions/upload-artifact@v4
+#         with:
+#           name: exploratory-global-report
+#           path: exploratory-report/
+
+```yaml
+name: 🧪 Compatibility Matrix - Migration Exploratoire
 
 on:
   workflow_dispatch:
@@ -18,23 +187,28 @@ jobs:
         include:
           - java: 21
             spring_boot: 3.2.3
-            expected: supported-current
+            expected: stable-current
+            migration_level: production
+
+          - java: 21
+            spring_boot: 3.5.0
+            expected: minor-upgrade
+            migration_level: realistic
 
           - java: 24
-            spring_boot: 3.2.3
-            expected: experimental-old-boot
-
-          - java: 25
-            spring_boot: 3.2.3
-            expected: experimental-old-boot
+            spring_boot: 3.5.0
+            expected: java-future-test
+            migration_level: exploratory
 
           - java: 25
             spring_boot: 4.0.0
-            expected: experimental-supported-by-boot4
+            expected: major-upgrade
+            migration_level: exploratory
 
           - java: 26
             spring_boot: 4.1.0
-            expected: experimental-supported-by-boot4.1
+            expected: very-experimental
+            migration_level: research
 
     services:
       postgres:
@@ -61,78 +235,142 @@ jobs:
           - 27017:27017
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 🛠 Checkout
+        uses: actions/checkout@v4
 
       - name: 🔧 Setup Java ${{ matrix.java }}
         uses: actions/setup-java@v4
+        continue-on-error: true
         with:
           distribution: temurin
           java-version: ${{ matrix.java }}
           cache: maven
 
       - name: 🧰 Install tools
-        run: sudo apt-get update && sudo apt-get install -y netcat-openbsd postgresql-client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y netcat-openbsd postgresql-client
+
+      - name: 📁 Prepare report folder
+        run: |
+          mkdir -p migration-report
+          echo "Java ${{ matrix.java }} / Spring Boot ${{ matrix.spring_boot }}" > migration-report/context.txt
+          java -version > migration-report/java-version.txt 2>&1 || true
+          mvn -version > migration-report/maven-version.txt 2>&1 || true
 
       - name: 🔬 Patch pom.xml temporarily
         run: |
-          echo "Modification temporaire du pom.xml dans le runner GitHub Actions uniquement."
+          echo "Patch temporaire du pom.xml dans GitHub Actions uniquement."
 
           sed -i "s|<java.version>.*</java.version>|<java.version>${{ matrix.java }}</java.version>|g" pom.xml
-          sed -i "s|<spring-boot.version>.*</spring-boot.version>|<spring-boot.version>${{ matrix.spring_boot }}</spring-boot.version>|g" pom.xml || true
+          sed -i "/<parent>/,/<\/parent>/s|<version>.*</version>|<version>${{ matrix.spring_boot }}</version>|" pom.xml
 
-          grep -n "java.version\|spring-boot.version" pom.xml || true
+          cp pom.xml migration-report/pom-patched.xml
+
+          grep -n "spring-boot-starter-parent\|<java.version>\|<version>" pom.xml | head -80 \
+            > migration-report/pom-key-versions.txt || true
 
       - name: ⏳ Wait PostgreSQL
         run: |
           for i in {1..60}; do
-            pg_isready -h localhost -p 5432 -U postgres -d lotodb && exit 0
+            if pg_isready -h localhost -p 5432 -U postgres -d lotodb; then
+              echo "✅ PostgreSQL ready"
+              exit 0
+            fi
             sleep 2
           done
+          echo "❌ PostgreSQL not ready"
           exit 1
 
       - name: ⏳ Wait MongoDB
         run: |
           for i in {1..60}; do
-            nc -z localhost 27017 && exit 0
+            if nc -z localhost 27017; then
+              echo "✅ MongoDB ready"
+              exit 0
+            fi
             sleep 2
           done
+          echo "❌ MongoDB not ready"
           exit 1
 
-      - name: 🧪 Exploratory Test
+      - name: 📦 Maven dependency audit
+        continue-on-error: true
         run: |
           set +e
-          mvn -B clean verify \
-            -Dspring.profiles.active=ci \
-            -Dsurefire.failIfNoSpecifiedTests=false \
-            > exploratory.log 2>&1
-          CODE=$?
 
-          STATUS="❌ FAILED"
-          [ "$CODE" -eq 0 ] && STATUS="✅ OK"
+          mvn -B versions:display-dependency-updates \
+            > migration-report/dependency-updates.txt 2>&1
 
-          ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
-          echo "| Java ${{ matrix.java }} | Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | $STATUS |" > "$ROW_FILE"
-          echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
+          mvn -B versions:display-plugin-updates \
+            > migration-report/plugin-updates.txt 2>&1
+
+          mvn -B dependency:tree \
+            > migration-report/dependency-tree.txt 2>&1
+
+          mvn -B dependency:analyze \
+            > migration-report/dependency-analyze.txt 2>&1
+
           exit 0
+
+      - name: 🧪 Compile and test
         env:
+          SPRING_PROFILES_ACTIVE: ci
           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/lotodb
           SPRING_DATASOURCE_USERNAME: postgres
           SPRING_DATASOURCE_PASSWORD: postgres
           SPRING_DATA_MONGODB_URI: mongodb://mongotest:mongotest@localhost:27017/lotodb_test?authSource=admin
+        run: |
+          set +e
+
+          mvn -B clean verify \
+            -Dspring.profiles.active=ci \
+            -Dsurefire.failIfNoSpecifiedTests=false \
+            > migration-report/exploratory.log 2>&1
+
+          CODE=$?
+
+          STATUS="❌ FAILED"
+          RAW_STATUS="FAILED"
+
+          if [ "$CODE" -eq 0 ]; then
+            STATUS="✅ OK"
+            RAW_STATUS="OK"
+          fi
+
+          ROW_FILE="row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}.md"
+
+          echo "| Java ${{ matrix.java }} | Spring Boot ${{ matrix.spring_boot }} | ${{ matrix.expected }} | ${{ matrix.migration_level }} | $STATUS |" > "$ROW_FILE"
+
+          {
+            echo "# Rapport exploratoire"
+            echo ""
+            echo "- Java : ${{ matrix.java }}"
+            echo "- Spring Boot : ${{ matrix.spring_boot }}"
+            echo "- Statut attendu : ${{ matrix.expected }}"
+            echo "- Niveau de migration : ${{ matrix.migration_level }}"
+            echo "- Résultat : $RAW_STATUS"
+          } > migration-report/result-summary.md
+
+          echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
+
+          exit 0
 
       - name: 📤 Upload row
-        uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: row-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
           path: ${{ env.ROW_FILE }}
+          retention-days: 30
 
-      - name: 📤 Upload log
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload migration report
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: log-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
-          path: exploratory.log
+          name: migration-report-java${{ matrix.java }}-springboot${{ matrix.spring_boot }}
+          path: migration-report/
+          retention-days: 30
 
   summary:
     name: 📊 Exploratory Compatibility Table
@@ -141,7 +379,8 @@ jobs:
     if: always()
 
     steps:
-      - uses: actions/download-artifact@v4
+      - name: 📥 Download rows
+        uses: actions/download-artifact@v4
         with:
           pattern: row-*
           path: rows
@@ -150,17 +389,32 @@ jobs:
       - name: 📊 Build exploratory report
         run: |
           mkdir -p exploratory-report
+
           {
             echo "# 🧪 Tableau exploratoire Java / Spring Boot"
             echo ""
-            echo "| Java | Spring Boot | Statut attendu | Résultat |"
-            echo "|---|---|---|---|"
-            sort rows/*.md
+            echo "| Java | Spring Boot | Objectif | Niveau | Résultat |"
+            echo "|---|---|---|---|---|"
+
+            if ls rows/*.md >/dev/null 2>&1; then
+              sort rows/*.md
+            else
+              echo "| Aucun résultat | - | - | - | ❌ |"
+            fi
+
+            echo ""
+            echo "## Analyse"
+            echo ""
+            echo "Ce workflow permet d'évaluer la compatibilité du projet avec différentes versions de Java et Spring Boot."
+            echo "Il génère également des rapports Maven permettant d'identifier les dépendances et plugins à mettre à jour pour une migration future."
           } > exploratory-report/exploratory-summary.md
 
           cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
 
-      - uses: actions/upload-artifact@v4
+      - name: 📤 Upload exploratory global report
+        uses: actions/upload-artifact@v4
         with:
           name: exploratory-global-report
           path: exploratory-report/
+          retention-days: 30
+```
