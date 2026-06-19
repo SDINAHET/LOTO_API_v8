@@ -13,13 +13,13 @@ jobs:
       postgres:
         image: postgres:14
         env:
-          POSTGRES_DB: lotodb_test
-          POSTGRES_USER: postgrestest
-          POSTGRES_PASSWORD: postgrestest
+          POSTGRES_DB: lotodb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
         options: >-
-          --health-cmd="pg_isready -U postgrestest -d lotodb_test"
+          --health-cmd="pg_isready -U postgres -d lotodb"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=20
@@ -106,7 +106,7 @@ jobs:
       - name: ✅ Wait for Postgres
         run: |
           for i in {1..60}; do
-            if docker compose exec -T postgres pg_isready -U postgrestest -d lotodb_test > /dev/null 2>&1; then
+            if docker compose exec -T postgres pg_isready -U postgres -d lotodb > /dev/null 2>&1; then
               echo "✅ Postgres ready"
               exit 0
             fi
@@ -202,10 +202,10 @@ jobs:
       - name: 🗃️ Wait for users table
         run: |
           for i in {1..60}; do
-            if docker compose exec -T postgres psql -U postgrestest -d lotodb_test -tAc \
+            if docker compose exec -T postgres psql -U postgres -d lotodb -tAc \
               "SELECT to_regclass('public.users');" | grep -q "users"; then
               echo "✅ users table exists"
-              docker compose exec -T postgres psql -U postgrestest -d lotodb_test -c \
+              docker compose exec -T postgres psql -U postgres -d lotodb -c \
                 "SELECT id,email,is_admin FROM public.users LIMIT 5;" || true
               exit 0
             fi
@@ -214,8 +214,8 @@ jobs:
           done
           echo "❌ users table never created"
           docker compose logs --no-color backend
-          # docker compose exec -T postgres psql -U postgres -d lotodb -c "\dt" || true
-          docker compose exec -T postgres psql -U postgrestest -d lotodb_test -c "\dt" || true
+          docker compose exec -T postgres psql -U postgres -d lotodb -c "\dt" || true
+          # docker compose exec -T postgres psql -U postgrestest -d lotodb_test -c "\dt" || true
           exit 1
 
       # ✅ Tests API (on crée un user CI, puis login, puis on utilise le JWT)
