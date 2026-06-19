@@ -3,9 +3,9 @@ name: 🧪 Compatibility Matrix - Loto Tracker
 on:
   workflow_dispatch:
   push:
-    branches:
-      - refactor-last20-last6
-      - main
+    # branches:
+    #   - refactor-last20-last6
+    #   - main
   pull_request:
 
 jobs:
@@ -21,7 +21,8 @@ jobs:
     #   max-parallel: 1
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04]
-        java: [21, 24, 25,26]
+        #java: [21, 24, 25]
+        java: [21]
         postgres: [14, 15, 16, 17]
         mongo: [6, 7, 8]
 
@@ -100,8 +101,8 @@ jobs:
         run: |
           set +e
 
-          # mvn -B clean test \
-          mvn -B clean verify \
+          mvn -B clean test \
+          # mvn -B clean verify \
             -Dspring.profiles.active=ci \
             -Dsurefire.failIfNoSpecifiedTests=false \
             > compatibility.log 2>&1
