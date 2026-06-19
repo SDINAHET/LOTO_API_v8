@@ -115,7 +115,11 @@ jobs:
           echo "status=$STATUS" >> "$GITHUB_OUTPUT"
           echo "raw_status=$RAW_STATUS" >> "$GITHUB_OUTPUT"
 
-          echo "| ${{ matrix.os }} | Java ${{ matrix.java }} | PostgreSQL ${{ matrix.postgres }} | MongoDB ${{ matrix.mongo }} | $STATUS |" > row.md
+          ROW_FILE="row-${{ matrix.os }}-java${{ matrix.java }}-pg${{ matrix.postgres }}-mongo${{ matrix.mongo }}.md"
+
+          echo "| ${{ matrix.os }} | Java ${{ matrix.java }} | PostgreSQL ${{ matrix.postgres }} | MongoDB ${{ matrix.mongo }} | $STATUS |" > "$ROW_FILE"
+
+          echo "ROW_FILE=$ROW_FILE" >> "$GITHUB_ENV"
 
           exit 0
 
@@ -123,9 +127,9 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: row-${{ matrix.os }}-java${{ matrix.java }}-pg${{ matrix.postgres }}-mongo${{ matrix.mongo }}
-          path: row.md
-          retention-days: 30
+            name: row-${{ matrix.os }}-java${{ matrix.java }}-pg${{ matrix.postgres }}-mongo${{ matrix.mongo }}
+            path: ${{ env.ROW_FILE }}
+            retention-days: 30
 
       - name: 📤 Upload log
         if: always()
