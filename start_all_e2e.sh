@@ -124,7 +124,7 @@ echo "========================================"
 echo "📊 RÉSUMÉ TESTS BACKEND / E2E API"
 echo "========================================"
 
-grep "Tests run:" /tmp/maven_loto_tests.log | tail -20 || true
+grep "Tests run:" /tmp/maven_loto_tests.log | tail -500 || true
 
 echo ""
 echo "========================================"
