@@ -644,6 +644,8 @@ name: 🧪 Migration Audit - Java Spring Boot
 
 on:
   workflow_dispatch:
+  push:
+  pull_request:
 
 jobs:
   exploratory:
