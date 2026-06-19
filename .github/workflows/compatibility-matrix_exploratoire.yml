@@ -18,13 +18,23 @@ jobs:
         include:
           - java: 21
             spring_boot: 3.2.3
-            expected: supported
+            expected: supported-current
+
           - java: 24
-            spring_boot: 4.0.0
-            expected: experimental
+            spring_boot: 3.2.3
+            expected: experimental-old-boot
+
+          - java: 25
+            spring_boot: 3.2.3
+            expected: experimental-old-boot
+
           - java: 25
             spring_boot: 4.0.0
-            expected: experimental
+            expected: experimental-supported-by-boot4
+
+          - java: 26
+            spring_boot: 4.1.0
+            expected: experimental-supported-by-boot4.1
 
     services:
       postgres:
