@@ -203,6 +203,44 @@ jobs:
           path: migration-report/
           retention-days: 30
 
+#   summary:
+#     name: 📊 Exploratory Compatibility Table
+#     runs-on: ubuntu-latest
+#     needs: exploratory
+#     if: always()
+
+#     steps:
+#       - name: 📥 Download rows
+#         uses: actions/download-artifact@v4
+#         with:
+#           pattern: row-*
+#           path: rows
+#           merge-multiple: true
+
+#       - name: 📊 Build exploratory report
+#         run: |
+#           mkdir -p exploratory-report
+
+#           {
+#             echo "# 🧪 Tableau exploratoire Java / Spring Boot"
+#             echo ""
+#             echo "| Java | Spring Boot | Objectif | Niveau | Résultat |"
+#             echo "|---|---|---|---|---|"
+
+#             if ls rows/*.md >/dev/null 2>&1; then
+#               sort rows/*.md
+#             else
+#               echo "| Aucun résultat | - | - | - | ❌ |"
+#             fi
+
+#             echo ""
+#             echo "## Analyse"
+#             echo ""
+#             echo "Ce workflow permet d'évaluer la compatibilité du projet avec différentes versions de Java et Spring Boot."
+#             echo "Il génère également des rapports Maven permettant d'identifier les dépendances et plugins à mettre à jour pour une migration future."
+#           } > exploratory-report/exploratory-summary.md
+#
+
   summary:
     name: 📊 Exploratory Compatibility Table
     runs-on: ubuntu-latest
@@ -217,12 +255,14 @@ jobs:
           path: rows
           merge-multiple: true
 
-      - name: 📊 Build exploratory report
+      - name: 📊 Build final migration report
         run: |
           mkdir -p exploratory-report
 
           {
-            echo "# 🧪 Tableau exploratoire Java / Spring Boot"
+            echo "# 🧪 Rapport final - Migration exploratoire Java / Spring Boot"
+            echo ""
+            echo "## Tableau de compatibilité"
             echo ""
             echo "| Java | Spring Boot | Objectif | Niveau | Résultat |"
             echo "|---|---|---|---|---|"
@@ -234,10 +274,44 @@ jobs:
             fi
 
             echo ""
-            echo "## Analyse"
+            echo "## Synthèse"
             echo ""
-            echo "Ce workflow permet d'évaluer la compatibilité du projet avec différentes versions de Java et Spring Boot."
-            echo "Il génère également des rapports Maven permettant d'identifier les dépendances et plugins à mettre à jour pour une migration future."
+            echo "| Élément | Valeur |"
+            echo "|---|---|"
+            echo "| Workflow | Migration exploratoire |"
+            echo "| Outil CI/CD | GitHub Actions |"
+            echo "| Environnement | Ubuntu 24.04 |"
+            echo "| Base SQL utilisée | PostgreSQL 17 |"
+            echo "| Base NoSQL utilisée | MongoDB 8 |"
+            echo "| Objectif | Préparer les migrations futures Java / Spring Boot |"
+            echo "| Artifacts générés | Logs Maven, dependency tree, plugin updates, dependency updates |"
+
+            echo ""
+            echo "## Interprétation"
+            echo ""
+            echo "Ce workflow permet d'identifier les configurations stables, les migrations réalistes et les migrations expérimentales."
+            echo "La configuration de production reste Java 21 avec Spring Boot 3.2.3."
+            echo "Les autres combinaisons servent à anticiper les adaptations nécessaires pour les futures migrations."
           } > exploratory-report/exploratory-summary.md
 
-  
+          cat exploratory-report/exploratory-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 📄 Generate CSV report
+        run: |
+          {
+            echo "Java,Spring Boot,Objectif,Niveau,Resultat"
+            if ls rows/*.md >/dev/null 2>&1; then
+              cat rows/*.md \
+                | sed 's/^| //' \
+                | sed 's/ |$//' \
+                | sed 's/ | /,/g' \
+                | sort
+            fi
+          } > exploratory-report/exploratory-summary.csv
+
+      - name: 📤 Upload final exploratory report
+        uses: actions/upload-artifact@v4
+        with:
+          name: exploratory-final-report
+          path: exploratory-report/
+          retention-days: 30
