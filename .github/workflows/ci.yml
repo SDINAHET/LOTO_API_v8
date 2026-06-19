@@ -134,8 +134,8 @@ jobs:
 
 
 
-      - name: 📊 JaCoCo Report
-        run: mvn -B jacoco:report
+      # - name: 📊 JaCoCo Report
+      #   run: mvn -B jacoco:report
         # run: mvn -B clean verify jacoco:report
       # - name: 📊 Run tests + JaCoCo Report
       #   # run: mvn -B clean verify -Dspring.profiles.active=ci
@@ -148,6 +148,41 @@ jobs:
       #   run: |
       #       mvn -B clean verify \
       #           -Dspring.profiles.active=ci
+
+      - name: 📊 Run tests + JaCoCo + Summary
+        run: |
+          set +e
+          mvn -B clean verify -Dspring.profiles.active=ci | tee /tmp/maven_loto_tests.log
+          MAVEN_EXIT_CODE=${PIPESTATUS[0]}
+          set -e
+
+          echo ""
+          echo "========================================"
+          echo "📊 RÉSUMÉ TESTS BACKEND / E2E API"
+          echo "========================================"
+
+          grep "Tests run:" /tmp/maven_loto_tests.log | tail -5000 || true
+
+          echo ""
+          echo "========================================"
+          echo "📊 SYNTHÈSE MAVEN"
+          echo "========================================"
+          echo ""
+
+          if [ "$MAVEN_EXIT_CODE" -eq 0 ]; then
+            echo "✅ Tests backend terminés"
+            echo "   Maven/JUnit/Failsafe : OK"
+            echo "   E2E API Backend      : OK"
+            echo "   JaCoCo couverture    : OK"
+          else
+            echo "❌ Tests backend en échec"
+            echo "   Maven/JUnit/Failsafe : FAILED"
+            echo "   E2E API Backend      : NON VALIDÉ"
+            echo "   JaCoCo couverture    : NON GÉNÉRÉE"
+            echo ""
+            echo "👉 Voir les logs Maven au-dessus."
+            exit "$MAVEN_EXIT_CODE"
+          fi
       - name: 🔎 Debug JaCoCo
         if: always()
         run: |
