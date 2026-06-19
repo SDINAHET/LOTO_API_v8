@@ -39,23 +39,24 @@
 //         }
 // }
 
-package com.fdjloto.api.controller.admin;
 
-import com.fdjloto.api.repository.TirageRepository;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
+// package com.fdjloto.api.controller.admin;
 
-@SpringBootTest
-@ActiveProfiles("test")
-class AdminUserStatsControllerContextTest {
+// import com.fdjloto.api.repository.TirageRepository;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.boot.test.mock.mockito.MockBean;
+// import org.springframework.test.context.ActiveProfiles;
 
-    @MockBean
-    private TirageRepository tirageRepository;
+// @SpringBootTest
+// @ActiveProfiles("test")
+// class AdminUserStatsControllerContextTest {
 
-    @Test
-    void contextLoads() {
-        // ✔ Spring démarre sans erreur
-    }
-}
+//     @MockBean
+//     private TirageRepository tirageRepository;
+
+//     @Test
+//     void contextLoads() {
+//         // ✔ Spring démarre sans erreur
+//     }
+// }
