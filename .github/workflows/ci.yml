@@ -132,9 +132,17 @@ jobs:
           docker compose logs --no-color backend
           exit 1
 
+      - name: 🔎 Debug JaCoCo files
+        if: always()
+        run: |
+          pwd
+          ls -la
+          find . -path "*/target/site/jacoco/index.html" -print
+          find . -name "jacoco.exec" -print
 
       - name: 📊 JaCoCo Report
-        run: mvn -B jacoco:report
+        # run: mvn -B jacoco:report
+        run: mvn -B clean verify jacoco:report
       # - name: 📊 Run tests + JaCoCo Report
       #   # run: mvn -B clean verify -Dspring.profiles.active=ci
       #   run: mvn -B clean verify jacoco:report
@@ -147,7 +155,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: target/site/jacoco/
+          path: |
+            target/site/jacoco/
+            **/target/site/jacoco/
 
       - name: 📝 JaCoCo Summary
         if: always()
