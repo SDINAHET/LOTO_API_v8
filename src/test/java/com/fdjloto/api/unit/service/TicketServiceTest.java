@@ -147,3 +147,170 @@
 //         assertEquals(0, ticketService.getTicketsByUserId("u1").size());
 //     }
 // }
+
+
+
+
+package com.fdjloto.api.unit.service;
+
+import com.fdjloto.api.dto.TicketDTO;
+import com.fdjloto.api.exception.TicketNotFoundException;
+import com.fdjloto.api.model.Ticket;
+import com.fdjloto.api.model.User;
+import com.fdjloto.api.repository.TicketRepository;
+import com.fdjloto.api.repository.UserRepository;
+import com.fdjloto.api.service.TicketService;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.time.LocalDate;
+import java.util.Optional;
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+class TicketServiceTest {
+
+    @Mock
+    private TicketRepository ticketRepository;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @InjectMocks
+    private TicketService ticketService;
+
+    @Test
+    void shouldCreateTicketForExistingUser() {
+        User user = new User();
+        user.setId("user-1");
+        user.setEmail("test@loto.local");
+
+        TicketDTO dto = new TicketDTO();
+        dto.setNumbers("1-2-3-4-5");
+        dto.setChanceNumber("6");
+        dto.setDrawDate("2025-03-12");
+
+        when(userRepository.findById("user-1")).thenReturn(Optional.of(user));
+        when(ticketRepository.save(any(Ticket.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        Ticket result = ticketService.createTicket("user-1", dto);
+
+        assertEquals(user, result.getUser());
+        assertEquals("1-2-3-4-5", result.getNumbers());
+        assertEquals(6, result.getChanceNumber());
+        assertEquals(LocalDate.of(2025, 3, 12), result.getDrawDate());
+        assertEquals("mercredi", result.getDrawDay());
+
+        verify(ticketRepository).save(any(Ticket.class));
+    }
+
+    @Test
+    void shouldThrowWhenUserDoesNotExistOnCreate() {
+        TicketDTO dto = new TicketDTO();
+        dto.setNumbers("1-2-3-4-5");
+        dto.setChanceNumber("6");
+        dto.setDrawDate("2025-03-12");
+
+        when(userRepository.findById("missing")).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> ticketService.createTicket("missing", dto));
+
+        verify(ticketRepository, never()).save(any());
+    }
+
+    @Test
+    void shouldUpdateTicketDtoFields() {
+        Ticket existing = new Ticket();
+        existing.setNumbers("1-2-3-4-5");
+        existing.setChanceNumber(6);
+        existing.setDrawDate(LocalDate.of(2025, 3, 12));
+
+        TicketDTO dto = new TicketDTO();
+        dto.setNumbers("10-11-12-13-14");
+        dto.setChanceNumber("8");
+        dto.setDrawDate("2025-03-15");
+
+        when(ticketRepository.findById("ticket-1")).thenReturn(Optional.of(existing));
+        when(ticketRepository.save(any(Ticket.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        Ticket result = ticketService.updateTicket("ticket-1", dto);
+
+        assertEquals("10-11-12-13-14", result.getNumbers());
+        assertEquals(8, result.getChanceNumber());
+        assertEquals(LocalDate.of(2025, 3, 15), result.getDrawDate());
+        assertEquals("samedi", result.getDrawDay());
+
+        verify(ticketRepository).save(existing);
+    }
+
+    @Test
+    void shouldThrowWhenChanceNumberIsInvalid() {
+        Ticket existing = new Ticket();
+
+        TicketDTO dto = new TicketDTO();
+        dto.setNumbers("1-2-3-4-5");
+        dto.setChanceNumber("bad");
+        dto.setDrawDate("2025-03-12");
+
+        when(ticketRepository.findById("ticket-1")).thenReturn(Optional.of(existing));
+
+        assertThrows(IllegalArgumentException.class, () -> ticketService.updateTicket("ticket-1", dto));
+
+        verify(ticketRepository, never()).save(any());
+    }
+
+    @Test
+    void shouldDeleteTicketWhenOwner() {
+        User owner = new User();
+        owner.setId("user-1");
+
+        Ticket ticket = new Ticket();
+        ticket.setUser(owner);
+
+        when(ticketRepository.findById("ticket-1")).thenReturn(Optional.of(ticket));
+
+        ticketService.deleteTicket("ticket-1", "user-1");
+
+        verify(ticketRepository).deleteById("ticket-1");
+    }
+
+    @Test
+    void shouldRejectDeleteWhenNotOwnerAndNotAdmin() {
+        User owner = new User();
+        owner.setId("owner-1");
+
+        Ticket ticket = new Ticket();
+        ticket.setUser(owner);
+
+        User otherUser = new User();
+        otherUser.setId("other-1");
+        otherUser.setAdmin(false);
+
+        when(ticketRepository.findById("ticket-1")).thenReturn(Optional.of(ticket));
+        when(userRepository.findById("other-1")).thenReturn(Optional.of(otherUser));
+
+        assertThrows(RuntimeException.class, () -> ticketService.deleteTicket("ticket-1", "other-1"));
+
+        verify(ticketRepository, never()).deleteById(anyString());
+    }
+
+    @Test
+    void shouldReturnDrawDayInFrenchUppercase() {
+        String result = ticketService.getDrawDay("2025-03-12");
+
+        assertEquals("MERCREDI", result);
+    }
+
+    @Test
+    void shouldThrowWhenTicketNotFound() {
+        when(ticketRepository.findById("missing")).thenReturn(Optional.empty());
+
+        assertThrows(TicketNotFoundException.class, () -> ticketService.getTicketById("missing"));
+    }
+}

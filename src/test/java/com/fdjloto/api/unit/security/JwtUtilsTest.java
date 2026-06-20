@@ -56,3 +56,80 @@
 //         assertFalse(jwt.validateJwtToken(token));
 //     }
 // }
+
+
+
+
+
+package com.fdjloto.api.unit.security;
+
+import com.fdjloto.api.security.JwtUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import java.lang.reflect.Field;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class JwtUtilsTest {
+
+    private JwtUtils jwtUtils;
+
+    @BeforeEach
+    void setUp() throws Exception {
+        jwtUtils = new JwtUtils();
+
+        setPrivateField(jwtUtils, "jwtSecret",
+                "0123456789012345678901234567890123456789012345678901234567891234");
+        setPrivateField(jwtUtils, "jwtExpirationMs", 600000L);
+        setPrivateField(jwtUtils, "refreshExpirationMs", 3600000L);
+    }
+
+    @Test
+    void shouldGenerateAndValidateAccessToken() {
+        var auth = new UsernamePasswordAuthenticationToken(
+                "user@loto.local",
+                "password",
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+        );
+
+        String token = jwtUtils.generateJwtToken(auth);
+
+        assertNotNull(token);
+        assertTrue(jwtUtils.validateJwtToken(token));
+        assertTrue(jwtUtils.validateAccessToken(token));
+        assertFalse(jwtUtils.validateRefreshToken(token));
+        assertEquals("user@loto.local", jwtUtils.getUserFromJwtToken(token));
+        assertEquals(List.of("ROLE_USER"), jwtUtils.getRolesFromJwtToken(token));
+    }
+
+    @Test
+    void shouldGenerateAndValidateRefreshToken() {
+        String token = jwtUtils.generateRefreshToken("user@loto.local");
+
+        assertNotNull(token);
+        assertTrue(jwtUtils.validateJwtToken(token));
+        assertFalse(jwtUtils.validateAccessToken(token));
+        assertTrue(jwtUtils.validateRefreshToken(token));
+        assertEquals("user@loto.local", jwtUtils.getUserFromJwtToken(token));
+    }
+
+    @Test
+    void shouldRejectMalformedToken() {
+        assertFalse(jwtUtils.validateJwtToken("bad.token.value"));
+    }
+
+    @Test
+    void shouldRejectEmptyToken() {
+        assertFalse(jwtUtils.validateJwtToken(""));
+    }
+
+    private static void setPrivateField(Object target, String fieldName, Object value) throws Exception {
+        Field field = target.getClass().getDeclaredField(fieldName);
+        field.setAccessible(true);
+        field.set(target, value);
+    }
+}
