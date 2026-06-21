@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2026-06-20T09:59:48.894Z",
+  "timestamp": "2026-06-21T20:40:38.802Z",
   "url": "http://localhost:5500/",
   "toolOptions": {
     "reporter": "v1"
@@ -795,7 +795,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -822,7 +822,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -849,7 +849,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -876,7 +876,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -903,7 +903,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -957,7 +957,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -1011,7 +1011,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -1038,7 +1038,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -1509,7 +1509,7 @@
             }
           ],
           "impact": null,
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ]
@@ -1696,7 +1696,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -1715,7 +1715,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -1734,7 +1734,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -1753,7 +1753,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -1772,7 +1772,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -1791,7 +1791,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -1810,7 +1810,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -1829,7 +1829,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -1848,7 +1848,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -1867,7 +1867,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -2104,7 +2104,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -2123,7 +2123,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -2142,7 +2142,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -2161,7 +2161,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -2180,7 +2180,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -2218,7 +2218,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -2256,7 +2256,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -2275,7 +2275,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -2602,7 +2602,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ]
@@ -2746,7 +2746,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -2765,7 +2765,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -2784,7 +2784,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -2803,7 +2803,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -2822,7 +2822,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -2841,7 +2841,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -2860,7 +2860,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -2879,7 +2879,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -2898,7 +2898,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -2917,7 +2917,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -3381,7 +3381,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<a href=\"https://xn--mto-bretagne-bebb.loto-tracker.fr/cdn-cgi/content?id=RL88DvC7NksjN0_U1h5iBnsWw9UB629EmvzQkgWB8nE-1781949585.8088732-1.2.1.1-GMtpubcfPjgLsqLSpyPmaaxgI.qWMzLJHPYToQNk6HY\" aria-hidden=\"true\" rel=\"nofollow noopener\" ...>",
+          "html": "<a href=\"https://xn--mto-bretagne-bebb.loto-tracker.fr/cdn-cgi/content?id=myNl7bRa37TDlZOhJwIiexlEwuwzl4zA6wPnuZ3xeRY-1782074436.0317075-1.2.1.1-X2oj_0KMu97xaT84ogpqsHCm1uKXEtfgNvlv6urC2z4\" aria-hidden=\"true\" rel=\"nofollow noopener\" ...>",
           "target": [
             "iframe",
             "a[rel=\"nofollow noopener\"]"
@@ -3984,7 +3984,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -4003,7 +4003,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -4022,7 +4022,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -4041,7 +4041,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -4060,7 +4060,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -4098,7 +4098,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -4136,7 +4136,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -4155,7 +4155,7 @@
             }
           ],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -4482,7 +4482,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -4501,7 +4501,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -4520,7 +4520,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -4539,7 +4539,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -4558,7 +4558,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -4577,7 +4577,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -4596,7 +4596,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -4615,7 +4615,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -4634,7 +4634,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -4653,7 +4653,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -4886,7 +4886,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -4919,7 +4919,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -4952,7 +4952,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -4985,7 +4985,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -5018,7 +5018,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -5051,7 +5051,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -5084,7 +5084,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -5117,7 +5117,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -5150,7 +5150,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -5183,7 +5183,7 @@
             }
           ],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -5540,7 +5540,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -5559,7 +5559,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -5578,7 +5578,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -5597,7 +5597,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -5616,7 +5616,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -5635,7 +5635,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -5654,7 +5654,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -5673,7 +5673,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -5692,7 +5692,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -5711,7 +5711,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -5794,7 +5794,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -5827,7 +5827,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -5860,7 +5860,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -5893,7 +5893,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -5926,7 +5926,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -5992,7 +5992,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -6058,7 +6058,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -6091,7 +6091,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -6670,7 +6670,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ]
@@ -6916,7 +6916,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -6935,7 +6935,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -6954,7 +6954,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -6973,7 +6973,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -6992,7 +6992,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -7030,7 +7030,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -7068,7 +7068,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -7087,7 +7087,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -7414,7 +7414,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ]
@@ -7833,7 +7833,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -7866,7 +7866,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -7899,7 +7899,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -7964,7 +7964,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"hoursBox\">8h</span>\n              <small>HEURES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"hoursBox\">21h</span>\n              <small>HEURES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(2)"
           ]
@@ -7996,7 +7996,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"minutesBox\">0m</span>\n              <small>MINUTES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"minutesBox\">19m</span>\n              <small>MINUTES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(3)"
           ]
@@ -8028,7 +8028,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"secondsBox\">12s</span>\n              <small>SECONDES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"secondsBox\">23s</span>\n              <small>SECONDES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(4)"
           ]
@@ -8535,6 +8535,24 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('20/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
+          "target": [
+            "button[onclick=\"viewDetails('20/06/2026')\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<button class=\"btn-mini\" onclick=\"viewDetails('17/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
           "target": [
             "button[onclick=\"viewDetails('17/06/2026')\"]"
@@ -8610,24 +8628,6 @@
           "html": "<button class=\"btn-mini\" onclick=\"viewDetails('08/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
           "target": [
             "button[onclick=\"viewDetails('08/06/2026')\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "button-has-visible-text",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "critical",
-              "message": "Element has inner text that is visible to screen readers"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('06/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
-          "target": [
-            "button[onclick=\"viewDetails('06/06/2026')\"]"
           ]
         },
         {
@@ -8897,37 +8897,37 @@
                   ]
                 },
                 {
-                  "html": "<h3>Mercredi 17/06/2026</h3>",
+                  "html": "<h3>Samedi 20/06/2026</h3>",
                   "target": [
                     "article:nth-child(1) > h3"
                   ]
                 },
                 {
-                  "html": "<h3>Lundi 15/06/2026</h3>",
+                  "html": "<h3>Mercredi 17/06/2026</h3>",
                   "target": [
                     "article:nth-child(2) > h3"
                   ]
                 },
                 {
-                  "html": "<h3>Samedi 13/06/2026</h3>",
+                  "html": "<h3>Lundi 15/06/2026</h3>",
                   "target": [
                     "article:nth-child(3) > h3"
                   ]
                 },
                 {
-                  "html": "<h3>Mercredi 10/06/2026</h3>",
+                  "html": "<h3>Samedi 13/06/2026</h3>",
                   "target": [
                     "article:nth-child(4) > h3"
                   ]
                 },
                 {
-                  "html": "<h3>Lundi 08/06/2026</h3>",
+                  "html": "<h3>Mercredi 10/06/2026</h3>",
                   "target": [
                     "article:nth-child(5) > h3"
                   ]
                 },
                 {
-                  "html": "<h3>Samedi 06/06/2026</h3>",
+                  "html": "<h3>Lundi 08/06/2026</h3>",
                   "target": [
                     "article:nth-child(6) > h3"
                   ]
@@ -9050,7 +9050,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 11:59:48</div>",
+          "html": "<div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 22:40:37</div>",
           "target": [
             "#currentTime"
           ]
@@ -9225,7 +9225,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "html": "<h3>Samedi 20/06/2026</h3>",
           "target": [
             "article:nth-child(1) > h3"
           ]
@@ -9250,7 +9250,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">37</span>",
+          "html": "<span class=\"ball\">5</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
@@ -9275,7 +9275,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">32</span>",
+          "html": "<span class=\"ball\">16</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
@@ -9300,7 +9300,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">1</span>",
+          "html": "<span class=\"ball\">37</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
@@ -9325,9 +9325,159 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">39</span>",
+          "html": "<span class=\"ball\">41</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#e9eefc",
+                "bgColor": "#313740",
+                "contrastRatio": 10.33,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 10.33"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('20/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
+          "target": [
+            "button[onclick=\"viewDetails('20/06/2026')\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#edeeef",
+                "bgColor": "#242a34",
+                "contrastRatio": 12.41,
+                "fontSize": "11.8pt (15.68px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 12.41"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "target": [
+            "article:nth-child(2) > h3"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#2a4065",
+                "contrastRatio": 10.39,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 10.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">37</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#2a4065",
+                "contrastRatio": 10.39,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 10.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">32</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#2a4065",
+                "contrastRatio": 10.39,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 10.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">1</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#ffffff",
+                "bgColor": "#2a4065",
+                "contrastRatio": 10.39,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 10.39"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">39</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -9377,7 +9527,7 @@
           "impact": null,
           "html": "<h3>Lundi 15/06/2026</h3>",
           "target": [
-            "article:nth-child(2) > h3"
+            "article:nth-child(3) > h3"
           ]
         },
         {
@@ -9402,7 +9552,7 @@
           "impact": null,
           "html": "<span class=\"ball\">49</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -9427,7 +9577,7 @@
           "impact": null,
           "html": "<span class=\"ball\">23</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -9452,7 +9602,7 @@
           "impact": null,
           "html": "<span class=\"ball\">25</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -9477,7 +9627,7 @@
           "impact": null,
           "html": "<span class=\"ball\">29</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -9527,7 +9677,7 @@
           "impact": null,
           "html": "<h3>Samedi 13/06/2026</h3>",
           "target": [
-            "article:nth-child(3) > h3"
+            "article:nth-child(4) > h3"
           ]
         },
         {
@@ -9552,7 +9702,7 @@
           "impact": null,
           "html": "<span class=\"ball\">39</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -9577,7 +9727,7 @@
           "impact": null,
           "html": "<span class=\"ball\">28</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -9602,7 +9752,7 @@
           "impact": null,
           "html": "<span class=\"ball\">41</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -9627,7 +9777,7 @@
           "impact": null,
           "html": "<span class=\"ball\">27</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -9677,7 +9827,7 @@
           "impact": null,
           "html": "<h3>Mercredi 10/06/2026</h3>",
           "target": [
-            "article:nth-child(4) > h3"
+            "article:nth-child(5) > h3"
           ]
         },
         {
@@ -9702,7 +9852,7 @@
           "impact": null,
           "html": "<span class=\"ball\">12</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -9727,7 +9877,7 @@
           "impact": null,
           "html": "<span class=\"ball\">2</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -9752,7 +9902,7 @@
           "impact": null,
           "html": "<span class=\"ball\">38</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -9777,7 +9927,7 @@
           "impact": null,
           "html": "<span class=\"ball\">47</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -9827,156 +9977,6 @@
           "impact": null,
           "html": "<h3>Lundi 08/06/2026</h3>",
           "target": [
-            "article:nth-child(5) > h3"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#2a4065",
-                "contrastRatio": 10.39,
-                "fontSize": "9.0pt (12px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 10.39"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">41</span>",
-          "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#2a4065",
-                "contrastRatio": 10.39,
-                "fontSize": "9.0pt (12px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 10.39"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">43</span>",
-          "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#2a4065",
-                "contrastRatio": 10.39,
-                "fontSize": "9.0pt (12px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 10.39"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">39</span>",
-          "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#ffffff",
-                "bgColor": "#2a4065",
-                "contrastRatio": 10.39,
-                "fontSize": "9.0pt (12px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 10.39"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">24</span>",
-          "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#e9eefc",
-                "bgColor": "#313740",
-                "contrastRatio": 10.33,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 10.33"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('08/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
-          "target": [
-            "button[onclick=\"viewDetails('08/06/2026')\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#edeeef",
-                "bgColor": "#242a34",
-                "contrastRatio": 12.41,
-                "fontSize": "11.8pt (15.68px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 12.41"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<h3>Samedi 06/06/2026</h3>",
-          "target": [
             "article:nth-child(6) > h3"
           ]
         },
@@ -10000,7 +10000,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">32</span>",
+          "html": "<span class=\"ball\">41</span>",
           "target": [
             "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
@@ -10050,7 +10050,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">13</span>",
+          "html": "<span class=\"ball\">39</span>",
           "target": [
             "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
@@ -10075,7 +10075,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">19</span>",
+          "html": "<span class=\"ball\">24</span>",
           "target": [
             "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
@@ -10100,9 +10100,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('06/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
+          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('08/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
           "target": [
-            "button[onclick=\"viewDetails('06/06/2026')\"]"
+            "button[onclick=\"viewDetails('08/06/2026')\"]"
           ]
         },
         {
@@ -10540,7 +10540,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -10559,7 +10559,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -10578,7 +10578,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -10597,7 +10597,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -10616,7 +10616,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -10635,7 +10635,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -10654,7 +10654,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -10673,7 +10673,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -10692,7 +10692,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -10711,7 +10711,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -10779,7 +10779,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "html": "<h3>Samedi 20/06/2026</h3>",
           "target": [
             "article:nth-child(1) > h3"
           ]
@@ -10797,7 +10797,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Lundi 15/06/2026</h3>",
+          "html": "<h3>Mercredi 17/06/2026</h3>",
           "target": [
             "article:nth-child(2) > h3"
           ]
@@ -10815,7 +10815,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Samedi 13/06/2026</h3>",
+          "html": "<h3>Lundi 15/06/2026</h3>",
           "target": [
             "article:nth-child(3) > h3"
           ]
@@ -10833,7 +10833,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 10/06/2026</h3>",
+          "html": "<h3>Samedi 13/06/2026</h3>",
           "target": [
             "article:nth-child(4) > h3"
           ]
@@ -10851,7 +10851,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Lundi 08/06/2026</h3>",
+          "html": "<h3>Mercredi 10/06/2026</h3>",
           "target": [
             "article:nth-child(5) > h3"
           ]
@@ -10869,7 +10869,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Samedi 06/06/2026</h3>",
+          "html": "<h3>Lundi 08/06/2026</h3>",
           "target": [
             "article:nth-child(6) > h3"
           ]
@@ -11245,7 +11245,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "html": "<h3>Samedi 20/06/2026</h3>",
           "target": [
             "article:nth-child(1) > h3"
           ]
@@ -11263,7 +11263,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Lundi 15/06/2026</h3>",
+          "html": "<h3>Mercredi 17/06/2026</h3>",
           "target": [
             "article:nth-child(2) > h3"
           ]
@@ -11281,7 +11281,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Samedi 13/06/2026</h3>",
+          "html": "<h3>Lundi 15/06/2026</h3>",
           "target": [
             "article:nth-child(3) > h3"
           ]
@@ -11299,7 +11299,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 10/06/2026</h3>",
+          "html": "<h3>Samedi 13/06/2026</h3>",
           "target": [
             "article:nth-child(4) > h3"
           ]
@@ -11317,7 +11317,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Lundi 08/06/2026</h3>",
+          "html": "<h3>Mercredi 10/06/2026</h3>",
           "target": [
             "article:nth-child(5) > h3"
           ]
@@ -11335,7 +11335,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Samedi 06/06/2026</h3>",
+          "html": "<h3>Lundi 08/06/2026</h3>",
           "target": [
             "article:nth-child(6) > h3"
           ]
@@ -13440,6 +13440,24 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('20/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
+          "target": [
+            "button[onclick=\"viewDetails('20/06/2026')\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element does not have focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<button class=\"btn-mini\" onclick=\"viewDetails('17/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
           "target": [
             "button[onclick=\"viewDetails('17/06/2026')\"]"
@@ -13515,24 +13533,6 @@
           "html": "<button class=\"btn-mini\" onclick=\"viewDetails('08/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
           "target": [
             "button[onclick=\"viewDetails('08/06/2026')\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "no-focusable-content",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element does not have focusable descendants"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('06/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
-          "target": [
-            "button[onclick=\"viewDetails('06/06/2026')\"]"
           ]
         },
         {
@@ -14265,7 +14265,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div>\n            <div class=\"brand-title\" id=\"brandTitle\">Tracker du Loto Français</div>\n            <div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 11:59:48</div>\n          </div>",
+          "html": "<div>\n            <div class=\"brand-title\" id=\"brandTitle\">Tracker du Loto Français</div>\n            <div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 22:40:37</div>\n          </div>",
           "target": [
             ".brand > div"
           ]
@@ -14305,7 +14305,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 11:59:48</div>",
+          "html": "<div class=\"brand-sub\" id=\"currentTime\">Heure de Paris : 22:40:37</div>",
           "target": [
             "#currentTime"
           ]
@@ -14665,7 +14665,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div id=\"last-update\">Actualisé à 11:59:47</div>",
+          "html": "<div id=\"last-update\">Actualisé à 22:40:37</div>",
           "target": [
             "iframe",
             "#last-update"
@@ -14938,7 +14938,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M114,128a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-38\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-38\"]"
@@ -14959,7 +14959,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-41\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-41\"]"
@@ -14980,7 +14980,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-44\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-44\"]"
@@ -15001,7 +15001,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-47\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-47\"]"
@@ -15022,7 +15022,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M0 0\" aria-describedby=\"leaflet-tooltip-50\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-50\"]"
@@ -15064,7 +15064,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#eab308\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#eab308\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M50,-18a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-56\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-56\"]"
@@ -15106,7 +15106,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M40,255a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-62\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-62\"]"
@@ -15127,7 +15127,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<path class=\"leaflet-interactive\" stroke=\"#fb923c\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#fb923c\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
+          "html": "<path class=\"leaflet-interactive\" stroke=\"#ef4444\" stroke-opacity=\"1\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"#ef4444\" fill-opacity=\"0.9\" fill-rule=\"evenodd\" d=\"M201,64a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0 \" aria-describedby=\"leaflet-tooltip-65\"></path>",
           "target": [
             "iframe",
             "path[aria-describedby=\"leaflet-tooltip-65\"]"
@@ -15211,7 +15211,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -15232,7 +15232,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☁️ 18.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-41\" style=\"opacity: 0.9; transform: translate3d(-436px, 27px, 0px);\">Brest ☀️ 23.5°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-41"
@@ -15253,7 +15253,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-370px, 134px, 0px);\">Quimper ☁️ 22°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-44\" style=\"opacity: 0.9; transform: translate3d(-375px, 134px, 0px);\">Quimper ☀️ 28.7°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-44"
@@ -15274,7 +15274,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☁️ 21.9°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-47\" style=\"opacity: 0.9; transform: translate3d(-238px, 202px, 0px);\">Lorient ☀️ 28.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-47"
@@ -15295,7 +15295,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 24.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-50\" style=\"opacity: 0.9; transform: translate3d(-127px, 226px, 0px);\">Vannes ☁️ 29.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-50"
@@ -15316,7 +15316,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc ☁️ 23.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-53\" style=\"opacity: 0.9; transform: translate3d(-141px, -7px, 0px);\">Saint-Brieuc 🌤️ 21.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-53"
@@ -15337,7 +15337,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☁️ 19.5°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-56\" style=\"opacity: 0.9; transform: translate3d(-2px, -45px, 0px);\">Saint-Malo ☀️ 22.9°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-56"
@@ -15358,7 +15358,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix ☁️ 23.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-59\" style=\"opacity: 0.9; transform: translate3d(-321px, -25px, 0px);\">Morlaix 🌤️ 24.8°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-59"
@@ -15379,7 +15379,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -15400,7 +15400,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -15773,7 +15773,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"hero-next-draw\" id=\"nextDrawInfo\">Prochain tirage : Samedi à 20h</div>",
+          "html": "<div class=\"hero-next-draw\" id=\"nextDrawInfo\">Prochain tirage : Lundi à 20h</div>",
           "target": [
             "#nextDrawInfo"
           ]
@@ -15873,7 +15873,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"hoursBox\">8h</span>\n              <small>HEURES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"hoursBox\">21h</span>\n              <small>HEURES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(2)"
           ]
@@ -15893,7 +15893,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span id=\"hoursBox\">8h</span>",
+          "html": "<span id=\"hoursBox\">21h</span>",
           "target": [
             "#hoursBox"
           ]
@@ -15933,7 +15933,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"minutesBox\">0m</span>\n              <small>MINUTES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"minutesBox\">19m</span>\n              <small>MINUTES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(3)"
           ]
@@ -15953,7 +15953,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span id=\"minutesBox\">0m</span>",
+          "html": "<span id=\"minutesBox\">19m</span>",
           "target": [
             "#minutesBox"
           ]
@@ -15993,7 +15993,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"secondsBox\">12s</span>\n              <small>SECONDES</small>\n            </div>",
+          "html": "<div class=\"count-box\" style=\"background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08);\">\n              <span id=\"secondsBox\">23s</span>\n              <small>SECONDES</small>\n            </div>",
           "target": [
             ".count-box:nth-child(4)"
           ]
@@ -16013,7 +16013,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span id=\"secondsBox\">12s</span>",
+          "html": "<span id=\"secondsBox\">23s</span>",
           "target": [
             "#secondsBox"
           ]
@@ -16273,7 +16273,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "html": "<h3>Samedi 20/06/2026</h3>",
           "target": [
             "article:nth-child(1) > h3"
           ]
@@ -16313,7 +16313,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">37</span>",
+          "html": "<span class=\"ball\">5</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
@@ -16333,7 +16333,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">32</span>",
+          "html": "<span class=\"ball\">16</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
@@ -16353,7 +16353,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">1</span>",
+          "html": "<span class=\"ball\">37</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
@@ -16373,7 +16373,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">39</span>",
+          "html": "<span class=\"ball\">41</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
@@ -16393,7 +16393,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball\">15</span>",
+          "html": "<span class=\"ball\">31</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ]
@@ -16413,9 +16413,229 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span class=\"ball chance\">1</span>",
+          "html": "<span class=\"ball chance\">5</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .chance.ball"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('20/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
+          "target": [
+            "button[onclick=\"viewDetails('20/06/2026')\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<i class=\"fa-solid fa-circle-info\"></i>",
+          "target": [
+            "button[onclick=\"viewDetails('20/06/2026')\"] > .fa-circle-info.fa-solid"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<article class=\"result-card\">",
+          "target": [
+            "article:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<h3>Mercredi 17/06/2026</h3>",
+          "target": [
+            "article:nth-child(2) > h3"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"balls\" aria-label=\"Résultat\">",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">37</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">32</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">1</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">39</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball\">15</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"ball chance\">1</span>",
+          "target": [
+            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ]
         },
         {
@@ -16475,7 +16695,7 @@
           "impact": null,
           "html": "<article class=\"result-card\">",
           "target": [
-            "article:nth-child(2)"
+            "article:nth-child(3)"
           ]
         },
         {
@@ -16495,7 +16715,7 @@
           "impact": null,
           "html": "<h3>Lundi 15/06/2026</h3>",
           "target": [
-            "article:nth-child(2) > h3"
+            "article:nth-child(3) > h3"
           ]
         },
         {
@@ -16515,7 +16735,7 @@
           "impact": null,
           "html": "<div class=\"balls\" aria-label=\"Résultat\">",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"]"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"]"
           ]
         },
         {
@@ -16535,7 +16755,7 @@
           "impact": null,
           "html": "<span class=\"ball\">49</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -16555,7 +16775,7 @@
           "impact": null,
           "html": "<span class=\"ball\">23</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -16575,7 +16795,7 @@
           "impact": null,
           "html": "<span class=\"ball\">25</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -16595,7 +16815,7 @@
           "impact": null,
           "html": "<span class=\"ball\">29</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -16615,7 +16835,7 @@
           "impact": null,
           "html": "<span class=\"ball\">46</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ]
         },
         {
@@ -16635,7 +16855,7 @@
           "impact": null,
           "html": "<span class=\"ball chance\">1</span>",
           "target": [
-            "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .chance.ball"
+            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ]
         },
         {
@@ -16695,7 +16915,7 @@
           "impact": null,
           "html": "<article class=\"result-card\">",
           "target": [
-            "article:nth-child(3)"
+            "article:nth-child(4)"
           ]
         },
         {
@@ -16715,7 +16935,7 @@
           "impact": null,
           "html": "<h3>Samedi 13/06/2026</h3>",
           "target": [
-            "article:nth-child(3) > h3"
+            "article:nth-child(4) > h3"
           ]
         },
         {
@@ -16735,7 +16955,7 @@
           "impact": null,
           "html": "<div class=\"balls\" aria-label=\"Résultat\">",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"]"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"]"
           ]
         },
         {
@@ -16755,7 +16975,7 @@
           "impact": null,
           "html": "<span class=\"ball\">39</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -16775,7 +16995,7 @@
           "impact": null,
           "html": "<span class=\"ball\">28</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -16795,7 +17015,7 @@
           "impact": null,
           "html": "<span class=\"ball\">41</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -16815,7 +17035,7 @@
           "impact": null,
           "html": "<span class=\"ball\">27</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -16835,7 +17055,7 @@
           "impact": null,
           "html": "<span class=\"ball\">11</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ]
         },
         {
@@ -16855,7 +17075,7 @@
           "impact": null,
           "html": "<span class=\"ball chance\">3</span>",
           "target": [
-            "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .chance.ball"
+            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ]
         },
         {
@@ -16915,7 +17135,7 @@
           "impact": null,
           "html": "<article class=\"result-card\">",
           "target": [
-            "article:nth-child(4)"
+            "article:nth-child(5)"
           ]
         },
         {
@@ -16935,7 +17155,7 @@
           "impact": null,
           "html": "<h3>Mercredi 10/06/2026</h3>",
           "target": [
-            "article:nth-child(4) > h3"
+            "article:nth-child(5) > h3"
           ]
         },
         {
@@ -16955,7 +17175,7 @@
           "impact": null,
           "html": "<div class=\"balls\" aria-label=\"Résultat\">",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"]"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"]"
           ]
         },
         {
@@ -16975,7 +17195,7 @@
           "impact": null,
           "html": "<span class=\"ball\">12</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -16995,7 +17215,7 @@
           "impact": null,
           "html": "<span class=\"ball\">2</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -17015,7 +17235,7 @@
           "impact": null,
           "html": "<span class=\"ball\">38</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -17035,7 +17255,7 @@
           "impact": null,
           "html": "<span class=\"ball\">47</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -17055,7 +17275,7 @@
           "impact": null,
           "html": "<span class=\"ball\">14</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ]
         },
         {
@@ -17075,7 +17295,7 @@
           "impact": null,
           "html": "<span class=\"ball chance\">5</span>",
           "target": [
-            "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .chance.ball"
+            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ]
         },
         {
@@ -17135,7 +17355,7 @@
           "impact": null,
           "html": "<article class=\"result-card\">",
           "target": [
-            "article:nth-child(5)"
+            "article:nth-child(6)"
           ]
         },
         {
@@ -17155,7 +17375,7 @@
           "impact": null,
           "html": "<h3>Lundi 08/06/2026</h3>",
           "target": [
-            "article:nth-child(5) > h3"
+            "article:nth-child(6) > h3"
           ]
         },
         {
@@ -17175,7 +17395,7 @@
           "impact": null,
           "html": "<div class=\"balls\" aria-label=\"Résultat\">",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"]"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"]"
           ]
         },
         {
@@ -17195,7 +17415,7 @@
           "impact": null,
           "html": "<span class=\"ball\">41</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
           ]
         },
         {
@@ -17215,7 +17435,7 @@
           "impact": null,
           "html": "<span class=\"ball\">43</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
           ]
         },
         {
@@ -17235,7 +17455,7 @@
           "impact": null,
           "html": "<span class=\"ball\">39</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
           ]
         },
         {
@@ -17255,7 +17475,7 @@
           "impact": null,
           "html": "<span class=\"ball\">24</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
           ]
         },
         {
@@ -17275,7 +17495,7 @@
           "impact": null,
           "html": "<span class=\"ball\">48</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ]
         },
         {
@@ -17295,7 +17515,7 @@
           "impact": null,
           "html": "<span class=\"ball chance\">3</span>",
           "target": [
-            "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .chance.ball"
+            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ]
         },
         {
@@ -17336,226 +17556,6 @@
           "html": "<i class=\"fa-solid fa-circle-info\"></i>",
           "target": [
             "button[onclick=\"viewDetails('08/06/2026')\"] > .fa-circle-info.fa-solid"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<article class=\"result-card\">",
-          "target": [
-            "article:nth-child(6)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<h3>Samedi 06/06/2026</h3>",
-          "target": [
-            "article:nth-child(6) > h3"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<div class=\"balls\" aria-label=\"Résultat\">",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">32</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(1)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">43</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(2)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">13</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(3)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">19</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(4)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball\">24</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<span class=\"ball chance\">2</span>",
-          "target": [
-            "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .chance.ball"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<button class=\"btn-mini\" onclick=\"viewDetails('06/06/2026')\">\n              <i class=\"fa-solid fa-circle-info\"></i> Détail du tirage\n            </button>",
-          "target": [
-            "button[onclick=\"viewDetails('06/06/2026')\"]"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "region",
-              "data": {
-                "isIframe": false
-              },
-              "relatedNodes": [],
-              "impact": "moderate",
-              "message": "All page content is contained by landmarks"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<i class=\"fa-solid fa-circle-info\"></i>",
-          "target": [
-            "button[onclick=\"viewDetails('06/06/2026')\"] > .fa-circle-info.fa-solid"
           ]
         },
         {
@@ -18193,7 +18193,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ]
@@ -18213,7 +18213,7 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<span id=\"visitCount\">221</span>",
+          "html": "<span id=\"visitCount\">359</span>",
           "target": [
             "#visitCount"
           ]
@@ -20048,7 +20048,7 @@
             }
           ],
           "impact": "serious",
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ],
@@ -20088,14 +20088,14 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<div id=\"last-update\">Actualisé à 11:59:47</div>",
+                  "html": "<div id=\"last-update\">Actualisé à 22:40:37</div>",
                   "target": [
                     "iframe",
                     "#last-update"
                   ]
                 },
                 {
-                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
                   "target": [
                     "iframe",
                     "#leaflet-tooltip-62"
@@ -20109,7 +20109,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div id=\"last-update\">Actualisé à 11:59:47</div>",
+          "html": "<div id=\"last-update\">Actualisé à 22:40:37</div>",
           "target": [
             "iframe",
             "#last-update"
@@ -20129,7 +20129,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
                   "target": [
                     "iframe",
                     "#leaflet-tooltip-38"
@@ -20150,7 +20150,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 25.4°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-38\" style=\"opacity: 0.9; transform: translate3d(70px, 101px, 0px);\">Rennes 🌤️ 30.4°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-38"
@@ -20170,7 +20170,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
                   "target": [
                     "iframe",
                     "#leaflet-tooltip-62"
@@ -20191,7 +20191,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 24.7°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-62\" style=\"opacity: 0.9; transform: translate3d(-1px, 228px, 0px);\">Redon ☁️ 30.3°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-62"
@@ -20211,7 +20211,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+                  "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
                   "target": [
                     "iframe",
                     "#leaflet-tooltip-65"
@@ -20232,7 +20232,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères 🌤️ 25.3°C</div>",
+          "html": "<div class=\"leaflet-tooltip city-label leaflet-zoom-animated leaflet-tooltip-top\" role=\"tooltip\" id=\"leaflet-tooltip-65\" style=\"opacity: 0.9; transform: translate3d(152px, 37px, 0px);\">Fougères ☀️ 28.2°C</div>",
           "target": [
             "iframe",
             "#leaflet-tooltip-65"
@@ -20430,7 +20430,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div class=\"hero-next-draw\" id=\"nextDrawInfo\">Prochain tirage : Samedi à 20h</div>",
+          "html": "<div class=\"hero-next-draw\" id=\"nextDrawInfo\">Prochain tirage : Lundi à 20h</div>",
           "target": [
             "#nextDrawInfo"
           ],
@@ -20523,7 +20523,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span id=\"hoursBox\">8h</span>",
+          "html": "<span id=\"hoursBox\">21h</span>",
           "target": [
             "#hoursBox"
           ],
@@ -20585,7 +20585,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span id=\"minutesBox\">0m</span>",
+          "html": "<span id=\"minutesBox\">19m</span>",
           "target": [
             "#minutesBox"
           ],
@@ -20647,7 +20647,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span id=\"secondsBox\">12s</span>",
+          "html": "<span id=\"secondsBox\">23s</span>",
           "target": [
             "#secondsBox"
           ],
@@ -20728,7 +20728,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">15</span>",
+                  "html": "<span class=\"ball\">31</span>",
                   "target": [
                     "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -20747,7 +20747,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">15</span>",
+          "html": "<span class=\"ball\">31</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -20766,7 +20766,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball chance\">1</span>",
+                  "html": "<span class=\"ball chance\">5</span>",
                   "target": [
                     "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .chance.ball"
                   ]
@@ -20785,7 +20785,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball chance\">1</span>",
+          "html": "<span class=\"ball chance\">5</span>",
           "target": [
             "article:nth-child(1) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ],
@@ -20804,7 +20804,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">46</span>",
+                  "html": "<span class=\"ball\">15</span>",
                   "target": [
                     "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -20823,7 +20823,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">46</span>",
+          "html": "<span class=\"ball\">15</span>",
           "target": [
             "article:nth-child(2) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -20880,7 +20880,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">11</span>",
+                  "html": "<span class=\"ball\">46</span>",
                   "target": [
                     "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -20899,7 +20899,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">11</span>",
+          "html": "<span class=\"ball\">46</span>",
           "target": [
             "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -20918,7 +20918,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball chance\">3</span>",
+                  "html": "<span class=\"ball chance\">1</span>",
                   "target": [
                     "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .chance.ball"
                   ]
@@ -20937,7 +20937,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball chance\">3</span>",
+          "html": "<span class=\"ball chance\">1</span>",
           "target": [
             "article:nth-child(3) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ],
@@ -20956,7 +20956,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">14</span>",
+                  "html": "<span class=\"ball\">11</span>",
                   "target": [
                     "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -20975,7 +20975,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">14</span>",
+          "html": "<span class=\"ball\">11</span>",
           "target": [
             "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -20994,7 +20994,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball chance\">5</span>",
+                  "html": "<span class=\"ball chance\">3</span>",
                   "target": [
                     "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .chance.ball"
                   ]
@@ -21013,7 +21013,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball chance\">5</span>",
+          "html": "<span class=\"ball chance\">3</span>",
           "target": [
             "article:nth-child(4) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ],
@@ -21032,7 +21032,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">48</span>",
+                  "html": "<span class=\"ball\">14</span>",
                   "target": [
                     "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -21051,7 +21051,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">48</span>",
+          "html": "<span class=\"ball\">14</span>",
           "target": [
             "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -21070,7 +21070,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball chance\">3</span>",
+                  "html": "<span class=\"ball chance\">5</span>",
                   "target": [
                     "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .chance.ball"
                   ]
@@ -21089,7 +21089,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball chance\">3</span>",
+          "html": "<span class=\"ball chance\">5</span>",
           "target": [
             "article:nth-child(5) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ],
@@ -21108,7 +21108,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball\">24</span>",
+                  "html": "<span class=\"ball\">48</span>",
                   "target": [
                     "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
                   ]
@@ -21127,7 +21127,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball\">24</span>",
+          "html": "<span class=\"ball\">48</span>",
           "target": [
             "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .ball:nth-child(5)"
           ],
@@ -21146,7 +21146,7 @@
               },
               "relatedNodes": [
                 {
-                  "html": "<span class=\"ball chance\">2</span>",
+                  "html": "<span class=\"ball chance\">3</span>",
                   "target": [
                     "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .chance.ball"
                   ]
@@ -21165,7 +21165,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span class=\"ball chance\">2</span>",
+          "html": "<span class=\"ball chance\">3</span>",
           "target": [
             "article:nth-child(6) > .balls[aria-label=\"Résultat\"] > .chance.ball"
           ],
@@ -21386,7 +21386,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">221</span> visites\n        </span>",
+          "html": "<span aria-live=\"polite\" aria-label=\"Nombre total de visites du site\">\n              <span id=\"visitCount\">359</span> visites\n        </span>",
           "target": [
             "span[aria-live=\"polite\"]:nth-child(9)"
           ],
@@ -21411,7 +21411,7 @@
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<span id=\"visitCount\">221</span>",
+          "html": "<span id=\"visitCount\">359</span>",
           "target": [
             "#visitCount"
           ],
@@ -21500,37 +21500,6 @@
             "a[href$=\"leafletjs.com\"]"
           ],
           "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fontSize": "9.8pt (13px)",
-                "fontWeight": "normal",
-                "messageKey": "pseudoContent",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [
-                {
-                  "html": "<button id=\"lt-chat-launcher\" aria-label=\"Ouvrir/Fermer le chat\" class=\"lt-invite-show\">",
-                  "target": [
-                    "#lt-chat-launcher"
-                  ]
-                }
-              ],
-              "impact": "serious",
-              "message": "Element's background color could not be determined due to a pseudo element"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": "serious",
-          "html": "<span id=\"lt-chat-invite\" class=\"lt-invite\" role=\"status\" aria-live=\"polite\">\n        Hello 👋 viens poser ta question sur les tirages…\n      </span>",
-          "target": [
-            "#lt-chat-invite"
-          ],
-          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
         }
       ]
     },

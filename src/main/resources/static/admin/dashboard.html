@@ -22,12 +22,29 @@
       </div>
 
       <nav class="nav" aria-label="Navigation">
-        <button class="nav-item active" data-section="swagger" type="button">
+        <button class="nav-item active" data-section="dashboard" type="button">
+          <span class="nav-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 13h4v8H3z"/>
+              <path d="M10 9h4v12h-4z"/>
+              <path d="M17 5h4v16h-4z"/>
+            </svg>
+          </span>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-section="swagger" type="button">
           <span class="nav-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 19a2 2 0 0 0 2 2h14"/><path d="M6 17V5a2 2 0 0 1 2-2h12v18H8a2 2 0 0 1-2-2z"/></svg>
           </span>
           <span>Swagger / API</span>
         </button>
+        <!-- <button class="nav-item active" data-section="swagger" type="button">
+          <span class="nav-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19a2 2 0 0 0 2 2h14"/><path d="M6 17V5a2 2 0 0 1 2-2h12v18H8a2 2 0 0 1-2-2z"/></svg>
+          </span>
+          <span>Swagger / API</span>
+        </button> -->
 
         <button class="nav-item" data-section="logs" type="button">
           <span class="nav-ico" aria-hidden="true">
@@ -106,8 +123,157 @@
       </header>
 
       <main class="main">
+
+        <section id="section-dashboard" class="panel show">
+          <div class="dashboard-home">
+
+            <!-- Cartes principales -->
+            <div class="dashboard-metrics">
+              <div class="dash-card metric-card">
+                <div>
+                  <p class="metric-label">Utilisateurs</p>
+                  <strong id="usersCount" class="metric-value">0</strong>
+                  <span class="metric-sub">Comptes inscrits</span>
+                </div>
+                <span class="metric-icon blue">
+                  <i class="fa-regular fa-user"></i>
+                </span>
+              </div>
+
+              <div class="dash-card metric-card">
+                <div>
+                  <p class="metric-label">Tickets</p>
+                  <strong id="ticketsCount" class="metric-value">0</strong>
+                  <span class="metric-sub">Tickets enregistrés</span>
+                </div>
+                <span class="metric-icon amber">
+                  <i class="fa-solid fa-ticket"></i>
+                </span>
+              </div>
+
+              <div class="dash-card metric-card">
+                <div>
+                  <p class="metric-label">Tirages</p>
+                  <strong id="drawsCount" class="metric-value">0</strong>
+                  <span class="metric-sub">Résultats MongoDB</span>
+                </div>
+                <span class="metric-icon green">
+                  <i class="fa-regular fa-calendar"></i>
+                </span>
+              </div>
+
+              <div class="dash-card metric-card">
+                <div>
+                  <p class="metric-label">Erreurs (24h)</p>
+                  <strong id="errorsCount" class="metric-value">0</strong>
+                  <span class="metric-sub danger-text">À surveiller</span>
+                </div>
+                <span class="metric-icon red">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Services + ressources -->
+            <div class="dashboard-two-cols">
+              <div class="dash-card">
+                <h3 class="dash-title">État des services</h3>
+
+                <div class="service-list">
+                  <div class="service-row">
+                    <span>API</span>
+                    <span id="serviceApi" class="service-badge">...</span>
+                  </div>
+
+                  <div class="service-row">
+                    <span>Base PostgreSQL</span>
+                    <span id="servicePg" class="service-badge">...</span>
+                  </div>
+
+                  <div class="service-row">
+                    <span>Base MongoDB</span>
+                    <span id="serviceMongo" class="service-badge">...</span>
+                  </div>
+
+                  <div class="service-row">
+                    <span>Swagger</span>
+                    <span id="serviceSwagger" class="service-badge">...</span>
+                  </div>
+
+                  <div class="service-row">
+                    <span>Sécurité</span>
+                    <span id="serviceSecurity" class="service-badge">...</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dash-card">
+                <h3 class="dash-title">Utilisation des ressources</h3>
+
+                <div class="resources-grid">
+                  <div class="resource-circle">
+                    <div class="circle-ring">
+                      <strong id="cpuValue">0%</strong>
+                      <span>CPU</span>
+                    </div>
+                  </div>
+
+                  <div class="resource-circle">
+                    <div class="circle-ring">
+                      <strong id="memoryValue">0%</strong>
+                      <span>Mémoire</span>
+                    </div>
+                  </div>
+
+                  <div class="resource-circle">
+                    <div class="circle-ring">
+                      <strong id="diskValue">0%</strong>
+                      <span>Disque</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logs -->
+            <div class="dash-card">
+              <div class="dash-head">
+                <h3 class="dash-title">Derniers logs</h3>
+                <button id="btnDashboardRefresh" class="btn btn-ghost" type="button">
+                  Rafraîchir
+                </button>
+              </div>
+
+              <pre id="dashboardLogs" class="dashboard-logs">Chargement des logs...</pre>
+            </div>
+
+            <!-- Graphiques -->
+            <div class="dashboard-two-cols">
+              <div class="dash-card">
+                <h3 class="dash-title">Activité (7 derniers jours)</h3>
+                <canvas id="activityChart" height="120"></canvas>
+              </div>
+
+              <div class="dash-card">
+                <h3 class="dash-title">Répartition des utilisateurs</h3>
+                <canvas id="usersDistributionChart" height="120"></canvas>
+
+                <div class="chart-legend">
+                  <span><i class="legend-dot blue-dot"></i> Utilisateurs actifs</span>
+                  <span><i class="legend-dot green-dot"></i> Inactifs</span>
+                  <span><i class="legend-dot amber-dot"></i> Nouveaux</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          
+        </section>
         <!-- SWAGGER -->
-        <section id="section-swagger" class="panel show">
+        <!-- <section id="section-swagger" class="panel show"> -->
+        <section id="section-swagger" class="panel">
           <div class="panel-head">
             <div class="row wrap">
               <button id="btnOpenSwagger" class="btn btn-primary" type="button">

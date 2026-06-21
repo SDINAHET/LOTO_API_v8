@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID; // ✅ Ensure UUID import
+import java.time.LocalDateTime;
 
 /**
  * Repository interface for managing **User entities** in the database.
@@ -14,6 +15,12 @@ import java.util.UUID; // ✅ Ensure UUID import
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, String> { // ✅ String used instead of UUID for compatibility
+
+    long countByEmailStartingWithIgnoreCase(String prefix);
+
+    long countByFirstNameIgnoreCase(String firstName);
+
+    long countByCreatedAtAfter(LocalDateTime date);
 
     /**
      * Finds a user by their email address.

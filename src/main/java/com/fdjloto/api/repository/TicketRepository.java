@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
+import java.time.LocalDateTime;
 
 /**
  * Repository interface for managing **tickets** in the database.
@@ -13,6 +14,8 @@ import java.util.List;
  */
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, String> {
+
+    long countByCreatedAtBetween(LocalDateTime start, LocalDateTime end); /** methode pour admin  long countByCreatedAtBetween(LocalDateTime start, LocalDateTime end);*/
 
     /**
      * Retrieves all **tickets associated with a given user's email**.

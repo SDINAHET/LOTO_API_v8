@@ -282,6 +282,7 @@
   // ----------------------------
   const navItems = document.querySelectorAll(".nav-item");
   const sections = {
+    dashboard: document.getElementById("section-dashboard"),
     swagger: document.getElementById("section-swagger"),
     logs: document.getElementById("section-logs"),
     info: document.getElementById("section-info"),
@@ -296,6 +297,7 @@
   const pageSubtitle = document.getElementById("pageSubtitle");
 
   const subtitles = {
+    dashboard: "Vue d'ensemble de l'application et des services.",
     swagger: "Documentation Swagger et tests de l’API.",
     logs: "Suivi en temps réel des logs Spring Boot.",
     info: "Debug / vérifications rapides.",
@@ -311,8 +313,12 @@
       btn.classList.toggle("active", btn.dataset.section === key)
     );
 
+    // showSection("dashboard");
+
     if (pageTitle) pageTitle.textContent = "Tableau de bord administrateur";
     if (pageSubtitle) pageSubtitle.textContent = subtitles[key] || "";
+
+    if (key === "dashboard") loadDashboard();
 
     if (key === "swagger" && swaggerFrame && !swaggerFrame.src) {
       swaggerFrame.src = SWAGGER_URL;
@@ -330,7 +336,331 @@
     btn.addEventListener("click", () => showSection(btn.dataset.section))
   );
 
-  // ----------------------------
+
+// ----------------------------
+// DASHBOARD HOME
+// ----------------------------
+async function loadDashboard() {
+  await Promise.all([
+    loadDashboardSummary(),
+    loadDashboardServices(),
+    loadDashboardResources(),
+    loadDashboardLogs(),
+    loadDashboardActivity(),
+    loadUsersDistribution(),
+  ]);
+  drawActivityChart();
+  drawUsersDistributionChart();
+}
+window.addEventListener("resize", () => {
+  drawActivityChart();
+  drawUsersDistributionChart();
+});
+
+async function loadDashboardSummary() {
+  const res = await apiFetch("/api/admin/dashboard/summary", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  const data = await res.json();
+
+  document.getElementById("usersCount").textContent = data.users ?? 0;
+  document.getElementById("ticketsCount").textContent = data.tickets ?? 0;
+  document.getElementById("drawsCount").textContent = data.tirages ?? 0;
+  document.getElementById("errorsCount").textContent = data.errors24h ?? 0;
+}
+
+async function loadDashboardServices() {
+  const res = await apiFetch("/api/admin/dashboard/services", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  const data = await res.json();
+
+  document.getElementById("serviceApi").textContent = data.api ?? "-";
+  document.getElementById("servicePg").textContent = data.postgres ?? "-";
+  document.getElementById("serviceMongo").textContent = data.mongo ?? "-";
+  document.getElementById("serviceSwagger").textContent = data.swagger ?? "-";
+  document.getElementById("serviceSecurity").textContent = data.security ?? "-";
+}
+
+async function loadDashboardResources() {
+  const res = await apiFetch("/api/admin/dashboard/resources", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  const data = await res.json();
+
+  // document.getElementById("cpuValue").textContent = `${data.cpu ?? 0}%`;
+  // document.getElementById("memoryValue").textContent = `${data.memory ?? 0}%`;
+  // document.getElementById("diskValue").textContent = `${data.disk ?? 0}%`;
+  setResourceCircle("cpuValue", data.cpu ?? 0);
+  setResourceCircle("memoryValue", data.memory ?? 0);
+  setResourceCircle("diskValue", data.disk ?? 0);
+}
+
+function setResourceCircle(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const percent = Math.max(0, Math.min(100, Number(value) || 0));
+  el.textContent = `${percent}%`;
+
+  const ring = el.closest(".circle-ring");
+  if (ring) {
+    ring.style.background = `
+      radial-gradient(circle, #111827 58%, transparent 60%),
+      conic-gradient(#22c55e 0 ${percent}%, rgba(255,255,255,.08) ${percent}% 100%)
+    `;
+  }
+}
+
+async function loadDashboardLogs() {
+  const res = await apiFetch("/api/admin/dashboard/logs-preview", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  const data = await res.json();
+  const logs = Array.isArray(data.logs) ? data.logs : [];
+
+  document.getElementById("dashboardLogs").textContent =
+    logs.length ? logs.join("\n") : "Aucun log disponible.";
+}
+
+
+// function drawActivityChart() {
+//   const canvas = document.getElementById("activityChart");
+//   if (!canvas) return;
+
+//   const ctx = canvas.getContext("2d");
+//   const w = canvas.width = canvas.offsetWidth;
+//   const h = canvas.height = 180;
+
+//   const values = [120, 160, 340, 590, 300, 510, 290];
+//   const max = Math.max(...values);
+
+//   ctx.clearRect(0, 0, w, h);
+//   ctx.strokeStyle = "#3b82f6";
+//   ctx.lineWidth = 3;
+//   ctx.beginPath();
+
+//   values.forEach((v, i) => {
+//     const x = (i / (values.length - 1)) * (w - 30) + 15;
+//     const y = h - 20 - (v / max) * (h - 40);
+
+//     if (i === 0) ctx.moveTo(x, y);
+//     else ctx.lineTo(x, y);
+//   });
+
+//   ctx.stroke();
+// }
+
+function drawActivityChart() {
+  const canvas = document.getElementById("activityChart");
+  if (!canvas || !dashboardActivityData) return;
+
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width = canvas.offsetWidth;
+  const h = canvas.height = 220;
+
+  const labels = dashboardActivityData.labels || [];
+  const values = dashboardActivityData.values || [];
+  const chartLabel = dashboardActivityData.label || "Tickets enregistrés";
+
+  if (!labels.length || !values.length) return;
+
+  const max = Math.max(...values, 1);
+
+  const left = 46;
+  const right = 18;
+  const top = 18;
+  const bottom = 46;
+  const chartW = w - left - right;
+  const chartH = h - top - bottom;
+
+  ctx.clearRect(0, 0, w, h);
+
+  ctx.font = "11px system-ui";
+  ctx.fillStyle = "rgba(255,255,255,.55)";
+  ctx.strokeStyle = "rgba(255,255,255,.10)";
+  ctx.lineWidth = 1;
+
+  for (let i = 0; i <= 4; i++) {
+    const y = top + (chartH / 4) * i;
+    const val = Math.round(max - (max / 4) * i);
+
+    ctx.beginPath();
+    ctx.moveTo(left, y);
+    ctx.lineTo(w - right, y);
+    ctx.stroke();
+
+    ctx.fillText(String(val), 10, y + 4);
+  }
+
+  // labels.forEach((label, i) => {
+  //   const x = left + (i / (labels.length - 1)) * chartW;
+  //   ctx.fillText(label, x - 14, h - 18);
+  // });
+  labels.forEach((label, i) => {
+    if (labels.length > 15 && i % 5 !== 0) return;
+
+    const x = left + (i / (labels.length - 1)) * chartW;
+    ctx.fillText(label, x - 14, h - 18);
+  });
+
+  // labels.forEach((label, i) {
+
+  //     if(labels.length > 15){
+
+  //         if(i % 5 !==0) return;
+
+  //     }
+
+  //     const x =
+  //         left +
+  //         (i/(labels.length-1))*chartW;
+
+  //     ctx.fillText(label,x-14,h-18);
+
+  // });
+
+  ctx.save();
+  ctx.translate(14, top + chartH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText(chartLabel, -45, 0);
+  ctx.restore();
+
+  ctx.fillText("Jours", left + chartW / 2 - 14, h - 4);
+
+  ctx.strokeStyle = "#3b82f6";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+
+  values.forEach((v, i) => {
+    const x = left + (i / (values.length - 1)) * chartW;
+    const y = top + chartH - (v / max) * chartH;
+
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+
+  ctx.stroke();
+}
+
+// function drawUsersDistributionChart() {
+//   const canvas = document.getElementById("usersDistributionChart");
+//   if (!canvas) return;
+
+//   const ctx = canvas.getContext("2d");
+//   const w = canvas.width = canvas.offsetWidth;
+//   const h = canvas.height = 180;
+//   const cx = w / 2;
+//   const cy = h / 2;
+//   const radius = 55;
+
+//   const data = [
+//     { value: 68, color: "#3b82f6" },
+//     { value: 22, color: "#86efac" },
+//     { value: 10, color: "#fbbf24" },
+//   ];
+
+//   let start = -Math.PI / 2;
+//   ctx.clearRect(0, 0, w, h);
+
+//   data.forEach(item => {
+//     const angle = (item.value / 100) * Math.PI * 2;
+//     ctx.beginPath();
+//     ctx.arc(cx, cy, radius, start, start + angle);
+//     ctx.lineWidth = 24;
+//     ctx.strokeStyle = item.color;
+//     ctx.stroke();
+//     start += angle;
+//   });
+// }
+
+function drawUsersDistributionChart() {
+  const canvas = document.getElementById("usersDistributionChart");
+  if (!canvas || !usersDistributionData) return;
+
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width = canvas.offsetWidth;
+  const h = canvas.height = 180;
+  const cx = w / 2;
+  const cy = h / 2;
+  const radius = 55;
+
+  const active = Number(usersDistributionData.active || 0);
+  const inactive = Number(usersDistributionData.inactive || 0);
+  const newUsers = Number(usersDistributionData.newUsers || 0);
+
+  const total = active + inactive + newUsers;
+  if (total === 0) return;
+
+  const data = [
+    { value: active, color: "#3b82f6" },
+    { value: inactive, color: "#86efac" },
+    { value: newUsers, color: "#fbbf24" },
+  ];
+
+  let start = -Math.PI / 2;
+  ctx.clearRect(0, 0, w, h);
+
+  data.forEach((item) => {
+    if (item.value <= 0) return;
+
+    const angle = (item.value / total) * Math.PI * 2;
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, start, start + angle);
+    ctx.lineWidth = 24;
+    ctx.strokeStyle = item.color;
+    ctx.stroke();
+
+    start += angle;
+  });
+}
+
+let dashboardActivityData = null;
+
+async function loadDashboardActivity() {
+  const res = await apiFetch("/api/admin/dashboard/activity", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  dashboardActivityData = await res.json();
+}
+
+let usersDistributionData = null;
+
+async function loadUsersDistribution() {
+  const res = await apiFetch("/api/admin/dashboard/users-distribution", {
+    method: "GET",
+  });
+
+  if (!res.ok) return;
+
+  usersDistributionData = await res.json();
+}
+
+document.getElementById("btnDashboardRefresh")
+  ?.addEventListener("click", loadDashboard);
+
+// Chargement automatique au démarrage
+// loadDashboard();
+// showSection("dashboard");
+
+
+  // ---------------------------document.getElementById("cpuValue").textContent = `${data.cpu ?? 0}%`;-
   // SWAGGER
   // ----------------------------
   const btnOpenSwagger = document.getElementById("btnOpenSwagger");
@@ -3298,6 +3628,7 @@ btnPerfStop?.addEventListener("click", () => {
   // ----------------------------
   // INIT
   // ----------------------------
-  showSection("swagger");
+  // showSection("swagger");
   loadAdminUser();
+  showSection("dashboard");
 })();
