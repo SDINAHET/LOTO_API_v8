@@ -405,11 +405,42 @@ async function loadDashboardResources() {
   setResourceCircle("diskValue", data.disk ?? 0);
 }
 
+// function setResourceCircle(id, value) {
+//   const el = document.getElementById(id);
+//   if (!el) return;
+
+//   const percent = Math.max(0, Math.min(100, Number(value) || 0));
+//   el.textContent = `${percent}%`;
+
+//   const ring = el.closest(".circle-ring");
+//   if (ring) {
+//     ring.style.background = `
+//       radial-gradient(circle, #111827 58%, transparent 60%),
+//       conic-gradient(#22c55e 0 ${percent}%, rgba(255,255,255,.08) ${percent}% 100%)
+//     `;
+//   }
+// }
 function setResourceCircle(id, value) {
   const el = document.getElementById(id);
   if (!el) return;
 
-  const percent = Math.max(0, Math.min(100, Number(value) || 0));
+  const num = Number(value);
+
+  if (num < 0) {
+    el.textContent = "N/A";
+
+    const ring = el.closest(".circle-ring");
+    if (ring) {
+      ring.style.background = `
+        radial-gradient(circle, #111827 58%, transparent 60%),
+        conic-gradient(rgba(255,255,255,.12) 0 100%)
+      `;
+    }
+
+    return;
+  }
+
+  const percent = Math.max(0, Math.min(100, num || 0));
   el.textContent = `${percent}%`;
 
   const ring = el.closest(".circle-ring");

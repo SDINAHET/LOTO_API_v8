@@ -195,15 +195,43 @@ public class AdminDashboardSummaryController {
     //             }
     //     );
     // }
+    // @GetMapping("/logs-preview")
+    // public Map<String, Object> logsPreview() {
+    //     Path logPath = Path.of("logs/application.log");
+
+    //     try {
+    //         if (!Files.exists(logPath)) {
+    //             return Map.of(
+    //                     "logs",
+    //                     List.of("INFO AdminDashboard - Aucun fichier de log trouvé")
+    //             );
+    //         }
+
+    //         List<String> allLines = Files.readAllLines(logPath);
+    //         Collections.reverse(allLines);
+
+    //         List<String> lastLines = allLines.stream()
+    //                 .limit(8)
+    //                 .toList();
+
+    //         return Map.of("logs", lastLines);
+
+    //     } catch (IOException e) {
+    //         return Map.of(
+    //                 "logs",
+    //                 List.of("ERROR AdminDashboard - Impossible de lire les logs")
+    //         );
+    //     }
+    // }
     @GetMapping("/logs-preview")
     public Map<String, Object> logsPreview() {
-        Path logPath = Path.of("logs/loto-tracker.log");
+        Path logPath = Path.of("logs/application.log");
 
         try {
             if (!Files.exists(logPath)) {
                 return Map.of(
                         "logs",
-                        List.of("INFO AdminDashboard - Aucun fichier de log trouvé")
+                        List.of("INFO AdminDashboard - Aucun fichier application.log trouvé")
                 );
             }
 
@@ -219,7 +247,7 @@ public class AdminDashboardSummaryController {
         } catch (IOException e) {
             return Map.of(
                     "logs",
-                    List.of("ERROR AdminDashboard - Impossible de lire les logs")
+                    List.of("ERROR AdminDashboard - Impossible de lire application.log")
             );
         }
     }
