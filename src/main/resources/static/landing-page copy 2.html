@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loto Tracker - Landing RNCP6 Finale</title>
+<title>Loto Tracker — Landing RNCP6 Finale</title>
 
 <link rel="icon" type="image/png" href="/assets/img/loto_tracker.png">
 
@@ -1556,198 +1556,6 @@ main{
   }
 }
 
-
-/* MOBILE : tableaux en cartes + modale compacte */
-@media (max-width:680px){
-  #demo .table-wrap,#detailModal .table-wrap{overflow:visible!important;border:0;background:transparent}
-  #demo table,#detailModal table,.reports-details table{min-width:0!important;width:100%}
-  #demo .table-wrap>table>thead{display:none}
-
-  #ticketsTable,#tbody{display:grid;gap:12px}
-  #ticketsTable tr,#tbody tr{
-    display:grid;width:100%;padding:13px;border-radius:17px;
-    background:linear-gradient(145deg,rgba(37,99,235,.12),rgba(15,23,42,.92));
-    border:1px solid rgba(96,165,250,.20)
-  }
-  #ticketsTable tr,#tbody tr{grid-template-columns:1fr auto;gap:10px 12px}
-  #ticketsTable td,#tbody td{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    width:100%;min-width:0;padding:0;border:0;text-align:left!important
-  }
-  #ticketsTable td::before,#tbody td::before{
-    color:rgba(255,255,255,.52);font-size:.70rem;font-weight:900;
-    letter-spacing:.045em;text-transform:uppercase
-  }
-
-  #ticketsTable td:nth-child(1){grid-column:1;grid-row:1}
-  #ticketsTable td:nth-child(1)::before{content:"Date"}
-  #ticketsTable td:nth-child(4){grid-column:2;grid-row:1;justify-content:flex-end}
-  #ticketsTable td:nth-child(4)::before{display:none}
-  #ticketsTable td:nth-child(2){grid-column:1/-1;grid-row:2;display:block}
-  #ticketsTable td:nth-child(2)::before{content:"Numéros";display:block;margin-bottom:7px}
-  #ticketsTable td:nth-child(3){grid-column:1;grid-row:3;justify-content:flex-start}
-  #ticketsTable td:nth-child(3)::before{content:"Chance";margin-right:8px}
-  #ticketsTable td:nth-child(5){grid-column:2;grid-row:3;justify-content:flex-end}
-  #ticketsTable td:nth-child(5)::before{content:"Gain";margin-right:7px}
-  #ticketsTable td:nth-child(6){
-    grid-column:1/-1;grid-row:4;padding-top:10px;margin-top:2px;
-    border-top:1px solid rgba(255,255,255,.08)
-  }
-  #ticketsTable td:nth-child(6)::before{content:"Actions"}
-
-  #tbody td:nth-child(1){grid-column:1;grid-row:1}
-  #tbody td:nth-child(1)::before{content:"Date"}
-  #tbody td:nth-child(3){grid-column:2;grid-row:1;justify-content:flex-end}
-  #tbody td:nth-child(3)::before{content:"Chance";margin-right:7px}
-  #tbody td:nth-child(2){grid-column:1/-1;grid-row:2;display:block}
-  #tbody td:nth-child(2)::before{content:"Numéros";display:block;margin-bottom:7px}
-  #tbody td:nth-child(4){
-    grid-column:1/-1;grid-row:3;padding-top:9px;
-    border-top:1px solid rgba(255,255,255,.08)
-  }
-  #tbody td:nth-child(4)::before{content:"Détail"}
-
-  #ticketsTable td[colspan],#tbody td[colspan]{
-    grid-column:1/-1!important;display:block;padding:8px;text-align:center!important
-  }
-  #ticketsTable td[colspan]::before,#tbody td[colspan]::before{display:none}
-  #ticketsTable .balls,#tbody .balls{display:flex;flex-wrap:wrap;gap:6px}
-  #ticketsTable .ball,#tbody .ball{width:34px;height:34px;font-size:.80rem}
-  #ticketsTable .actions{width:auto;margin-left:auto;gap:9px}
-  #ticketsTable .btn-action,#tbody .btn-action{width:42px;height:42px}
-
-  #detailModal{padding:0;align-items:flex-end}
-  #detailModal .modal{
-    width:100%;max-width:none;max-height:94dvh;padding:13px;
-    border-radius:22px 22px 0 0;overflow-y:auto;overflow-x:hidden
-  }
-  #detailModal .modal-head{
-    position:sticky;top:-13px;z-index:10;align-items:center;
-    padding:10px 0 12px;margin-bottom:8px;background:rgba(15,23,42,.98);
-    border-bottom:1px solid rgba(255,255,255,.08)
-  }
-  #detailModal .modal-head h3{max-width:250px;font-size:1.02rem;line-height:1.25}
-  #detailSubtitle{display:none}
-
-  .draw-overview{grid-template-columns:1fr!important;gap:9px;margin-bottom:11px}
-  .draw-card-blue{padding:11px;border-radius:15px}
-  .draw-card-blue h4{margin-bottom:8px;font-size:.84rem}
-  .draw-numbers-line{width:100%;overflow:visible}
-  .draw-numbers-line .balls{display:flex;flex-wrap:nowrap;gap:4px}
-  .draw-numbers-line .ball{width:31px;height:31px;font-size:.73rem}
-
-  .reports-details{grid-template-columns:1fr!important;gap:11px}
-  .reports-details .report-card{padding:11px;overflow:hidden}
-  .reports-details thead{display:none}
-  .reports-details tbody{display:grid;gap:7px}
-  .reports-details tr{
-    display:grid;grid-template-columns:42px minmax(78px,1fr) minmax(58px,.75fr) minmax(82px,1fr);
-    align-items:center;gap:6px;padding:9px 8px;border-radius:12px;
-    background:rgba(37,99,235,.08);border:1px solid rgba(96,165,250,.13)
-  }
-  .reports-details td{
-    min-width:0;padding:0!important;border:0;font-size:.72rem!important;
-    text-align:left;overflow-wrap:anywhere
-  }
-  .reports-details td::before{
-    display:block;margin-bottom:3px;color:rgba(255,255,255,.43);
-    font-size:.57rem;font-weight:900;text-transform:uppercase
-  }
-  .reports-details td:nth-child(1)::before{content:"Rang"}
-  .reports-details td:nth-child(2)::before{content:"Combinaison"}
-  .reports-details td:nth-child(3)::before{content:"Gagnants"}
-  .reports-details td:nth-child(4)::before{content:"Gain"}
-  .reports-details td:nth-child(4),.reports-details td:nth-child(4)::before{text-align:right}
-  .reports-details .balls{gap:2px;flex-wrap:nowrap}
-  .reports-details .balls .ball{width:12px!important;height:12px!important}
-
-  #detailModal .loto-codes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  #detailModal .loto-code{min-width:0;width:100%;padding:9px 6px;font-size:.75rem}
-}
-
-.modal-handle{
-    width:48px;
-    height:5px;
-    border-radius:999px;
-    background:rgba(255,255,255,.25);
-    margin:0 auto 14px;
-}
-.modal-footer{
-    position:sticky;
-    bottom:0;
-    background:#0f172a;
-    padding:14px;
-}
-
-
-/* =====================================================
-   CORRECTION : MODALE AU-DESSUS DU HEADER FIXE
-===================================================== */
-
-/* Le header est à 9999 : la modale doit être au-dessus */
-.modal-backdrop{
-  z-index:20000 !important;
-}
-
-/* Empêche le contenu derrière de défiler quand une modale est ouverte */
-body.modal-open{
-  overflow:hidden;
-}
-
-@media (max-width:680px){
-
-  #detailModal{
-    z-index:20000 !important;
-    padding:
-      max(8px, env(safe-area-inset-top))
-      0
-      0;
-    align-items:flex-end;
-  }
-
-  #detailModal .modal{
-    width:100%;
-    max-width:none;
-    max-height:calc(100dvh - max(8px, env(safe-area-inset-top)));
-    border-radius:22px 22px 0 0;
-    overflow-y:auto;
-    overflow-x:hidden;
-    overscroll-behavior:contain;
-    scroll-padding-top:76px;
-  }
-
-  /* Le bandeau de titre reste visible pendant le défilement */
-  #detailModal .modal-head{
-    position:sticky;
-    top:0 !important;
-    z-index:30;
-    min-height:62px;
-    padding:10px 0 12px;
-    margin:0 0 10px;
-    background:rgba(15,23,42,.99);
-    border-bottom:1px solid rgba(255,255,255,.10);
-    box-shadow:0 12px 24px rgba(0,0,0,.30);
-  }
-
-  #detailModal .close-btn{
-    position:relative;
-    z-index:31;
-    flex:0 0 auto;
-    width:46px;
-    height:46px;
-    font-size:1.45rem;
-    background:rgba(30,41,59,.98);
-    border:1px solid rgba(96,165,250,.32);
-    box-shadow:0 8px 20px rgba(0,0,0,.28);
-  }
-
-  /* Laisse toujours apparaître le haut du contenu */
-  #detailBody{
-    position:relative;
-    z-index:1;
-  }
-}
-
 </style>
 </head>
 
@@ -2265,8 +2073,7 @@ async function load(){
           <td>${chanceHtml(d.numeroChance)}</td>
           <td class="text-end">
             <button class="btn-action view" type="button" aria-label="Voir le détail du tirage ${date}" onclick="showTirageDetails('${date}')">
-              <!--👁-->
-              ${icon("eye")}
+              👁
             </button>
           </td>
         </tr>
@@ -2535,27 +2342,11 @@ function confirmDeleteTicket(){
 }
 
 function openModal(id){
-  const modal = document.getElementById(id);
-  if (!modal) return;
-
-  modal.classList.add("show");
-  document.body.classList.add("modal-open");
-
-  const closeButton = modal.querySelector(".close-btn");
-  if (closeButton) {
-    requestAnimationFrame(() => closeButton.focus());
-  }
+  document.getElementById(id).classList.add("show");
 }
 
 function closeModal(id){
-  const modal = document.getElementById(id);
-  if (!modal) return;
-
-  modal.classList.remove("show");
-
-  if (!document.querySelector(".modal-backdrop.show")) {
-    document.body.classList.remove("modal-open");
-  }
+  document.getElementById(id).classList.remove("show");
 }
 
 function comboDotsMain(rang){
@@ -2677,7 +2468,7 @@ function renderLotoCodes(data){
 
 async function showTirageDetails(dateStr){
   openModal("detailModal");
-  document.getElementById("detailTitle").textContent = `Détails du tirage - ${dateStr}`;
+  document.getElementById("detailTitle").textContent = `Détails du tirage — ${dateStr}`;
   document.getElementById("detailSubtitle").textContent = "Chargement du détail depuis l’API…";
   document.getElementById("detailBody").innerHTML = "";
 
@@ -2886,23 +2677,6 @@ document.querySelectorAll(".nav-link").forEach(link => {
 
   });
 
-});
-
-
-/* Fermeture accessible : clic sur le fond et touche Échap */
-document.querySelectorAll(".modal-backdrop").forEach(backdrop => {
-  backdrop.addEventListener("click", event => {
-    if (event.target === backdrop) {
-      closeModal(backdrop.id);
-    }
-  });
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key !== "Escape") return;
-
-  const opened = document.querySelector(".modal-backdrop.show");
-  if (opened) closeModal(opened.id);
 });
 
 </script>
