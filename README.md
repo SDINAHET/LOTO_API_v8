@@ -912,3 +912,12 @@ Commande sur le serveur pour lancer le docker......
 docker compose -f docker-compose_serveur.yml down
 docker compose -f docker-compose_serveur.yml up --build -d
 
+pg_dump \
+  -h localhost \
+  -p 5432 \
+  -U postgres \
+  -d loto_db \
+  --schema-only \
+  --no-owner \
+  --no-privileges \
+  > loto_tracker_schema3.sql

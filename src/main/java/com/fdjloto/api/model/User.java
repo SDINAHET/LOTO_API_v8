@@ -40,6 +40,7 @@ public class User {
 
     /** Email address of the user, must be unique and valid */
     @Email(message = "Email must be valid")
+    // equivalent regex ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
     @NotBlank(message = "Email is required")
     @Column(nullable = false, unique = true)
     @Schema(description = "Email address of the user", example = "VZM0q@example.com")
